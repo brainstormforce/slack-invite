@@ -22,7 +22,7 @@ table thead{
   color: #32373C;
   white-space: nowrap;
 }
-table th{
+.column-provider{
 	  border: transparent !important;
   border-spacing: 0 !important;
   box-shadow: none !important;
