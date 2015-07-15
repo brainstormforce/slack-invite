@@ -1,0 +1,15 @@
+.aready_invited,
+.already_in_team,
+.invited {
+	display: none;
+}
+.successful{
+	display: none;
+}
+.menu ul li {
+	margin-left: 20px;
+	margin-right: 20px;
+	display: inline;
+	float:right;
+}
+li,a{text-decoration: none;}
