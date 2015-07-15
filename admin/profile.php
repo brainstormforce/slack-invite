@@ -12,7 +12,7 @@
 		// gets $username and $password from user
 		$username= $_POST['username'];
 		$password=$_POST['password'];
-			$conn = new PDO("mysql:host=localhost;dbname=slack_invite", 'root', 'aftermath7');//Establish connection
+			$conn = new PDO("mysql:host=localhost;dbname=slack_invite", 'root', '');//Establish connection
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		try{

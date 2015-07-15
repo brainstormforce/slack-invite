@@ -13,7 +13,12 @@
 				})
 				.done(function(e) {
 					jQuery(".successful").css('display', 'block');
-					console.log(e);
+					if ( e == 'failed' ) {
+						console.log('failed');	
+					} else {
+						console.log('success');	
+					}
+					
 				})
 				.fail(function(e) {
 					console.log(e);

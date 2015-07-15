@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 	$data;
@@ -6,7 +5,7 @@ session_start();
 //include 'Functions/Connection.php';
 try {
 	//myconn();
-	 $conn = new PDO("mysql:host=localhost;dbname=slack_invite", 'root', 'aftermath7');//Establish connection
+	 $conn = new PDO("mysql:host=localhost;dbname=slack_invite", 'root', '');//Establish connection
 	$sql = 'SELECT *   FROM members'; 
 	$q = $conn->query($sql); //select rows
 	$q->setFetchMode(PDO::FETCH_ASSOC); //retrieve in resultset $q
@@ -25,20 +24,20 @@ catch(PDOException $e) {
 	<script src="../js/jquery-1.11.3.min.js"></script>
 	<script src="../js/showDbjs.js"></script>
 </head>
-<body>
+<body class="maincontainer">
 	<div class="container" style="text-align:center;">
 			<?php 
 				if(isset($_SESSION['login_user'])){
-				echo $_SESSION['login_user'];
+				//echo $_SESSION['login_user'];
 				//if($q->fetch()==null){ Echo "<h3>Sorry no records found</h3>"; exit();}
 			?>
 		<h1>Available users</h1>
 		<form method="post" name="invite" class="invite_form">
 
-			<table class="table">
+			<table class="tablemain">
 				<thead>
-					<tr>
-						<th class="column-provider"><span><i class="fa fa-user"></i></span>First Name</th>
+					<tr class="column-provider">
+						<th ><span><i class="fa fa-user"></i></span>First Name</th>
 						<th><span><i class="fa fa-envelope-o"></i></span>Email</th>
 						<th><span><i class="fa fa-user-secret"></i></span>About Member</th>
 						<th><span><i class="fa fa-phone"></i></span>Contact</th>
@@ -48,7 +47,7 @@ catch(PDOException $e) {
 				<tbody class="smile-style-data">
 					<?php while ($r = $q->fetch()):?>
 						<tr>
-							<td class="manage-column column-provider convert-plug"><?php echo htmlspecialchars($r['name']);?></td>
+							<td class="manage-column convert-plug"><?php echo htmlspecialchars($r['name']);?></td>
 							<td><?php echo htmlspecialchars($r['email']); ?></td>
 							<td><?php echo htmlspecialchars($r['about']); ?></td>
 							<td><?php echo htmlspecialchars($r['contact']); ?></td>
@@ -56,18 +55,18 @@ catch(PDOException $e) {
 								<?php 
 								$status=htmlspecialchars($r['status']);
 								if($status == 'already_in_team' ){
-									echo"<i class='fa fa-users'></i>";
+									echo"<i class='sa fa-users'></i>";
 								}
 								else if($status == 'already_invited' ){
-									echo"<i class='fa fa-check-square-o'></i>";
+									echo"<i class='sa fa-check-square-o'></i>";
 								}
 								else if($status == 'declined' ){
-									echo "<i class='fa fa-ban'></i>";
+									echo "<i class='sa fa-ban'></i>";
 									//echo "<button type='submit' class='btn btn-default send_invitation' name='invitebtn' value=".htmlspecialchars($r['email'])."> Invite</button>";
 								}
 								else{
-									echo "<button type='submit' class='btn btn-default send_invitation' name='invitebtn' value=".htmlspecialchars($r['email'])."> <i class='fa fa-check-circle'></i></button>";
-									echo "<button type='button' class='btn btn-default decline' name='declinebtn' value=". htmlspecialchars($r['email'])." > <i class='fa fa-ban'></i></button>";
+									echo "<button type='submit' class='btn btn-default send_invitation' name='invitebtn' value=".htmlspecialchars($r['email'])."> <i class='sa fa-check-circle'></i></button>";
+									echo "<button type='button' class='btn btn-default decline' name='declinebtn' value=". htmlspecialchars($r['email'])." > <i class='sa fa-ban'></i></button>";
 								}
 								?>
 							</td>
