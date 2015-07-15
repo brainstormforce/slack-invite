@@ -27,5 +27,3 @@ function test_input($data) {
 	catch(PDOException $e) {
 		echo $e->getMessage();
 	}
-
-?>
