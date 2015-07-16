@@ -1,6 +1,7 @@
  $(function(){
 	jQuery('.form-horizontal').on('submit', function(event) {
 				event.preventDefault();
+
 				$.ajax({
 					url: 'add.php',
 					type: 'POST',
@@ -17,6 +18,7 @@
 						console.log('failed');	
 					} else {
 						console.log('success');	
+						console.log(e);
 					}
 					
 				})

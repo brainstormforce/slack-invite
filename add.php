@@ -15,19 +15,19 @@ function test_input($data) {
 }
 	print_r( $_POST );
 	try {
-		$pdo =$conn;// new PDO("mysql:host=localhost;dbname=slack_invite", 'root', '');//
+		$pdo =$conn;
 		$count = $pdo->exec( "INSERT INTO `members`(`name`, `email`, `about`, `contact`) VALUES ('$name', '$email', '$about',  '$contact')" );
 		if($count==1){		
 			echo"success";
 			//mail to notification to admin 
-			if($notification_status){
-					$to = "somebody@example.com";
-					$subject = "My subject";
-					$txt = "Hello world!";
-					$headers = "From: webmaster@example.com" . "\r\n" .
+			//if($notification_status){
+					$to = "rajun@bsf.io";
+					$subject = "slack new member";
+					$txt ="Hello new member :".$name." has submitted his entry";
+					$headers = "From: rajnarwade42@gmail.com" . "\r\n" .
 					"CC: somebodyelse@example.com";
 					mail($to,$subject,$txt,$headers);
-				}
+			//	}
 			}
 		else{
 				echo "failed";
@@ -36,4 +36,5 @@ function test_input($data) {
 	}
 	catch(PDOException $e) {
 		echo $e->getMessage();
+		$pdo=null;
 	}

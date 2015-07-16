@@ -1,6 +1,7 @@
 .aready_invited,
 .already_in_team,
-.invited {
+.invited, .email_settings, 
+.slack_settings{
 	display: none;
 }
 .successful{
@@ -32,4 +33,17 @@ button.btnoff {
 .logo{
 	width:150px;
 	  margin: 10px 120px 10px 120px;
+}
+
+.header{
+	border-bottom: 2px double black;
+  margin: 25px 0px 25px 0px;
+
+}
+.header h4{
+	font-family: vardana;
+  font-size: 20px;
+  font-style: oblique;
+  font-weight: bolder;
+
 }
