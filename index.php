@@ -12,6 +12,7 @@
 <body>
 	<div class="container " style="text-align:center;width:40%;">
 		<div class="row .col-md-4">
+			<div class=".col-md-4 logo"><img class="logo" src="img/logo.png" /></div>
 			<h2>Register Here</h2>
 			<form class="form-horizontal" role="form" method="post">
 				<div class="form-group">

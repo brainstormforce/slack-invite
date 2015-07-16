@@ -1,14 +1,18 @@
 <?php
 session_start();
 	$data;
-	include '../header.php';
-//include 'Functions/Connection.php';
+
+include '../functions/connections.php';
 try {
 	//myconn();
-	 $conn = new PDO("mysql:host=localhost;dbname=slack_invite", 'root', '');//Establish connection
 	$sql = 'SELECT *   FROM members'; 
 	$q = $conn->query($sql); //select rows
 	$q->setFetchMode(PDO::FETCH_ASSOC); //retrieve in resultset $q
+	// for notification status
+	/*$sqlntf='select notifications from user_admin';
+	$ntf = $conn->query($sqlntf);
+	$ntf->setFetchMode(PDO::FETCH_ASSOC);
+	*/
 }
 catch(PDOException $e) {
 	echo $e->getMessage();
@@ -28,10 +32,9 @@ catch(PDOException $e) {
 	<div class="container" style="text-align:center;">
 			<?php 
 				if(isset($_SESSION['login_user'])){
-				//echo $_SESSION['login_user'];
-				//if($q->fetch()==null){ Echo "<h3>Sorry no records found</h3>"; exit();}
-			?>
-		<h1>Available users</h1>
+				include 'header.php'
+			?><h1>Available users</h1>
+		<div class="adminnotification">Notifications:<span><button class="btnon">on</button><button class="btnoff">off</button></span></div>
 		<form method="post" name="invite" class="invite_form">
 
 			<table class="tablemain">

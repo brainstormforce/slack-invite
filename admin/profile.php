@@ -1,19 +1,16 @@
 <?php
 	session_start(); // Starting Session
-	include '../header.php';
-	$error=''; // Variable To Store Error Message
+	include '../functions/connections.php';
 	if (isset($_POST['submit'])) {
 	if (empty($_POST['username']) || empty($_POST['password'])){   //checks whether user has entered any values or not
 		$error = "please enter Username and  Password ";
 		echo $error;
 	}else
 	{
-		
 		// gets $username and $password from user
 		$username= $_POST['username'];
 		$password=$_POST['password'];
-			$conn = new PDO("mysql:host=localhost;dbname=slack_invite", 'root', '');//Establish connection
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		try{
 				
@@ -31,7 +28,7 @@
 							$_SESSION['login_user']=$username;
 							echo"  login Successfull";
 							echo $_SESSION['login_user'];
-
+							header('location:showDb.php');
 						}
 						else {
 							$error = "  Password is invalid";
