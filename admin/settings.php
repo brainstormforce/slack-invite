@@ -30,7 +30,7 @@ echo "<div class='settings'>
 
 		<div class="header"><h4>Notification Emails:</h4></div>
 			<p class="available_Notification_emails"></p>
-			<button class="btn betn-default display_email_settings">Email_settings</button><!-- ### display Button ####-->
+			<!-- <button class="btn betn-default display_email_settings">Email_settings</button>### display Button ####-->
 			
 			<div class="email_settings"><!-- ### Hidden Block one display on display button click ####-->
 			<form class="form-inline" role="form" action="settingdetails.php" method="post">

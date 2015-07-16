@@ -1,7 +1,6 @@
 .aready_invited,
 .already_in_team,
-.invited, .email_settings, 
-.slack_settings{
+.invited, {
 	display: none;
 }
 .successful{
