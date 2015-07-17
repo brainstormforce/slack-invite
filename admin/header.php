@@ -4,7 +4,6 @@
 </head>
 <body>
 <?php
-session_start();
 require_once ( '../functions/connections.php' );
 
 if(isset($_SESSION['login_user'])){
