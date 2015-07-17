@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'header.php';
+//include 'header.php';
 if(isset($_SESSION['login_user'])){
 echo $_SESSION['login_user'];
 header("location:showDb.php");

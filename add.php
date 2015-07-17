@@ -1,4 +1,6 @@
 <?php
+ error_reporting(E_ALL);
+   ini_set('display_errors', 1);
 $name= test_input($_POST['fname']);
 $email= test_input($_POST['email']);
 $about= test_input($_POST['about_yourself']);
@@ -16,18 +18,12 @@ function test_input($data) {
 	print_r( $_POST );
 	try {
 		$pdo =$conn;
-		$count = $pdo->exec( "INSERT INTO `members`(`name`, `email`, `about`, `contact`) VALUES ('$name', '$email', '$about',  '$contact')" );
-		if($count==1){		
+		$sql="INSERT INTO `members`(`name`, `email`, `about`, `contact`) VALUES ('$name', '$email', '$about',  '$contact')";
+
+		if($pdo->exec( $sql )){		
 			echo"success";
-			//mail to notification to admin 
-			//if($notification_status){
-					$to = "rajun@bsf.io";
-					$subject = "slack new member";
-					$txt ="Hello new member :".$name." has submitted his entry";
-					$headers = "From: rajnarwade42@gmail.com" . "\r\n" .
-					"CC: somebodyelse@example.com";
-					mail($to,$subject,$txt,$headers);
-			//	}
+		      include 'newmail.php';
+			
 			}
 		else{
 				echo "failed";

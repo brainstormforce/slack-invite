@@ -14,16 +14,15 @@
 				})
 				.done(function(e) {
 					jQuery(".successful").css('display', 'block');
-					if ( e == 'failed' ) {
-						console.log('failed');	
+					if ( e == 'success' ) {
+						console.log("successful");	
 					} else {
-						console.log('success');	
 						console.log(e);
 					}
 					
 				})
 				.fail(function(e) {
-					console.log(e);
+					console.log("Failed");
 				});
 				
 			});

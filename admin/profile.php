@@ -14,7 +14,6 @@
 		
 		try{
 				
-
 			$stmt = "SELECT `user_id`, `user_name`, `passwd` FROM `user_admin` WHERE user_name = '".$username."'"; //query
 
 			$rs= $conn->query($stmt);

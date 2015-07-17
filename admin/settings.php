@@ -1,7 +1,7 @@
 <?php
-
+session_start();
+include 'header.php';
 echo "<div class='settings'>
-
 </div>";
 ?>
 <html>

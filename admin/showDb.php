@@ -32,7 +32,7 @@ catch(PDOException $e) {
 	<div class="container" style="text-align:center;">
 			<?php 
 				if(isset($_SESSION['login_user'])){
-				include 'header.php'
+				include 'header.php';
 			?><h1>Available users</h1>
 		<div class="adminnotification">Notifications:<span><button class="btnon">on</button><button class="btnoff">off</button></span></div>
 		<form method="post" name="invite" class="invite_form">
