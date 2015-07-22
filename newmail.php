@@ -1,55 +1,54 @@
 <?php
-/**
- * This example shows making an SMTP connection with authentication.
- */
+include 'functions/connections.php';
 
-//SMTP needs accurate times, and the PHP time zone MUST be set
-//This should be done in your php.ini, but this is how to do it if you don't have access to that
+//multiple emails
+error_reporting(E_STRICT | E_ALL);
+
 date_default_timezone_set('Etc/UTC');
 
 require 'PHPMailer-master/PHPMailerAutoload.php';
 
-//Create a new PHPMailer instance
 $mail = new PHPMailer;
-//Tell PHPMailer to use SMTP
-$mail->isSMTP();
-//Enable SMTP debugging
-// 0 = off (for production use)
-// 1 = client messages
-// 2 = client and server messages
-$mail->SMTPDebug = 2;
-//Ask for HTML-friendly debug output
-$mail->Debugoutput = 'html';
-//Set the hostname of the mail server
-$mail->Host = "email-smtp.us-east-1.amazonaws.com";
-//Set the SMTP port number - likely to be 25, 465 or 587
-$mail->Port = 587;
-//Whether to use SMTP authentication
-$mail->SMTPAuth = true;
-//Username to use for SMTP authentication
-$mail->Username = "AKIAJSGXEMDO7XF263NA";
-//Password to use for SMTP authentication
-$mail->Password = "ApRz3QVxkWwaEAKvBZnhEkBS6S9HGZXEylwp5SyHizW4";
-//Set who the message is to be sent from
-$mail->setFrom('do-not-reply@bsf.io', 'brianstormforce');
-//Set an alternative reply-to address
-//$mail->addReplyTo('', '');
-//Set who the message is to be sent to
-$mail->addAddress('rajun@bsf.io', 'raju');
-//Set the subject line
-$mail->Subject = 'PHPMailer SMTP test';
-//Read an HTML message body from an external file, convert referenced images to embedded,
-//convert HTML into a basic plain-text alternative body
-$mail->msgHTML("new Record with name: ".$name." and contact: ".$contact." please verify!!!!");
-//Replace the plain text body with one created manually
-$mail->AltBody = 'This is a plain-text message body';
-//Attach an image file
-//$mail->addAttachment('images/phpmailer_mini.png');
 
-//send the message, check for errors
-if (!$mail->send()) {
-    echo "Mailer Error: " . $mail->ErrorInfo;
-} else {
-    echo "Message sent!";
+$body = "new Record with name: ".$name." and contact: ".$contact." please verify!!!!";
+
+$mail->isSMTP();
+$mail->Host = 'email-smtp.us-east-1.amazonaws.com';
+$mail->SMTPAuth = true;
+$mail->SMTPKeepAlive = true; // SMTP connection will not close after each email sent, reduces SMTP overhead
+$mail->Port = 587;
+$mail->Username = 'AKIAJSGXEMDO7XF263NA';
+$mail->Password = 'ApRz3QVxkWwaEAKvBZnhEkBS6S9HGZXEylwp5SyHizW4';
+$mail->setFrom('do-not-reply@bsf.io', 'Brainstorm Force');
+//$mail->addReplyTo('list@example.com', 'List manager');
+
+$mail->Subject = "New Member entry";
+
+//Same body for all messages, so set this before the sending loop
+//If you generate a different body for each recipient (e.g. you're using a templating system),
+//set it inside the loop
+$mail->msgHTML($body);
+//msgHTML also sets AltBody, but if you want a custom one, set it afterwards
+$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
+
+//Connect to the database and select the recipients from your mailing list that have not yet been sent to
+//You'll need to alter this to match your database
+			$count=0;
+			$sql="select * from `notification_emails` WHERE `status`='on'";
+			$rs=$conn->query($sql);
+			$rs->setFetchMode(PDO::FETCH_ASSOC);
+			while($result=$rs->fetch()){
+				$mail->addAddress($result['email'], $result['name']);
+		 		if (!$mail->send()) {
+		        	echo "Mailer Error " . $mail->ErrorInfo . '<br />';
+		        	break; //Abandon sending
+		   		 } else {	
+		        $count++;
+        //Mark it as sent in the DB
+				}
+    // Clear all addresses and attachments for next loop
+    $mail->clearAddresses();
+    $mail->clearAttachments();
 }
+ echo "Message sent to ".$count." member(s)";
 ?>

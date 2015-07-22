@@ -25,8 +25,11 @@ catch(PDOException $e) {
 	<link rel="stylesheet" href="../css/tablestyle.css" >
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<!--	<script type="text/javascript" src="../ToolTip/js/jquery.atooltip.min.js"></script>
+	<script type="text/javascript" src="../ToolTip/css/atooltip.css"></script>
+	<script type="text/javascript" src="../ToolTip/css/style.css"></script>-->
 	<script src="../js/jquery-1.11.3.min.js"></script>
-	<script src="../js/showDbjs.js"></script>
+	<script src="../js/invitees.js"></script>
 </head>
 <body class="maincontainer">
 	<div class="container" style="text-align:center;">
@@ -48,32 +51,34 @@ catch(PDOException $e) {
 				</thead>
 				<tbody class="smile-style-data">
 					<?php while ($r = $q->fetch()):?>
-						<tr>
+					<?php $member_id=  htmlspecialchars($r['member_id']);?>
+						<tr id="<?php echo $member_id; ?>" class="rowp">
 							<td class="manage-column convert-plug"><?php echo htmlspecialchars($r['name']);?></td>
 							<td><?php echo htmlspecialchars($r['email']); ?></td>
 							<td><?php echo htmlspecialchars($r['about']); ?></td>
 							<td><?php echo htmlspecialchars($r['contact']); ?></td>
+							
 							<td>
 								<?php 
 								$status=htmlspecialchars($r['status']);
+								$email=htmlspecialchars($r['email']);
 								if($status == 'already_in_team' ){
-									echo"<i class='sa fa-users'></i>";
+							
+									echo"<i class='sa fa-check-square-o'></i> Invited";
 								}
 								else if($status == 'already_invited' ){
-									echo"<i class='sa fa-check-square-o'></i>";
+									
+									echo"<i class='sa fa-check-square-o'></i> Invited";
 								}
 								else if($status == 'declined' ){
-									echo "<i class='sa fa-ban'></i>";
+									
+									echo "<i class='sa fa-ban'></i> Declined";
 									//echo "<button type='submit' class='btn btn-default send_invitation' name='invitebtn' value=".htmlspecialchars($r['email'])."> Invite</button>";
 								}
 								else{
-						
-									echo "<a href='#popupBasic' data-rel='popup' class='ui-btn ui-corner-all ui-shadow ui-btn-inline' data-transition='pop'>
-									<button type='submit' class='btn btn-default send_invitation' name='invitebtn' value=".htmlspecialchars($r['email'])."> <i class='sa fa-check-circle'></i></button></a>
-									<div data-role='popup' id='popupBasic'>
-									<p><i class='sa fa-check-square-o'></i></p>
-									</div>";
-									echo "<button type='button' class='btn btn-default decline' name='declinebtn' value=". htmlspecialchars($r['email'])." > <i class='sa fa-ban'></i></button>";
+									echo "<div class='".$member_id." status '>
+									<button type='submit' class='btn btn-default send_invitation' name='invitebtn' value=".$email."> <i class='sa fa-check-circle'></i></button>";
+									echo "<button type='button' class='btn btn-default decline' name='declinebtn' value=".$email." > <i class='sa fa-ban'></i></button></div>";
 								}
 								?>
 							</td>

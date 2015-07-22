@@ -26,7 +26,7 @@
 
 					
 						$.ajax({
-										url:'update.php',
+										url:'updateDb.php',
 										type:'POST',
 										data:{
 											semail:email,
@@ -47,7 +47,7 @@
 
 						//update page call
 									$.ajax({
-										url:'update.php',
+										url:'updateDb.php',
 										type:'POST',
 										data:{
 											semail:email,
@@ -75,7 +75,7 @@
 			event.preventDefault();
 			var email = $(this).val();
 									$.ajax({
-										url:'update.php',
+										url:'updateDb.php',
 										type:'POST',
 										data:{
 											semail:email,

@@ -15,22 +15,18 @@ function test_input($data) {
   return $data;
 
 }
-	print_r( $_POST );
-	try {
 		$pdo =$conn;
 		$sql="INSERT INTO `members`(`name`, `email`, `about`, `contact`) VALUES ('$name', '$email', '$about',  '$contact')";
 
-		if($pdo->exec( $sql )){		
-			echo"success";
-		      include 'newmail.php';
-			
+		if($pdo->exec( $sql )){	
+
+			echo json_encode(array('msg' => 'noerror'));
+		     //include 'newmail.php';
 			}
 		else{
-				echo "failed";
+			//echo json_encode(array('msg' => 'errors'));
 			}
+			
 		$pdo=null;
-	}
-	catch(PDOException $e) {
-		echo $e->getMessage();
-		$pdo=null;
-	}
+
+die();

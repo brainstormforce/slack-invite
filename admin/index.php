@@ -3,7 +3,7 @@ session_start();
 //include 'header.php';
 if(isset($_SESSION['login_user'])){
 echo $_SESSION['login_user'];
-header("location:showDb.php");
+header("location:invitees.php");
 }
 ?>
 <!DOCTYPE html>

@@ -1,11 +1,20 @@
 .aready_invited,
 .already_in_team,
-.invited, {
+.invited{
 	display: none;
 }
-.successful{
+.alert-info,.alert-danger{
 	display: none;
 }
+
+/*##### Home page css ###*/
+
+.logo{width:150px;}
+.subcontainer{width:500px;margin:0 auto;}
+.subcontainer h2{text-align: center;}
+
+/* ##### Home page css Ends here ###### */
+
 .menu ul li {
 	margin-left: 20px;
 	margin-right: 20px;
@@ -29,10 +38,6 @@ button.btnoff {
    padding: 0px 10px 0px 10px;
      font-size: 16px;
 }
-.logo{
-	width:150px;
-	  margin: 10px 120px 10px 120px;
-}
 
 .header{
 	border-bottom: 2px double black;
@@ -45,4 +50,15 @@ button.btnoff {
   font-style: oblique;
   font-weight: bolder;
 
+}
+.maincontainer{
+    background-color: #F1F1F1;
+}
+.sidebar{
+	width:20%;
+	height: 100%;
+	float: left;
+}
+.available_Notification_emails{
+	float: left;
 }
