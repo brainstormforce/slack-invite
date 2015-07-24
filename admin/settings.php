@@ -1,14 +1,14 @@
 <?php
 session_start();
-echo "<div class='settings'>
-</div>";
+
 ?>
 <html>
 <head><title>Settings</title>
-	<link rel="stylesheet" href="../css/style.css" />
-	<script src="../js/jquery-1.11.3.min.js" /></script>
-	<script type="text/javascript" src="../js/settings.js"></script>
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../assets/css/style.css" />
+	<link rel="stylesheet" href="../assets/css/font-awesome/css/font-awesome.min.css" />
+	<script src="../assets/js/jquery-1.11.3.min.js" ></script>
+	<script type="text/javascript" src="../assets/js/settings.js" ></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
 				jQuery(".slack_settings").hide();
@@ -26,33 +26,36 @@ echo "<div class='settings'>
 		});
 	</script>
 </head>
-<body class="maincontainer">
+<body>
 
 	<div class="container" >
 	<div class="row">
 		<?php if(isset($_SESSION['login_user'])){ 
-		include 'header.php';
+		include 'adminfunctions/header.php';
 		?>
-		<div style="margin-left:30px;"><h2>Settings</h2>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo.
+		<div style="margin-left:30px;margin-bottom:50px;"><h2><i class="fa fa-wrench fa-2"></i>  Settings</h2>
+			<h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo.</h5>
 		</div>
 	</div>
 	
 	
-	<div class="col-md-3 .col-md-pull-9 btn-group-vertical" style="margin-top:50px;"> 
-		
+	<div class="col-md-3 .col-md-pull-9 btn-group-vertical" > 	
 		<button class="btn btn-default display_slack_settings" >Slack Settings</button><!-- ### display Button ####-->
 		<button class="btn btn-default display_emails" >Notification Emails</button>
 	</div>		
 	<div class="col-md-9 .col-md-push-3">
 
 		<div class="available_Notification_emails">
-			<?php include 'notificationemails.php' ?>
+		<div class="headings">
+			<h2>Email Notifications</h2>
+			<h5>Get notifications on each new invite application.</h5>
+		</div>
+			<?php include 'adminfunctions/notificationemails.php' ?>
 		</div>
 		
 		
-		<div class="email_settings" style="margin-top:20px;"><!-- ### Hidden Block one display on display button click ####-->
-			<div class="subcontainer">
+		<div class="email_settings" ><!-- ### Hidden Block one display on display button click ####-->
+			<div >
 			<form class="email_form form-inline" role="form"  method="post">
 			<table >
 				<tr>
@@ -78,9 +81,11 @@ echo "<div class='settings'>
 		</div>
 	
 
-		<div class="slack_settings " style="margin-top:20px;"><!-- ### Hidden Block one display on display button click ####-->
+		<div class="slack_settings " style="margin-top:20px;"><!-- ### Hidden Block one display on display button click ####-->			
 			<div class="subcontainer">
-				<form class="form-horizontal slack_settings_form" role="form"  method="post">
+				<h2>Slack Integration Settings</h2>
+				<h4>Update your Slack API details here</h4>
+				<form class="slack_settings_form" role="form"  method="post">
 				
 					<div class="form-group">
 						<label class=""> Name:</label>

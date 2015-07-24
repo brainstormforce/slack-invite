@@ -11,13 +11,13 @@ header("location:invitees.php");
 <head>
 	<title>Login For Admin</title>
 	  <meta charset="UTF-8">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
 	<div class="container" style="text-align:center;width:50%;">
 		<h1>Enter Login Credentials</h1>
 		<div class="row">
-			<form class="form-horizontal" action="profile.php" method="post">
+			<form class="form-horizontal" action="adminfunctions/profile.php" method="post">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">UserName :</label>
 					<div class="col-sm-10">

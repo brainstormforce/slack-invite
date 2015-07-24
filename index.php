@@ -5,8 +5,8 @@
 	</title>
 	  <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="css/style.css" >
-	<script src="js/jquery-1.11.3.min.js"></script><script src="js/indexjs.js"></script>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="assets/css/style.css" >
+	<script src="assets/js/jquery-1.11.3.min.js"></script><script src="assets/js/indexjs.js"></script>
 
 </head>
 <body>
@@ -14,10 +14,10 @@
 
 		<div class="row">
 			<div class="col-md-12" style="text-align:center;">
-				<img class="logo" src="img/logo.png" />
+				<img class="logo" src="assets/img/logo.png" />
 			</div>
 		</div>
-		<div class="row subcontainer">
+		<div class="row subcontainerindex">
 				<h2>Register Here</h2>
 				<form  role="form" class="registerform" method="post">
 			
@@ -47,11 +47,12 @@
 		</div>	
 
 			<div class="alert alert-info" role="alert">
-				<h2>your entry submitted</h2>
+				<h3>your entry submitted</h3>
 			</div>
 			<div class="alert alert-danger" role="alert">
-				<h2>your entry could not be submitted please try again later</h2>
+				<h3>your entry could not be submitted please try again later</h3>
 			</div>
+			<div class="mailcontent" style="display:none;"></div>
 		</div>	
 	
 	</body>
