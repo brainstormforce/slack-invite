@@ -11,7 +11,6 @@
 </head>
 <body>
 	<div class="container " style="">
-
 		<div class="row">
 			<div class="col-md-12" style="text-align:center;">
 				<img class="logo" src="assets/img/logo.png" />

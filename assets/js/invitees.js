@@ -1,19 +1,24 @@
 		$(function(){ 
 		//send invitation for user
 			jQuery('.status').each(function(index, el) {
+				var slc_url=$('.slc_url').val();
+				var slc_token=$('.slc_token').val();
+				// console.log("URL "+slc_url);
+				// console.log("URL "+slc_token);
 				jQuery(el).find('.send_invitation').on('click', function(event) {	
 					var classname=	jQuery(el).attr("class");
+					console.log(slc_url);
 					console.log(classname);	
 					jQuery(el).find(".send_invitation, .decline").css('display', 'none');
 					jQuery(el).append("<i class='fa fa-check-square-o'></i> Invited");
 					event.preventDefault();
 					var email = $(this).val();
 					$.ajax({ //sending invitation to slack
-						url: 'https://slackinvite.slack.com/api/users.admin.invite', 
+						url: slc_url, //'https://slackinvite.slack.com/api/users.admin.invite',  
 						type: 'POST',
 						data: {
 							email: email,
-							token: 'xoxp-7491394935-7491752069-7491000672-c6311f',
+							token: slc_token,//'xoxp-7491394935-7491752069-7491000672-c6311f',//slc_token,
 							set_active: 'true',
 						},
 					})

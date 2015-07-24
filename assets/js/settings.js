@@ -1,32 +1,85 @@
 $(function(){
-
+// this file is called from settings.php
 // all functions of settings page	
 	jQuery('.email_form').on('submit', function(event) {
 				
 				$.ajax({
-					url: 'adminfunctions/settingdetails.php?action=settings_email',
+
+					url: 'adminfunctions/settingdetails.php',
 					type: 'POST',
 					data: {
+						ajaxfunction: 'settings_email',
 						name: $(".name").val(),
 						notification_email: $(".email").val(),
 					},
 				})
 				.done(function(e) {
-					if ( e.string =='successful' ) {
-						console.log("Record added successfully"+e);
-							
-					} else {
+						console.log(e);			
+				})
+				.fail(function(e) {
+					console.log("Failed");
+				});
+			
+			});
+
+
+	//slack edit token and url
+	jQuery('.display_token_edit').on('submit', function(event) {
+		//event.preventDefault();
+		//event.stopImmediatePropagation();
+		$.ajax({
+
+					url: 'adminfunctions/settingdetails.php',
+					type: 'POST',
+					data: {
+						ajaxfunction: 'edit_token',
+						url: $(".url").val(),
+						token: $(".token").val(),
+					},
+				})
+				.done(function(e) {
 						console.log(e);
-					}
 					
 				})
 				.fail(function(e) {
 					console.log("Failed");
 				});
-				
-			});
+	});
 
-	//change on/off
+
+jQuery(".delete_email").on('click', function(event) {
+			if(confirm("Are you sure you want to delete this? "+$(this).val())){
+			        $.ajax({
+			        	url: 'adminfunctions/settingdetails.php',
+						type: 'POST',
+			        	dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+			        	data: {ajaxfunction: 'delete',delete_email: $(this).val()},
+			        	
+			        })
+			        .done(function(e) {
+			        	if(e.statusText=='ok'){
+			           	console.log("success");
+			        	}
+			        	console.log(e);
+			        })
+			        .fail(function(e) {
+			        	console.log("error");
+			        	console.log(e);
+			        })
+			        .always(function(e) {
+			        	console.log("complete");
+			        	console.log(e);
+			        });
+			        
+			    }
+			else{
+			        return false;
+			    }
+	});
+
+
+	//change notification email status on/off
+
 	jQuery('.switch_options').each(function() {
 		//This object
 		var obj = jQuery(this);
@@ -36,7 +89,7 @@ $(function(){
 		var input_val = obj.children('input').val(); //cache the element where we must set the value
 		var uemail= obj.children('.email_val').val().replace('/','');
 		//var str = $(uemail).val().replace('/','');
-		console.log(uemail);
+		//console.log(uemail);
 		/* Check selected */
 		if( 0 == input_val ){
 			dsb.addClass('selected');
@@ -48,16 +101,16 @@ $(function(){
 		enb.on('click', function(){
 			
 			$.ajax({ // this code will update notification email status
-			url: 'adminfunctions/settingdetails.php?action=update_email_status',
+			url: 'adminfunctions/settingdetails.php',
 			type: 'POST',
 			data: {
+				ajaxfunction: 'update_email_status',
 				email: uemail,
 				status: "on"
 					},
 				})
 				.done(function(e) {
 						console.log("success");
-						console.log(e);
 					})
 				.fail(function(e) {
 						console.log("error");
@@ -74,10 +127,11 @@ $(function(){
 		//Action on user's click(OFF)
 		dsb.on('click', function(){
 			$.ajax({  //  update notification email status as off
-			url: 'adminfunctions/settingdetails.php?action=update_email_status',
+			url: 'adminfunctions/settingdetails.php',
 			type: 'POST',
 		 
 			data: {
+				ajaxfunction: 'update_email_status',
 				email:uemail,
 				status: "off"
 			},
@@ -98,28 +152,7 @@ $(function(){
 		});
 	});
 
+	
 
-	//Add slack token and url info
-	jQuery('.slack_settings_form').on('submit', function(event){
-				$.ajax({ //add username,slack token and url for sending request to slack from given token 
-			url: 'adminfunctions/settingdetails.php?action=add_slack_setting',
-			type: 'POST',
-			data: {
-				user_name:$('.user_name').val(),
-				slack_url:$('.slack_url').val(),
-				token:$('.add_token_id').val()
-			},
-		})
-		.done(function(e) {
-			console.log(e);
-			alert("success");
-		})
-		.fail(function(e) {
-			console.log("error");
-		})
-		.always(function(e) {
-			console.log("complete");
-		});
-	});
 });
  

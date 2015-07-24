@@ -1,10 +1,11 @@
-<link rel="stylesheet" href="../../assets/css/tablestyle.css">
-<script type="text/javascript" src="../../assets/js/settings.js"></script>
-<script src="../../assets/js/jquery-1.11.3.min.js" /></script>
+<link rel="stylesheet" href="../../assets/css/tablestyle.css" />
 <link rel="stylesheet" type="text/css" href="../../assets/css/buttonstyle.css" />
+
 <?php 
+	// This file will be called from settings.php
 	//display notification email ids with status
-include '../../functions/connections.php';
+	
+	include '../functions/connections.php';
 	try{		
 			echo"<form method='post' name='notificationform'>
 			<table >
@@ -18,9 +19,11 @@ include '../../functions/connections.php';
 				$email=$result['email'];
 				$status=$result['status'];
 				echo "
-				<tr>	<td>".$name."</td>
+				<tr>	
+				<td>".$name."</td>
 				<td >".$email."</td>
 				<td>";
+				// Display emails with  on status
 				if($status=='on'){
 					echo"<div class='switch_options'>
 						<span class='switch_enable'> ON </span>
@@ -29,6 +32,7 @@ include '../../functions/connections.php';
 						<input type='hidden' class='email_val' value=".$email."/>
 					</div>";
 				}
+				// Display emails with off status 
 				else{
 					echo "<div class='switch_options'>
 						<span class='switch_enable'> ON </span>
@@ -37,7 +41,7 @@ include '../../functions/connections.php';
 						<input type='hidden' class='email_val' value=".$email."/>
 					</div>";					
 				}
-				echo"</td>
+				echo"</td><td><input class='delete_email' type='checkbox' value='".$email."'> Delete</td>
 			</tr>";
 			}
 			

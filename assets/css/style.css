@@ -40,8 +40,9 @@ button.btnoff {
    padding: 0px 10px 0px 10px;
      font-size: 16px;
 }
-.headings{
-	margin-bottom:30px;
+.settings_headings{
+	margin-top: -25px;
+	margin-bottom:20px;
 }
 .header{
 	border-bottom: 2px double black;

@@ -6,8 +6,11 @@ session_start();
 	include 'adminfunctions/header.php';
 	try {
 		//myconn();
-		$sql = 'SELECT *   FROM members'; 
+		$sql = 'SELECT *   FROM members';
+		$sql_slack = 'SELECT *   FROM  slack_settings';
 		$q = $conn->query($sql); //select rows
+		$q_slack = $conn->query($sql_slack);
+		$q_slack->setFetchMode(PDO::FETCH_ASSOC); //retrieve in resultset $q_slack
 		$q->setFetchMode(PDO::FETCH_ASSOC); //retrieve in resultset $q
 		
 	}
@@ -28,7 +31,10 @@ session_start();
 <body class="maincontainer">
 	<div class="container" >
 			<?php 
-				echo "hello";
+			$slc=$q_slack->fetch();
+			 $url=$slc['url'];
+			 $token=$slc['token'];
+			
 				if(isset($_SESSION['login_user'])){
 				
 			?>
@@ -37,7 +43,8 @@ session_start();
 				<h5>List of invitees is shown below and you can send invitation or delcine a member</h5>
 			</div>
 		<form method="post" name="invite" class="invite_form">
-
+			<input type="hidden" name="url" class="slc_url" value="<?php echo $url; ?>">
+			<input type="hidden" name="token" class="slc_token" value="<?php echo $token; ?>">
 			<table class="tablemain">
 				<thead>
 					<tr class="column-provider">

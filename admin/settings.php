@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <html>
 <head><title>Settings</title>
@@ -12,6 +11,7 @@ session_start();
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
 				jQuery(".slack_settings").hide();
+				jQuery(".display_token_edit").css('display', 'none');
 
 				jQuery(".display_slack_settings").on("click", function(){
 						jQuery(".email_settings").hide();
@@ -23,6 +23,12 @@ session_start();
 			    		jQuery(".slack_settings").hide();
 			    		jQuery(".available_Notification_emails").show();
 			    	});
+
+			jQuery('#display_button').click(function(event) {
+						jQuery(".display_token_edit").css('display', 'block');
+						jQuery(".display_token").css('display', 'none');
+						jQuery(this).css('display', 'none');
+					});	
 		});
 	</script>
 </head>
@@ -40,17 +46,19 @@ session_start();
 	
 	
 	<div class="col-md-3 .col-md-pull-9 btn-group-vertical" > 	
-		<button class="btn btn-default display_slack_settings" >Slack Settings</button><!-- ### display Button ####-->
-		<button class="btn btn-default display_emails" >Notification Emails</button>
+		<button class="btn btn-default display_slack_settings" >Slack Settings</button><!-- ### Display Button for slack ####-->
+		<button class="btn btn-default display_emails" >Notification Emails</button><!-- ###  Display button for emails ####-->	
 	</div>		
 	<div class="col-md-9 .col-md-push-3">
 
+<!---##### Notification emails Setting starts here #####-->
+
 		<div class="available_Notification_emails">
-		<div class="headings">
+		<div class="settings_headings">
 			<h2>Email Notifications</h2>
 			<h5>Get notifications on each new invite application.</h5>
 		</div>
-			<?php include 'adminfunctions/notificationemails.php' ?>
+			<?php include 'adminfunctions/notificationemails.php' ?> <!-- notification emails and status will be displayed -->
 		</div>
 		
 		
@@ -80,35 +88,16 @@ session_start();
 			</div>
 		</div>
 	
+	<!-- ##### Slack Settings start here ######-->
 
-		<div class="slack_settings " style="margin-top:20px;"><!-- ### Hidden Block one display on display button click ####-->			
+		<div class="slack_settings " style="margin-top:20px;">		
 			<div class="subcontainer">
+				<div class="settings_headings">
 				<h2>Slack Integration Settings</h2>
 				<h4>Update your Slack API details here</h4>
-				<form class="slack_settings_form" role="form"  method="post">
-				
-					<div class="form-group">
-						<label class=""> Name:</label>
-						<input type="text" class="form-control user_name"  name="user_name" placeholder="User Name">
-					</div>
-					
-					<div class="form-group">
-						<label class=""> URL:</label>
-						<input type="text" class="form-control slack_url"  name="slack_url" placeholder="Add Url">
-					</div>
-					
-					<div class="form-group">
-						<label class="">Add Token:</label>
-						<input type="Text" class="form-control add_token_id"  name="token" placeholder="Add Token">
-					</div>
-					
-					<div class="form-group">
-						<input type="submit" class="btn btn-default add slack_settings_btn" value="Add">
-					</div>
-				
-				</form>
 			</div>
-
+				<?php include 'adminfunctions/slacktokens.php'; ?> 
+			</div>
 		</div>
 		</div>
 
