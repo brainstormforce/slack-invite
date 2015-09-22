@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FormBuilder Demo</title>
+		<meta charset="utf-8" />
+
+		<!-- REQUIRED: jquery, dust-linkedin -->
+		<script src="js/libs.min.js"></script>
+
+		<script src="js/formbuilder.min.js"></script>
+		<link href="css/formbuilder.css" media="screen" rel="stylesheet" />
+
+		<!-- Demo-only styles -->
+		<style type="text/css">
+			a, body { font-family: "Tahoma", "Verdana", sans-serif; font-size: 12px; }
+		</style>
+
+		<script>
+
+			// On document ready
+			$(function(){
+
+				// IF you're loaded existing form data, it's up to you
+				// how you want to load the JSON. In this example,
+				// we pull it using ajax - all that form builder requires
+				// is that you inject the JSON when calling `formbuilder`
+				$.getJSON( 'fake-form-db-vals.json', function(resp){
+
+          // Create an instance of form builder
+					var myForm = new Formbuilder({
+
+						// Provide a dom element the form will be built to
+						// jQuery or simpleDOM elements required
+						targets: $('.formbuilder'),
+
+						// A callback allowing you to handle saving the form
+						save: function(formData){
+							console.log(formData);
+						},
+
+						// we loaded existing JSON, so we have a form_id. If you're
+						// creating a new form, this may be left out
+						form_id: resp.form_id,
+
+						// we loaded existing JSON, so we pass it in here. If you're
+						// creating a new form, this may be left out
+						startingModel: resp.model
+
+					});
+        });
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Form Builder Demo</h1>
+		<p><a href="form.html">View sample rendered html</a>.</p>
+		<div class="formbuilder"></div>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+	<h1>my Website</h1>
+	<form class="form" action="generator.php" method="post">
+		<input type="date" id="dt">
+		<input type="select">
+		<select>
+		<?php
+		$conn = new PDO("mysql:host=localhost;dbname=mydb", 'root', 'aftermath7');
+		$sqlon="select * from `smile_lists` ";
+			$rs=$conn->query($sqlon);
+			$rs->setFetchMode(PDO::FETCH_ASSOC);
+			while($result=$rs->fetch()){
+				$category=$result['status'];
+				echo"<option value='".$cagegory."'>".$category."</option>";
+		?>
+		</select>
+		<input type="text" name="number_of_candidate">
+		<input type="submit" value="submit">
+	</form>
+</body>
+</html>

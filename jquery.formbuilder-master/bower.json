@@ -1,0 +1,21 @@
+{
+  "name": "formbuilder",
+  "version": "2.0.1-beta",
+  "homepage": "https://github.com/viveleroi/jquery.formbuilder",
+  "authors": [
+    "Mike Botsko <botsko@gmail.com>"
+  ],
+  "description": "Build and process dynamic forms",
+  "license": "MIT",
+  "dependencies": {
+    "dustjs-linkedin": "~2.4.0",
+    "html5sortable": "*",
+    "jquery": "~2.1.1"
+  },
+  "devDependencies": [],
+  "main": [
+    "dist/js/formbuilder.min.js",
+    "dist/js/formrunner.min.js"
+  ],
+  "private": false
+}
