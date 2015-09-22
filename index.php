@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>
-		Register With Slack
+		Register With Sla
 	</title>
 	  <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
