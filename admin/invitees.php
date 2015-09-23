@@ -29,7 +29,8 @@ session_start();
 	<script src="../assets/js/invitees.js"></script>
 </head>
 <body class="maincontainer">
-	<div class="container" >
+	<div class="addsidebar"><?php  include 'adminfunctions/sidebar.php';?></div>
+	<div class="subcontainer" > 	<!--subcontainer starts here -->
 			<?php 
 			$slc=$q_slack->fetch();
 			 $url=$slc['url'];
@@ -38,8 +39,9 @@ session_start();
 				if(isset($_SESSION['login_user'])){
 				
 			?>
+			<div class="table-form-content">
 			<div class="headings">
-				<h1>Available users</h1>
+				<h4>Available users</h4>
 				<h5>List of invitees is shown below and you can send invitation or delcine a member</h5>
 			</div>
 		<form method="post" name="invite" class="invite_form">
@@ -48,45 +50,47 @@ session_start();
 			<table class="tablemain">
 				<thead>
 					<tr class="column-provider">
-						<th ><span><i class="fa fa-user"></i></span>First Name</th>
-						<th><span><i class="fa fa-envelope-o"></i></span>Email</th>
-						<th><span><i class="fa fa-user-secret"></i></span>About Member</th>
-						<th><span><i class="fa fa-phone"></i></span>Contact</th>
-						<th><span><i class="fa fa-check"></i></span>Status</th>
+						<th class="img"><i class="fa fa-user"></i></th>
+						<th>First Name</th>
+						<th>Email</th>
+						<!--<th>About Member</th>-->
+						<th>Contact</th>
+						<th class="status-col">Status</th>
 					</tr>
 				</thead>
 				<tbody class="smile-style-data">
 					<?php while ($r = $q->fetch()):?>
 					<?php $member_id=  htmlspecialchars($r['member_id']);?>
 						<tr id="<?php echo $member_id; ?>" class="rowp">
+							<td class="img"><img src="avatar9.jpg" /></td>
 							<td class="manage-column convert-plug"><?php echo htmlspecialchars($r['name']);?></td>
 							<td><?php echo htmlspecialchars($r['email']); ?></td>
-							<td><?php echo htmlspecialchars($r['about']); ?></td>
+							<!--<td><?php echo htmlspecialchars($r['about']); ?></td>-->
 							<td><?php echo htmlspecialchars($r['contact']); ?></td>
 							
-							<td>
+							<td class="status-col">
 								<?php 
 								$status=htmlspecialchars($r['status']);
 								$email=htmlspecialchars($r['email']);
 								if($status=='invited'){
-									echo"<i class='fa fa-check-square-o'></i> Invited";
+									echo"<div class='invited-status'><i class='fa fa-check-square-o'></i> Invited</div>";
 								}
 								else if($status == 'already_in_team' ){
 							
-									echo"<i class='fa fa-check-square-o'></i> Invited";
+									echo"<div class='invitedinvited-status'><i class='fa fa-check-square-o'></i> Invited</div>";
 								}
 								else if($status == 'already_invited' ){
 									
-									echo"<i class='fa fa-check-square-o'></i> Invited";
+									echo"<div class='invited-status'><i class='fa fa-check-square-o'></i> Invited</div>";
 								}
 								else if($status == 'declined' ){
 									
-									echo "<i class='fa fa-ban'></i> Declined";
+									echo "<div class='declined-status'><i class='fa fa-ban'></i> Declined</div>";
 									//echo "<button type='submit' class='btn btn-default send_invitation' name='invitebtn' value=".htmlspecialchars($r['email'])."> Invite</button>";
 								}
 								else{
-									echo "<div class='".$member_id." status '>
-									<button type='submit' class='btn btn-default send_invitation' name='invitebtn' value=".$email."> <i class='fa fa-check-circle'></i></button>";
+									echo "<div class='".$member_id." status invite-status'>
+									<button type='submit' class='btn btn-default send_invitation ' name='invitebtn' value=".$email."> <i class='fa fa-check-circle'></i></button>";
 									echo "<button type='button' class='btn btn-default decline' name='declinebtn' value=".$email." > <i class='fa fa-ban'></i></button></div>";
 								}
 								?>
@@ -131,6 +135,6 @@ session_start();
 		</div>
 	</div>
 	<!--##########Error section ends here #########-->
-	
+	</div><!-- subcontainer -->
 </body>
 </html>

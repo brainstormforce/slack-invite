@@ -36,18 +36,13 @@ session_start();
 		<?php if(isset($_SESSION['login_user'])){ 
 		include 'adminfunctions/header.php';
 		?>
-	<div class="container" >
+		<div><?php  include 'adminfunctions/sidebar.php';?></div>
+	<div class="subcontainer" >
 	<div class="row">
 		<div style="margin-left:30px;margin-bottom:50px;"><h2><i class="fa fa-wrench fa-2"></i>  Settings</h2>
 			<h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo.</h5>
 		</div>
-	</div>
-	
-	
-	<div class="col-md-3 .col-md-pull-9 btn-group-vertical" > 	
-		<button class="btn btn-default display_slack_settings" >Slack Settings</button><!-- ### Display Button for slack ####-->
-		<button class="btn btn-default display_emails" >Notification Emails</button><!-- ###  Display button for emails ####-->	
-	</div>		
+	</div>	
 	<div class="col-md-9 .col-md-push-3">
 
 <!---##### Notification emails Setting starts here #####-->
