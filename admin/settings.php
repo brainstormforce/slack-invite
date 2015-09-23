@@ -36,8 +36,10 @@ session_start();
 		<?php if(isset($_SESSION['login_user'])){ 
 		include 'adminfunctions/header.php';
 		?>
-		<div><?php  include 'adminfunctions/sidebar.php';?></div>
+		<div class="wrapper">
+		<div class="addsidebar"><?php  include 'adminfunctions/sidebar.php';?></div>
 	<div class="subcontainer" >
+		<div class="top-menu"><div><button class="btn btn-dafault"><a href='/admin/adminfunctions/logout.php'>Logout</a></button></div></div>
 	<div class="row">
 		<div style="margin-left:30px;margin-bottom:50px;"><h2><i class="fa fa-wrench fa-2"></i>  Settings</h2>
 			<h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo.</h5>
@@ -103,5 +105,6 @@ session_start();
 				</div>";
 			}?>
 	</div>
+</div>
 </body>
 </html>

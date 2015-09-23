@@ -3,7 +3,7 @@
 .invited{display: none;}
 .alert-info,
 .alert-danger{display: none;}
-
+.wrapper{width: 100%;display: table;height: 100vh;}
 /*##### Home page css ###*/
 
 .logo{width:150px;}
@@ -20,7 +20,6 @@ h2{font-family: arial;}
 }
 .menu{
 	min-height:70px;
-	width: 70%;
 	float: right;
 }
 li,a{text-decoration: none;}
@@ -58,6 +57,7 @@ button.btnoff {
 }
 .maincontainer{
     background-color: #F1F1F1;
+    display: table;
 }
 
 .available_Notification_emails{
@@ -73,20 +73,32 @@ button.btnoff {
 /* ******** sidebar css********/
 @media screen and (max-width:900px){
 	.addsidebar{
-		display: none;
+		display: none !important;
 	}
 	.subcontainer{
-		width: 100%!important;
+		width: 100% !important;
 		padding-right: 20px;
 	}
+	.query-menu{
+		position: absolute;
+		top:10px;
+		left: 10px;
+	}
 }
-.sidebar{
-	float: left;
+.addsidebar{	
 	width: 15%;
 	background-color: #2C343F;
 	height: 100%;
+	display: table-cell;
 }
-h3{color:white !important; padding: 10px;}
+.sidebarhead{
+	color:white !important; 
+	padding: 10px;
+	display: block;
+	font-size: 18px;
+	background-color: #3C434D;
+	margin: 0;
+}
 .sidebar ul{
 	margin-left: -40px;
 }
@@ -112,8 +124,19 @@ h3{color:white !important; padding: 10px;}
 	background-color: black;
 }
 /*****  sidebar Ends  ******/
+.top-menu{
+	padding: 10px;
+    margin-bottom: 35px;
+    right: 0;
+    background-color: floralwhite;
+    top: 0;
+    text-align: right;
+}
+.top-menu div{
+	border-radius: 5px;
+}
 .subcontainer{
-	float: left;
+	display: table-cell;
 	width: 80%;
 	padding-left: 20px;
 }
