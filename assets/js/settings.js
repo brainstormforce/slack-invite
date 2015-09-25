@@ -1,5 +1,17 @@
 $(function(){
-	
+			//menu and table viewport control
+			var viewportWidth = $(window).width();
+			if (viewportWidth<600) {
+
+			}
+			jQuery('.query-menu').on('click', function(){
+				jQuery(this).hide();
+				jQuery('.addsidebar').addClass('opensidebar');
+			});
+			jQuery('.closebtn').on('click',function(){
+				jQuery('.addsidebar').removeClass('opensidebar');
+				jQuery('.query-menu').show();
+			});
 // this file is called from settings.php
 // all functions of settings page	
 	jQuery('.email_form').on('submit', function(event) {
@@ -26,8 +38,8 @@ $(function(){
 
 	//slack edit token and url
 	jQuery('.display_token_edit').on('submit', function(event) {
-		//event.preventDefault();
-		//event.stopImmediatePropagation();
+		event.preventDefault();
+		event.stopImmediatePropagation();
 		$.ajax({
 
 					url: 'adminfunctions/settingdetails.php',
@@ -39,7 +51,7 @@ $(function(){
 					},
 				})
 				.done(function(e) {
-						console.log(e);
+						console.log(e.html());
 					
 				})
 				.fail(function(e) {

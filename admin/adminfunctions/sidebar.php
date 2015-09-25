@@ -3,16 +3,9 @@
 require_once ( '../functions/connections.php' );
 
 if(isset($_SESSION['login_user'])){ ?>
-<script type="text/javascript">
-	jQuery(document).ready(function(){
-		jQuery('.subuli').hide();
-		jQuery('#settingspage').on("click", function(){
-						jQuery(".subuli").show();
-					});
-	});
-</script>
+
 <div class='sidebar'>
-	<span class="sidebarhead">Slack Invite</span>
+	<span class="sidebarhead">Slack Invite</span><div class="closebtn">X</div>
 			<ul>
 				<li ><a href='/admin/settings.php'><b id="settingspage">Settings</b></a>
 					<ul class="subuli">	

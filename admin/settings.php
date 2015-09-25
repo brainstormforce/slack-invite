@@ -32,26 +32,32 @@ session_start();
 		});
 	</script>
 </head>
-<body>
-		<?php if(isset($_SESSION['login_user'])){ 
+<body class="maincontainer">
+	<?php if(isset($_SESSION['login_user'])){ 
 		include 'adminfunctions/header.php';
-		?>
-		<div class="wrapper">
+	?>
+	<div class="wrapper">
 		<div class="addsidebar"><?php  include 'adminfunctions/sidebar.php';?></div>
 	<div class="subcontainer" >
-		<div class="top-menu"><div><button class="btn btn-dafault"><a href='/admin/adminfunctions/logout.php'>Logout</a></button></div></div>
+		<div class="top-menu">
+			<div class="query-menu"><i class="fa fa-bars"></i></div>
+			<div>
+				<button class="btn btn-dafault"><a href='/admin/adminfunctions/logout.php'>Logout</a></button>
+			</div>
+		</div>
+	<div class="table-form-content">
 	<div class="row">
 		<div style="margin-left:30px;margin-bottom:50px;"><h2><i class="fa fa-wrench fa-2"></i>  Settings</h2>
 			<h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo.</h5>
 		</div>
 	</div>	
-	<div class="col-md-9 .col-md-push-3">
+	<div >
 
 <!---##### Notification emails Setting starts here #####-->
 
 		<div class="available_Notification_emails">
 		<div class="settings_headings">
-			<h2>Email Notifications</h2>
+			<h4>Email Notifications</h4>
 			<h5>Get notifications on each new invite application.</h5>
 		</div>
 			<?php include 'adminfunctions/notificationemails.php' ?> <!-- notification emails and status will be displayed -->
@@ -86,14 +92,14 @@ session_start();
 	
 	<!-- ##### Slack Settings start here ######-->
 
-		<div class="slack_settings " style="margin-top:20px;">		
-			<div class="subcontainer">
+		<div class="slack_settings" style="margin-top:20px;">		
+		
 				<div class="settings_headings">
 				<h2>Slack Integration Settings</h2>
 				<h4>Update your Slack API details here</h4>
 			</div>
 				<?php include 'adminfunctions/slacktokens.php'; ?> 
-			</div>
+			
 		</div>
 		</div>
 
@@ -104,6 +110,7 @@ session_start();
 					<div><a href='index.php'><input type='button' class='btn btn-default login' name='login' value='Login'></a></div>
 				</div>";
 			}?>
+		</div>
 	</div>
 </div>
 </body>

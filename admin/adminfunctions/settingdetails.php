@@ -17,11 +17,14 @@ if($_POST['ajaxfunction']=='settings_email'){
 
 	//edit slack token and url
 	else if($_POST['ajaxfunction']=='edit_token'){
-		echo $url=$_POST['url'];
-		echo $token=$_POST['token'];
-		$sql="UPDATE `slack_settings` SET `url`=:geturl, `token`=:gettoken WHERE `name`='Raju'";
-		$q=$conn->prepare( $sql );
-		 print_r($q->execute( array( ':geturl'=>$url, ':gettoken'=>$token  ) ) ); 
+		echo $url = $_POST['url'];
+		echo $token = $_POST['token'];
+		$sql = "UPDATE `slack_settings` SET `url`=:geturl, `token`=:gettoken WHERE `name`='Raju'";
+		$q = $conn->prepare( $sql );
+		$result = $q->execute( array( ':geturl'=>$url, ':gettoken'=>$token  ) );
+		 if($result){
+		 	echo "successful";
+		 } 
 		 die();
 		
 	}

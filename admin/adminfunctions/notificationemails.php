@@ -8,7 +8,7 @@
 	include '../functions/connections.php';
 	try{		
 			echo"<form method='post' name='notificationform'>
-			<table >
+			<table class='tablemain'><thead><tr class='column-provider'><th>Name</th><th>Email</th><th>status</th><th>Action</th></tr></thead>
 			";
 			
 			$sqlon="select * from `notification_emails` ";
@@ -43,6 +43,7 @@
 				}
 				echo"</td><td><input class='delete_email' type='checkbox' value='".$email."'> Delete</td>
 			</tr>";
+			/*<td><div class='delete_email' value='".$email."'><i class='fa fa-trash-o '> </i>Delete</td>*/
 			}
 			
 			echo "</table></form>";
