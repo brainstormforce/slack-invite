@@ -56,13 +56,14 @@ session_start();
 				<form method="post" name="invite" class="invite_form">
 					<input type="hidden" name="url" class="slc_url" value="<?php echo $url; ?>">
 					<input type="hidden" name="token" class="slc_token" value="<?php echo $token; ?>">
+					<div class="table-responsive">
 					<table class="tablemain">
 						<thead>
 							<tr class="column-provider">
 								<th class="img"><i class="fa fa-user"></i></th>
 								<th>First Name</th>
 								<th>Email</th>
-								<!--<th>About Member</th>-->
+								<th>About Member</th>
 								<th>Contact</th>
 								<th class="status-col">Status</th>
 							</tr>
@@ -74,7 +75,7 @@ session_start();
 								<td class="img"><img src="avatar9.jpg" /></td>
 								<td class="manage-column convert-plug"><?php echo htmlspecialchars($r['name']);?></td>
 								<td><?php echo htmlspecialchars($r['email']); ?></td>
-								<!--<td><?php echo htmlspecialchars($r['about']); ?></td>-->
+								<td><?php echo htmlspecialchars($r['about']); ?></td>
 								<td><?php echo htmlspecialchars($r['contact']); ?></td>
 								
 								<td class="status-col">
@@ -108,6 +109,7 @@ session_start();
 							<?php endwhile; ?>
 						</tbody>
 					</table>
+				</div>
 			</form>
 			</div>
 			</div>

@@ -139,4 +139,3 @@
 		}); //decline ends here
 		});
 	});
-		

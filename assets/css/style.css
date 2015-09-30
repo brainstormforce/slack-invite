@@ -1,4 +1,4 @@
-.aready_invited,
+@.aready_invited,
 .already_in_team,
 .invited{display: none;}
 .alert-info,
@@ -66,7 +66,7 @@ button.btnoff {
 }
 
 .available_Notification_emails{
-	float: left;
+	/*float: left;*/
 }
 .subcontainerindex{
 	margin:auto;
@@ -117,6 +117,7 @@ button.btnoff {
 	background-color: black;
 }
 /*****  sidebar Ends  ******/
+
 .top-menu{
 	padding: 10px;
     margin-bottom: 35px;
@@ -171,10 +172,16 @@ button.btnoff {
 					height:auto;
 					position:relative;
 			}
-@media screen and (min-width: 901px){
-	.addsidebar{display: block;}
+@media screen and (max-width: 768px){
+	.addsidebar{/*display: block;*/}
+	.tablemain{
+		width: auto !important;
+	}
 }
 @media screen and (max-width:900px){
+	.tablemain >.smile-style-data tr{
+		/*display: block;*/
+	}
 	.addsidebar{
 		display: none;
 	}

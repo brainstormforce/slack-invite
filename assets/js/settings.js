@@ -15,7 +15,7 @@ $(function(){
 // this file is called from settings.php
 // all functions of settings page	
 	jQuery('.email_form').on('submit', function(event) {
-				
+				event.stopImmediatePropagation();
 				$.ajax({
 
 					url: 'adminfunctions/settingdetails.php',
