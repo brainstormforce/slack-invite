@@ -1,17 +1,4 @@
 		$(function(){ 
-			//menu and table viewport control
-			var viewportWidth = $(window).width();
-			if (viewportWidth<600) {
-
-			}
-			jQuery('.query-menu').on('click', function(){
-				jQuery(this).hide();
-				jQuery('.addsidebar').addClass('opensidebar');
-			});
-			jQuery('.closebtn').on('click',function(){
-				jQuery('.addsidebar').removeClass('opensidebar');
-				jQuery('.query-menu').show();
-			});
 		//send invitation for user
 			jQuery('.status').each(function(index, el) {
 				var slc_url=$('.slc_url').val();

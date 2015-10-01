@@ -8,9 +8,23 @@
 .logo{width:150px;}
 .subcontainer{width:500px;}
 h2{font-family: arial;}
-
+.headings{
+	padding: 10px 0;
+}
+h4{
+	padding: 10px 0;
+}
 /* ##### Home page css Ends here ###### */
-
+  .send_invitation + .tooltip > .tooltip-inner {
+      background-color: #8AC007; 
+      color: #FFFFFF; 
+      border: 1px solid green; 
+      padding: 15px;
+      font-size: 20px;
+  }
+.send_invitation + .tooltip.top > .tooltip-arrow {
+      border-top: 5px solid green;
+  }
 .menu ul li {
 	margin-left: 20px;
 	margin-right: 20px;
@@ -137,7 +151,7 @@ button.btnoff {
 .table-form-content{
 	background-color: #fff;
 	box-shadow: 0 2px rgba(0, 0, 0, 0.01);
-	padding: 20px;
+	padding: 0 20px;
 }
 .img img{
 	width: 48px;
