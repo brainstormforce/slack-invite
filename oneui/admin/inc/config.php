@@ -55,7 +55,7 @@ $one->main_nav                     = array(
     array(
         'name'  => '<span class="sidebar-mini-hide">Dashboard</span>',
         'icon'  => 'si si-speedometer',
-        'url'   => 'base_tables_responsive.php'
+        'url'   => 'base_tables_datatables.php'
     ),
     array(
         'name'  => '<span class="sidebar-mini-hide">Settings</span>',
@@ -63,11 +63,12 @@ $one->main_nav                     = array(
         'sub'   => array(
             array(
                 'name'  => 'Slack Settings',
-                'url'   => 'settings.php?display_slack_settings',
+                'url'   => 'slacktokens.php',
+                'class' => 'display_slack_settings',
             ),
             array(
                 'name'  => 'Email Settings',
-                'url'   => 'settings.php',
+                'url'   => 'notificationemails.php',
             ) )
     ),
      array('name' => '<span class="sidebar-mini-hide">Layouts</span>' ,
@@ -75,11 +76,11 @@ $one->main_nav                     = array(
         'sub'   => array(
             array(
                 'name'  => 'Default Layout',
-                'url'   => 'base_tables_responsive.php',
+                'url'   => 'base_tables_datatables.php',
             ),
             array(
                 'name'  => 'Data Table layout',
-                'url'   => 'base_tables_datatables.php',
+                'url'   => 'base_tables_responsive.php',
             ) )
       )
     

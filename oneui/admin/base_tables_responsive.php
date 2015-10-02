@@ -26,8 +26,9 @@
                 if(1){
                 
             ?>
-            <link rel="stylesheet" href="../assets/css/style.css" >
-            <script src="../assets/js/invitees.js"></script>
+<link rel="stylesheet" href="../assets/css/style.css" >
+<script rel="stylesheet" src="assets/js/jquery-1.11.3.min.js"></script>
+<script src="../assets/js/invitees.js"></script>
 <!-- Page Header -->
 <div class="content bg-gray-lighter">
     <div class="row items-push">

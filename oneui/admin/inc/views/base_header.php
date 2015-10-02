@@ -56,7 +56,7 @@
         <li>
             <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
             <button class="btn btn-default" data-toggle="layout" data-action="side_overlay_toggle" type="button">
-                <a href='/admin/adminfunctions/logout.php'><i class="fa fa-power-off"></i></a>
+                <a href='../admin/adminfunctions/logout.php'><i class="fa fa-power-off"></i></a>
             </button>
         </li>
     </ul>

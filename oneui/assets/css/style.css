@@ -131,7 +131,19 @@ button.btnoff {
 	background-color: black;
 }
 /*****  sidebar Ends  ******/
-
+.row{
+	padding-top: 20px;
+	padding-left: 20px;
+}
+.row h1{
+	padding-bottom: 20px;
+}
+.myblock.block.block-rounded.block-content{
+    border-radius: 4px;
+    float: left;
+    width: 100%;
+    padding: 20px;
+}
 .top-menu{
 	padding: 10px;
     margin-bottom: 35px;

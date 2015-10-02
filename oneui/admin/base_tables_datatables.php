@@ -3,7 +3,7 @@
 
 <!-- Page JS Plugins CSS -->
 <link rel="stylesheet" href="<?php echo $one->assets_folder; ?>/js/plugins/datatables/jquery.dataTables.min.css">
-<link rel="stylesheet" href="assets/js/invitees.js"
+<script rel="stylesheet" src="assets/js/jquery-1.11.3.min.js"></script>
 <?php require 'inc/views/template_head_end.php'; 
  require 'inc/views/base_head.php'; 
     $data;

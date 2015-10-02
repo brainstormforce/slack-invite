@@ -4,6 +4,10 @@
 	font-family: "Helvetica", Arial, Sans-serif;
 	margin-bottom: 10px;
 }
+.row{
+	padding-top: 20px;
+	padding-left: 20px;
+}
 /* Main block clearfix */
 .switch_options:before,
 .switch_options:after{
