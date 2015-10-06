@@ -1,9 +1,5 @@
 		jQuery(function(){ 
-/*			jQuery('.table thead tr th:first').on('click',function(){
-				$(this).removeClass('sorting_desc');
-				$(this).removeAttr('aria_sort');
-				$(this).remove('::after');
-			})*/
+
 		//send invitation for user
 			jQuery('.status').each(function(index, el) {
 				var slc_url=$('.slc_url').val();

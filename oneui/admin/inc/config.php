@@ -12,13 +12,13 @@
 require 'classes/Template.php';
 
 // Create a new Template Object
-$one                               = new Template('OneUI', '1.0', 'assets'); // Name, version and assets folder's name
+$one                               = new Template('Slack Invite', '1.0', 'assets'); // Name, version and assets folder's name
 
 // Global Meta Data
 $one->author                       = 'Brainstormforce';
 $one->robots                       = 'noindex, nofollow';
 $one->title                        = 'SlackInvite - Admin Dashboard Template & UI Framework';
-$one->description                  = 'SlackInvite - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest';
+$one->description                  = 'SlackInvite - Admin Dashboard Template & UI Framework created by Brainstormforce and published openSource';
 
 // Global Included Files (eg useful for adding different sidebars or headers per page)
 $one->inc_sidebar                  = 'base_sidebar.php';

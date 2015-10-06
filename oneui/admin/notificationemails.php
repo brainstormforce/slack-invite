@@ -79,9 +79,9 @@
 								<input type='hidden' class='email_val' value=".$email."/>
 							</div>";					
 						}
-						echo"</td><td><input class='delete_email' type='checkbox' value='".$email."'> Delete</td>
+						echo"</td><td><i class='fa fa-trash-o delete_email' data-file=".$email."> </i>&nbsp&nbsp&nbspDelete</td>
 					</tr></tbody>";
-					/*<td><div class='delete_email' value='".$email."'><i class='fa fa-trash-o '> </i>Delete</td>*/
+					/*<input class='fa fa-trash-o delete_email' type='checkbox' value='".$email."'> Delete*/
 					}
 					
 					echo "</table></form> </div>";

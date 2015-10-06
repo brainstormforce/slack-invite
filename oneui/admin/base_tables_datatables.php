@@ -1,10 +1,11 @@
-<?php require 'inc/config.php'; ?>
+<?php session_start(); require 'inc/config.php'; ?>
 <?php require 'inc/views/template_head_start.php'; ?>
 
 <!-- Page JS Plugins CSS -->
 <link rel="stylesheet" href="<?php echo $one->assets_folder; ?>/js/plugins/datatables/jquery.dataTables.min.css">
 <script rel="stylesheet" src="assets/js/jquery-1.11.3.min.js"></script>
 <?php require 'inc/views/template_head_end.php'; 
+if(isset($_SESSION['login_user'])){
  require 'inc/views/base_head.php'; 
     $data;
     include 'adminfunctions/header.php';
@@ -21,11 +22,10 @@
     catch(PDOException $e) {
         echo $e->getMessage();
     }
+    
             $slc=$q_slack->fetch();
              $url=$slc['url'];
              $token=$slc['token'];
-            
-                if(1){
                 
             ?>
             <link rel="stylesheet" href="../assets/css/style.css" >
@@ -35,13 +35,12 @@
     <div class="row items-push">
         <div class="col-sm-7">
             <h1 class="page-heading">
-                DataTables <small>Tables transformed with dynamic features. Powered by DataTables.</small>
+                Invitees Table <small>Table Shows Users Who have requested to join slack</small>
             </h1>
         </div>
         <div class="col-sm-5 text-right hidden-xs">
             <ol class="breadcrumb push-10-t">
-                <li>Tables</li>
-                <li><a class="link-effect" href="">DataTables</a></li>
+                <li><a class="link-effect" href="">Invitees Table</a></li>
             </ol>
         </div>
     </div>
@@ -52,9 +51,6 @@
 <div class="content">
     <!-- Dynamic Table Full -->
     <div class="block">
-        <div class="block-header">
-            <h3 class="block-title">Dynamic Table <small>Full</small></h3>
-        </div>
         <form method="post" name="invite" class="invite_form">
             <input type="hidden" name="url" class="slc_url" value="<?php echo $url; ?>">
             <input type="hidden" name="token" class="slc_token" value="<?php echo $token; ?>">
@@ -114,7 +110,7 @@
                             </div>
                         </td>
                     </tr>
-                    <?php endwhile; } ?>
+                    <?php endwhile;  ?>
                 </tbody>
             </table>
             </div>
@@ -124,7 +120,11 @@
     </div>
 <!-- END Page Content -->
 
-<?php require 'inc/views/base_footer.php'; ?>
+<?php } else{ ?><div style='text-align: center;'><h2>Please Login to view this page!!!!!!!!!!</h2>
+                            please go to login page!!<br>
+                            <div><a href='index.php'><input type='button' class='btn btn-default login' name='login' value='Login'></a></div>
+                        </div>
+<?php } require 'inc/views/base_footer.php'; ?>
 <?php require 'inc/views/template_footer_start.php'; ?>
 
 <!-- Page JS Plugins -->

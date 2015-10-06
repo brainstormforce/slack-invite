@@ -1,14 +1,4 @@
 <?php include 'includeRequired.php';?>
-	<script type="text/javascript">
-		jQuery(document).ready(function(){
-			jQuery(".display_token_edit").css('display', 'none');
-			jQuery('#display_button').click(function(event) {
-						jQuery(".display_token_edit").css('display', 'block');
-						jQuery(".display_token").css('display', 'none');
-						jQuery(this).css('display', 'none');
-					});	
-		});
-	</script>
 	<?php if(isset($_SESSION['login_user'])){ 
 		include 'adminfunctions/header.php';	
 	?>	
@@ -36,6 +26,7 @@ while($result=$rs->fetch()){
 			jQuery('#display_button').click(function(event) {
 						jQuery(".display_token_edit").css('display', 'block');
 						jQuery(".display_token").css('display', 'none');
+						jQuery(".form-control.url").css('display', 'none');
 						jQuery(this).css('display', 'none');
 					});	
 		});
@@ -47,7 +38,7 @@ $rs->setFetchMode(PDO::FETCH_ASSOC);
 echo "</div>";
 echo"<form  method='post' class='form display_token_edit' >";
 while($result=$rs->fetch()){	
-	echo "<div class='col-sm-9'><label for='material-text'>Token url </label><input type=text class='form-control url form-control'  value=".$result['url']." name='slack_url'></div>";
+	echo "<div class='col-sm-9'><label for='material-text'>You only need to change your Token Id !!! </label><input type=text class='form-control url form-control'  value=".$result['url']." name='slack_url'></div>";
 	echo "<div class='col-sm-9'><label for='material-text'>Token id</label><input type=text class='form-control token' value=".$result['token']." name='slack_token'></div>";
 }
 echo "<div class='col-sm-9' style='padding-top:10px;'><input type='submit' class='btn btn-default' name='submitbtn' value='Submit'></div></form>";

@@ -61,7 +61,7 @@
                     </ul>
                 </div>
                 <a class="h5 text-white" href="index.php">
-                    <i class="fa fa-circle-o-notch text-primary"></i> <span class="h4 font-w600 sidebar-mini-hide">ne</span>
+                    <i class="fa fa-rocket"></i> <span class="h4 font-w600 sidebar-mini-hide">Slack Invite</span>
                 </a>
             </div>
             <!-- END Side Header -->

@@ -1,6 +1,6 @@
 /*
  *  Document   : base_tables_datatables.js
- *  Author     : pixelcave
+ *  Author     : BrainstormForce
  *  Description: Custom JS code used in Tables Datatables Page
  */
 
@@ -8,7 +8,7 @@ var BaseTableDatatables = function() {
     // Init full DataTable, for more examples you can check out https://www.datatables.net/
     var initDataTableFull = function() {
         jQuery('.js-dataTable-full').dataTable({
-            columnDefs: [ { orderable: true, targets: [ 4 ] } ],
+            columnDefs: [ { orderable: false, targets: [ 0,3 ] } ],
             pageLength: 10,
             lengthMenu: [[5, 10, 15, 20], [5, 10, 15, 20]]
         });

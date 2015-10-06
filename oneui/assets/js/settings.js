@@ -49,16 +49,16 @@ $(function(){
 
 
 jQuery(".delete_email").on('click', function(event) {
-			if(confirm("Are you sure you want to delete this? "+$(this).val())){
+			if(confirm("Are you sure you want to delete this? "+$(this).data('file'))){
 			        $.ajax({
 			        	url: 'adminfunctions/settingdetails.php',
 						type: 'POST',
 			        	dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-			        	data: {ajaxfunction: 'delete',delete_email: $(this).val()},
+			        	data: {ajaxfunction: 'delete',delete_email: $(this).data('file')},
 			        	
 			        })
 			        .done(function(e) {
-			        	if(e.statusText=='ok'){
+			        	if(e.responseText=='ok'){
 			           	console.log("success");
 			        	}
 			        	console.log(e);
