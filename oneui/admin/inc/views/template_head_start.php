@@ -2,7 +2,7 @@
 /**
  * template_head_start.php
  *
- * Author: pixelcave
+ * Author: BrainstormForce
  *
  * The first block of code used in every page of the template
  *

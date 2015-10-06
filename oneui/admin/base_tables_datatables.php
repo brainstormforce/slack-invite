@@ -21,7 +21,6 @@
     catch(PDOException $e) {
         echo $e->getMessage();
     }
-
             $slc=$q_slack->fetch();
              $url=$slc['url'];
              $token=$slc['token'];
@@ -73,9 +72,15 @@
                 </thead>
                 <tbody>
                     <?php while ($r = $q->fetch()):?>
-                        <?php $member_id=  htmlspecialchars($r['member_id']);?>
+                        <?php $member_id=  htmlspecialchars($r['member_id']); $email=htmlspecialchars($r['email']);?>
                     <tr id="<?php echo $member_id; ?>">
-                        <td class="text-center"><img src="avatar9.jpg" width="38" height="38"/></td>
+                        <td class="text-center">
+                            <?php
+                                $size = 40;
+                                $grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=mm&s=" . $size;
+                            ?>
+                            <img src="<?php echo $grav_url; ?>" alt="" />
+                        </td>
                         <td class="font-w600 manage-column convert-plug"><?php echo htmlspecialchars($r['name']);?></td>
                         <td class="hidden-xs"><?php echo htmlspecialchars($r['email']); ?></td>
                         <td class="hidden-xs">
@@ -85,7 +90,6 @@
                             <div class="btn-group">
                                  <?php 
                                 $status=htmlspecialchars($r['status']);
-                                $email=htmlspecialchars($r['email']);
                                 if($status=='invited'){
                                     echo"<i class='fa fa-check-square-o'></i> Invited";
                                 }

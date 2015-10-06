@@ -15,13 +15,12 @@ require 'classes/Template.php';
 $one                               = new Template('OneUI', '1.0', 'assets'); // Name, version and assets folder's name
 
 // Global Meta Data
-$one->author                       = 'pixelcave';
+$one->author                       = 'Brainstormforce';
 $one->robots                       = 'noindex, nofollow';
-$one->title                        = 'OneUI - Admin Dashboard Template & UI Framework';
-$one->description                  = 'OneUI - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest';
+$one->title                        = 'SlackInvite - Admin Dashboard Template & UI Framework';
+$one->description                  = 'SlackInvite - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest';
 
 // Global Included Files (eg useful for adding different sidebars or headers per page)
-$one->inc_side_overlay             = 'base_side_overlay.php';
 $one->inc_sidebar                  = 'base_sidebar.php';
 $one->inc_header                   = 'base_header.php';
 
@@ -71,17 +70,9 @@ $one->main_nav                     = array(
                 'url'   => 'notificationemails.php',
             ) )
     ),
-     array('name' => '<span class="sidebar-mini-hide">Layouts</span>' ,
+     array('name' => '<span class="sidebar-mini-hide">Invitees</span>' ,
         'icon'  => 'si si-grid',
-        'sub'   => array(
-            array(
-                'name'  => 'Default Layout',
-                'url'   => 'base_tables_datatables.php',
-            ),
-            array(
-                'name'  => 'Data Table layout',
-                'url'   => 'base_tables_responsive.php',
-            ) )
-      )
+        'url'   => 'base_tables_datatables.php',
+         )
     
 );

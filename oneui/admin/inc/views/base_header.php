@@ -22,42 +22,36 @@
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li class="dropdown-header">Profile</li>
                     <li>
-                        <a tabindex="-1" href="base_pages_inbox.php">
+                        <a tabindex="-1" href="#">
                             <i class="si si-envelope-open pull-right"></i>
                             <span class="badge badge-primary pull-right">3</span>Inbox
                         </a>
                     </li>
                     <li>
-                        <a tabindex="-1" href="base_pages_profile.php">
+                        <a tabindex="-1" href="#">
                             <i class="si si-user pull-right"></i>
                             <span class="badge badge-success pull-right">1</span>Profile
                         </a>
                     </li>
                     <li>
-                        <a tabindex="-1" href="javascript:void(0)">
+                        <a tabindex="-1" href="#">
                             <i class="si si-settings pull-right"></i>Settings
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li class="dropdown-header">Actions</li>
                     <li>
-                        <a tabindex="-1" href="base_pages_lock.php">
+                        <a tabindex="-1" href="#">
                             <i class="si si-lock pull-right"></i>Lock Account
                         </a>
                     </li>
                     <li>
-                        <a tabindex="-1" href="base_pages_login.php">
+                        <a tabindex="-1" href="../admin/adminfunctions/logout.php">
                             <i class="si si-logout pull-right"></i>Log out
                         </a>
                     </li>
                 </ul>
             </div>
-        </li>
-        <li>
-            <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-            <button class="btn btn-default" data-toggle="layout" data-action="side_overlay_toggle" type="button">
-                <a href='../admin/adminfunctions/logout.php'><i class="fa fa-power-off"></i></a>
-            </button>
         </li>
     </ul>
     <!-- END Header Navigation Right -->
