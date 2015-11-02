@@ -14,6 +14,42 @@ h2{font-family: arial;}
 h4{
 	padding: 10px 0;
 }
+ /*### Login page css ####*/
+.container.index{
+	width:30%;border-radius: 5px;margin-top: 50px;
+	background-color: #7998B7;
+}
+.login-heading h1{
+	text-align: center;
+	font-weight: 700;
+}
+.login-index{
+		/*background-image: url('../../admin/slack-large.png');*/
+		background: linear-gradient(to left, #9C7F7F, #96886F, #7D7D61, #5D735D, #9595C5, #5D5860, #A495A4);
+}
+.submitbutton{
+	padding: 10px 15px;
+}
+.custom-submitbtn{
+	width: 100%;
+	background-color: #337ab7;
+    border-color: #2e6da4;
+    color: #ffffff;
+}
+.custom-submitbtn:hover{
+	background-color: #2e6da4;
+	border-color: #337ab7;
+	color: #fff;
+}
+.full-contain{
+	padding:0 16px;
+}
+.control-label{
+	padding-left: 15px;
+	padding-bottom: 10px;
+
+}
+
 /* ##### Home page css Ends here ###### */
   .send_invitation + .tooltip > .tooltip-inner {
       background-color: #8AC007; 
@@ -86,8 +122,11 @@ button.btnoff {
 	margin:auto;
 	width:500px;
 }
-.delete_email:hover{
-	font-size: 20px;
+.fa.fa-trash-o.delete_email:hover{
+	font-size: 25px;
+}
+i.fa.fa-trash-o {
+    font-size: 20px;
 }
 /* ******** sidebar css********/
 
@@ -131,7 +170,18 @@ button.btnoff {
 	background-color: black;
 }
 /*****  sidebar Ends  ******/
-
+.row{
+	padding-top: 20px;
+}
+.row h1{
+	padding-bottom: 20px;
+}
+.myblock.block.block-rounded.block-content{
+    border-radius: 4px;
+    float: left;
+    width: 100%;
+    padding: 20px;
+}
 .top-menu{
 	padding: 10px;
     margin-bottom: 35px;
@@ -141,9 +191,8 @@ button.btnoff {
 }
 .subcontainer{
 	display: inline-block;
-	width: 80%;
-	padding-left: 20px;
-	margin-left: 200px;
+	width: 100%;
+	padding:0 20px;
 }
 .column-provider span{
 

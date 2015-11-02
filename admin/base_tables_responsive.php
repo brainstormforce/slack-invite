@@ -3,7 +3,6 @@
 <?php require 'inc/views/template_head_end.php'; ?>
 <?php require 'inc/views/base_head.php'; ?>
 <?php
-session_start();
     $data;
     include 'adminfunctions/header.php';
     try {
@@ -24,11 +23,12 @@ session_start();
              $url=$slc['url'];
              $token=$slc['token'];
             
-                if(isset($_SESSION['login_user'])){
+                if(1){
                 
             ?>
-            <link rel="stylesheet" href="../assets/css/style.css" >
-            <script src="../assets/js/invitees.js"></script>
+<link rel="stylesheet" href="../assets/css/style.css" >
+<script rel="stylesheet" src="assets/js/jquery-1.11.3.min.js"></script>
+<script src="../assets/js/invitees.js"></script>
 <!-- Page Header -->
 <div class="content bg-gray-lighter">
     <div class="row items-push">
@@ -104,8 +104,8 @@ session_start();
                                 }
                                 else{
                                     echo "<div class='".$member_id." status '>
-                                    <button type='submit' class='btn btn-default send_invitation' name='invitebtn' value=".$email."> <i class='fa fa-check-circle'></i></button>";
-                                    echo "<button type='button' class='btn btn-default decline' name='declinebtn' value=".$email." > <i class='fa fa-ban'></i></button></div>";
+                                    <button type='submit' class='btn btn-default send_invitation' data-toggle='tooltip' title='Send Invitation' name='invitebtn' value=".$email."> <i class='fa fa-check-circle'></i></button>";
+                                    echo "<button type='button' class='btn btn-default decline' data-toggle='tooltip' title='Decline Member' name='declinebtn' value=".$email." > <i class='fa fa-ban'></i></button></div>";
                                 }
                                 ?>
                                 </div>

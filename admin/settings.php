@@ -1,29 +1,19 @@
 <?php
 session_start();
+ require 'inc/config.php';
+ require 'inc/views/template_head_start.php';
+ require 'inc/views/template_head_end.php';
+ require 'inc/views/base_head.php';
 ?>
-<html>
-<head><title>Settings</title>
+
 	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="../assets/css/style.css" />
 	<link rel="stylesheet" href="../assets/css/font-awesome/css/font-awesome.min.css" />
 	<script src="../assets/js/jquery-1.11.3.min.js" ></script>
-	<script type="text/javascript" src="../assets/js/settings.js" ></script>
+	<script type="text/javascript" src="assets/js/settings.js" ></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
-				jQuery(".slack_settings").hide();
-				jQuery(".display_token_edit").css('display', 'none');
-
-				jQuery(".display_slack_settings").on("click", function(){
-						jQuery(".email_settings").hide();
-			    		jQuery(".slack_settings").show();
-			    		jQuery(".available_Notification_emails").hide();
-			    	});
-				jQuery(".display_emails").on("click", function(){
-						jQuery(".email_settings").show();
-			    		jQuery(".slack_settings").hide();
-			    		jQuery(".available_Notification_emails").show();
-			    	});
-
+			jQuery(".display_token_edit").css('display', 'none');
 			jQuery('#display_button').click(function(event) {
 						jQuery(".display_token_edit").css('display', 'block');
 						jQuery(".display_token").css('display', 'none');
@@ -37,14 +27,7 @@ session_start();
 		include 'adminfunctions/header.php';
 	?>
 	<div class="wrapper">
-		<div class="addsidebar"><?php  include 'adminfunctions/sidebar.php';?></div>
 	<div class="subcontainer" >
-		<div class="top-menu">
-			<div class="query-menu"><i class="fa fa-bars"></i></div>
-			<div>
-				<button class="btn btn-dafault"><a href='/admin/adminfunctions/logout.php'>Logout</a></button>
-			</div>
-		</div>
 	<div class="table-form-content">
 	<div class="row">
 		<div style="margin-left:30px;margin-bottom:50px;"><h2><i class="fa fa-wrench fa-2"></i>  Settings</h2>
@@ -89,6 +72,8 @@ session_start();
 			</form>
 			</div>
 		</div>
+		<?php }
+		else{ ?>
 	
 	<!-- ##### Slack Settings start here ######-->
 
@@ -104,7 +89,8 @@ session_start();
 		</div>
 
 
-		<?php }else{
+		<?php } 
+	}else{
 			echo "<div><h2>Please Login to view this page!!!!!!!!!!</h2>
 					please go to login page!!<br>
 					<div><a href='index.php'><input type='button' class='btn btn-default login' name='login' value='Login'></a></div>

@@ -27,7 +27,7 @@
 							$_SESSION['login_user']=$username;
 							echo"  login Successfull";
 							echo $_SESSION['login_user'];
-							header('location:../invitees.php');
+							header('location:../base_tables_datatables.php');
 						}
 						else {
 							$error = "  Password is invalid";

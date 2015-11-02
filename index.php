@@ -47,6 +47,7 @@
 
 			<div class="alert alert-info" role="alert">
 				<h3>your entry submitted</h3>
+				<h6><a href="index.php">Another Regitration ?..</a></h6>
 			</div>
 			<div class="alert alert-danger" role="alert">
 				<h3>your entry could not be submitted please try again later</h3>

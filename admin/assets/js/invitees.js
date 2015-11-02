@@ -1,4 +1,4 @@
-		jQuery(function(){ 
+		$(function(){ 
 			jQuery('.table thead tr th:first-child').removeClass('sorting_asc');/*removeClass('sorting_asc');*/
 		//send invitation for user
 			jQuery('.status').each(function(index, el) {

@@ -1,17 +1,5 @@
 $(function(){
-			//menu and table viewport control
-			var viewportWidth = $(window).width();
-			if (viewportWidth<600) {
 
-			}
-			jQuery('.query-menu').on('click', function(){
-				jQuery(this).hide();
-				jQuery('.addsidebar').addClass('opensidebar');
-			});
-			jQuery('.closebtn').on('click',function(){
-				jQuery('.addsidebar').removeClass('opensidebar');
-				jQuery('.query-menu').show();
-			});
 // this file is called from settings.php
 // all functions of settings page	
 	jQuery('.email_form').on('submit', function(event) {
@@ -51,7 +39,7 @@ $(function(){
 					},
 				})
 				.done(function(e) {
-						console.log(e.html());
+						console.log(e);
 					
 				})
 				.fail(function(e) {
@@ -61,16 +49,16 @@ $(function(){
 
 
 jQuery(".delete_email").on('click', function(event) {
-			if(confirm("Are you sure you want to delete this? "+$(this).val())){
+			if(confirm("Are you sure you want to delete this? "+$(this).data('file'))){
 			        $.ajax({
 			        	url: 'adminfunctions/settingdetails.php',
 						type: 'POST',
 			        	dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-			        	data: {ajaxfunction: 'delete',delete_email: $(this).val()},
+			        	data: {ajaxfunction: 'delete',delete_email: $(this).data('file')},
 			        	
 			        })
 			        .done(function(e) {
-			        	if(e.statusText=='ok'){
+			        	if(e.responseText=='ok'){
 			           	console.log("success");
 			        	}
 			        	console.log(e);

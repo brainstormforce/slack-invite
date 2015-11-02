@@ -16,12 +16,9 @@
 table{
   width: 100%;
   max-width: 100%;
-  background: #FDFDFD;
   border-radius: 0;
   overflow: hidden;
-  margin-bottom: 41px !important;
   table-layout: fixed !important;
-  padding: 25px 15px;
   font-family: open sans;
   font-weight: 400;
   font-size: 14px;
@@ -52,9 +49,8 @@ td{color:#555;}
   letter-spacing: 0.35px;
   color: #757575;
 }
-span{
+table span{
   margin-right: 10px;
-  font-size: 24px;
 }
 .img{
   padding:5px 5px !important;
@@ -69,4 +65,9 @@ span{
 }
 .manage-column{
   font-weight: 700;
+}
+.tablemain thead .column-provider th{
+  background-color: #fff;
+  color: #646464;
+  border-bottom-color:grey;
 }
