@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
+
 @.aready_invited,
 .already_in_team,
 .invited{display: none;}
@@ -23,9 +25,17 @@ h4{
 	text-align: center;
 	font-weight: 700;
 }
+.login-heading li.section1 {
+    float: left;
+    list-style: none;
+}
+.login-heading li.section2 {
+    float: right;
+    list-style: none;
+}
 .login-index{
 		/*background-image: url('../../admin/slack-large.png');*/
-		background: linear-gradient(to left, #9C7F7F, #96886F, #7D7D61, #5D735D, #9595C5, #5D5860, #A495A4);
+		background: #f5f5f5;
 }
 .submitbutton{
 	padding: 10px 15px;
@@ -49,7 +59,91 @@ h4{
 	padding-bottom: 10px;
 
 }
-
+/*Login Page by anil*/
+.login-index .full-width {
+	width: 31%;
+	margin:auto;
+	padding-top: 10px;
+	font-family: 'Source Sans Pro', sans-serif;	
+}
+.bg-primary {
+    background-color: #5c90d2;
+    width: 100%;
+    height: 47px;
+}
+.block-options {
+    float: right;
+    margin: -3px 0 -3px 15px;
+    padding: 0;
+    height: 24px;
+    list-style: none;
+    padding: 15px 20px;
+    color:#CCCCCC;
+}
+.block-title {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.2;
+    padding: 15px 20px;
+}
+.block-content.block-content-narrow {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.block-content.block-content-full {
+    padding: 20px;
+    background: #fff;
+}
+.form-heading {
+    color: #646464;
+    font-weight: 600;
+    font-size: 30px;
+    padding: 0 20px;
+    font-family: 'Source Sans Pro', sans-serif;	
+}
+p {
+	color:  #646464;
+	font-size: 16px;
+    line-height: 20px;
+    padding: 0 20px;
+    margin-bottom:35px; 
+}
+.form-group {
+    padding: 0 20px;
+}
+.form-material {
+    position: relative;
+    margin: 10px 0 10px;
+}
+.form-group .control-label {
+	padding-top: 5px;
+    position: absolute;
+    color: #646464;
+    font-size: 16px;
+    font-weight: 500;
+}
+.form-group input[type="text"] {
+	border-right-color: #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    box-shadow: none !important;
+    margin-bottom: 27px;
+}
+.form-group input[type="password"] {
+	border-right-color: #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    box-shadow: none !important;
+ }
+@media (max-width:768px) {
+	.login-index .full-width {
+		width: 99%;
+		margin:auto;
+		padding-top: 10px;
+	}
+}
+/*End*/
 /* ##### Home page css Ends here ###### */
   .send_invitation + .tooltip > .tooltip-inner {
       background-color: #8AC007; 
