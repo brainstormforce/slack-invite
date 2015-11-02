@@ -92,7 +92,7 @@ h4{
     padding-right: 10%;
 }
 .block-content.block-content-full {
-    padding: 20px;
+    padding: 27px 20px; 
     background: #fff;
 }
 .form-heading {
@@ -116,12 +116,24 @@ p {
     position: relative;
     margin: 10px 0 10px;
 }
-.form-group .control-label {
+.form-group>label {
 	padding-top: 5px;
     position: absolute;
     color: #646464;
     font-size: 16px;
     font-weight: 500;
+    cursor: text;
+    z-index: 10;
+}
+.form-group>label:focus {
+    padding-top: 5px;
+    position: absolute;
+    color: #646464;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: text;
+    transform: translateY(-24px);
+    z-index: 10;
 }
 .form-group input[type="text"] {
 	border-right-color: #fff;
@@ -135,7 +147,18 @@ p {
     border-top-color: #fff;
     border-left-color: #fff;
     box-shadow: none !important;
- }
+    margin-bottom: 27px;
+}
+input.login-button {
+    outline: 0;
+    border: 1px solid;
+    color: #fff;
+    background-color: #5c90d2;
+    border-color: #3675c5;
+    width: 91px;
+    height: 35px;
+    border-radius: 3px;
+}
 @media (max-width:768px) {
 	.login-index .full-width {
 		width: 99%;

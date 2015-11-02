@@ -27,17 +27,19 @@ header("location:base_tables_datatables.php");
             <div class="form-material form-material-primary floating">
               <form class="form-horizontal" action="adminfunctions/profile.php" method="post">
               	<div class="form-group">
-              	 	
-                    <input class="form-control" name="username" type="text">
-                    <label class="control-label">UserName </label>
+              		<label class="control-label">UserName </label>
+                    <input class="form-control" name="username" type="text">   
 				</div>
 				<div class="form-group">
-              	 	
-              	 	 <input class="form-control" name="password" type="password">
-              	 	 <label class="control-label">Password</label>
-                   
+					 <label class="control-label">Password</label>
+					 <input class="form-control" name="password" type="password">
 				</div>
-				
+				<div class="form-group">
+							<div class="loginbutton">
+								<input class="login-button" name="submit" type="submit" value=" Login ">
+								
+							</div>
+					</div>
               </form>
             </div>
 		</div>
