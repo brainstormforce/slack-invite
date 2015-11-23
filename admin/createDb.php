@@ -30,14 +30,14 @@ try {
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "CREATE DATABASE IF NOT EXISTS  $dbname";
-            
             // use exec() because no results are returned
             if($conn->exec($sql)){
                 echo "Database created successfully<br>";
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
                 
                 //creating members Table
-                $sqlmember = "CREATE TABLE members (
+                   $sqlmember = "CREATE TABLE members (
                     member_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
                     name VARCHAR(30) NOT NULL,
                     email VARCHAR(50) NOT NULL,
@@ -45,7 +45,7 @@ try {
                     contact VARCHAR(12),
                     status  CHAR(25)
                 )";
-            
+
                 if ($conn->query($sqlmember) ) {
                     echo "Table  created for members successfully<br>";
                 } else {
@@ -59,13 +59,12 @@ try {
                     email VARCHAR(50) NOT NULL,
                     status  CHAR(5)
                     )";
-            
                  if ($conn->query($sqlnotification)) {
                     echo "Table created for notification emails created successfully<br>";
                 } else {
                     echo "Error creating table notifications<br>" ;
                 }
-            
+
                 //creating table for Slack setting
                     $sqlsettings="CREATE TABLE slack_settings(
                     id int(3) AUTO_INCREMENT PRIMARY KEY,
@@ -74,19 +73,20 @@ try {
                     token  CHAR(100),
                     status CHAR(10)
                     )";
-            
+
                  if ($conn->query($sqlsettings) ) {
                     echo "Table created for settings successfully<br>";
                 } else {
                     echo "Error creating table for Settings<br> " ;
                 }
-            
+
                 //creating table for user admin
                  $sqladmin="CREATE TABLE user_admin(
                     user_id int(3) AUTO_INCREMENT PRIMARY KEY,
                     user_name VARCHAR(30) NOT NULL,
                     passwd VARCHAR(10) NOT NULL
                     )";
+
             
                  if ($conn->query($sqladmin) ) {
                     echo "Table created for Admin successfully<br>";?>
@@ -112,6 +112,7 @@ $conn = null;
 }
 ?>
     <h3>Please Create Database</h3>
+
     <table widh="200">
         
         <form action='' method="post" class="form-control   ">

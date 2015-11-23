@@ -1,3 +1,4 @@
+
 @.aready_invited,
 .already_in_team,
 .invited{display: none;}
@@ -130,152 +131,153 @@ i.fa.fa-trash-o {
 }
 /* ******** sidebar css********/
 
-.addsidebar{	
-	width: 15%;
-	background-color: #2C343F;
-	height: 100%;
-	display: inline-block;
-	position: fixed;
+.addsidebar {
+    width: 15%;
+    background-color: #2C343F;
+    height: 100%;
+    display: inline-block;
+    position: fixed;
 }
-.sidebarhead{
-	color:white !important; 
-	padding: 10px;
-	display: block;
-	font-size: 18px;
-	background-color: #3C434D;
-	margin: 0;
+.sidebarhead {
+    color: white !important;
+    padding: 10px;
+    display: block;
+    font-size: 18px;
+    background-color: #3C434D;
+    margin: 0;
 }
-.sidebar ul{
-	margin-left: -40px;
+.sidebar ul {
+    margin-left: -40px;
 }
-.sidebar ul li{
-	padding: 10px;
-	width: 100%;
-	margin-left: 0px;
-	font-weight: 700;
-	list-style: none;
+.sidebar ul li {
+    padding: 10px;
+    width: 100%;
+    margin-left: 0px;
+    font-weight: 700;
+    list-style: none;
 }
 .sidebar ul li a,
-.sidebar ul li{
-	color: rgba(255, 255, 255, 0.3)
+.sidebar ul li {
+    color: rgba(255, 255, 255, 0.3)
 }
 .sidebar ul li a:hover,
-.sidebar ul li:hover{ 
-	color: white;
+.sidebar ul li:hover {
+    color: white;
 }
-.sidebar ul li a:active{
-	color: white;
+.sidebar ul li a:active {
+    color: white;
 }
-.sidebar ul li:hover{
-	background-color: black;
+.sidebar ul li:hover {
+    background-color: black;
 }
 /*****  sidebar Ends  ******/
-.row{
-	padding-top: 20px;
+
+.row {
+    padding-top: 20px;
 }
-.row h1{
-	padding-bottom: 20px;
+.row h1 {
+    padding-bottom: 20px;
 }
-.myblock.block.block-rounded.block-content{
+.myblock.block.block-rounded.block-content {
     border-radius: 4px;
     float: left;
     width: 100%;
     padding: 20px;
 }
-.top-menu{
-	padding: 10px;
+.top-menu {
+    padding: 10px;
     margin-bottom: 35px;
     right: 0;
     top: 0;
     text-align: right;
 }
-.subcontainer{
-	display: inline-block;
-	width: 100%;
-	padding:0 20px;
+.subcontainer {
+    display: inline-block;
+    width: 100%;
+    padding: 0 20px;
 }
-.column-provider span{
-
+.column-provider span {} .table-form-content {
+    background-color: #fff;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.01);
+    padding: 0 20px;
 }
-.table-form-content{
-	background-color: #fff;
-	box-shadow: 0 2px rgba(0, 0, 0, 0.01);
-	padding: 0 20px;
-}
-.img img{
-	width: 48px;
+.img img {
+    width: 48px;
     height: 48px;
 }
-.invited-status{
-	background-color: #5c90d2;
-	border: 1px	solid #5c90d2;
-	border-radius: 2px;
-	color: white;
-	font-weight: 700;
-	font-size: 12px;
-	text-align: center;
+.invited-status {
+    background-color: #5c90d2;
+    border: 1px solid #5c90d2;
+    border-radius: 2px;
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
 }
-.invite-status .send_invitation:hover{
-	background-color: #5c90d2;
+.invite-status .send_invitation:hover {
+    background-color: #5c90d2;
 }
-.invite-status .decline:hover{
-	background-color: #d26a5c;
+.invite-status .decline:hover {
+    background-color: #d26a5c;
 }
-.declined-status{
-	background-color: #d26a5c;
-	border: 1px	solid #d26a5c;
-	border-radius: 2px;
-	color: white;
-	font-weight: 700;
-	font-size: 12px;
+.declined-status {
+    background-color: #d26a5c;
+    border: 1px solid #d26a5c;
+    border-radius: 2px;
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
 }
-.addsidebar.opensidebar{
-					display: block;
-					width: 100%;
-					height:auto;
-					position:relative;
-			}
-@media screen and (max-width: 768px){
-	.addsidebar{/*display: block;*/}
-	.tablemain{
-		width: auto !important;
-	}
+.addsidebar.opensidebar {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
 }
-@media screen and (max-width:900px){
-	.tablemain >.smile-style-data tr{
-		/*display: block;*/
-	}
-	.addsidebar{
-		display: none;
-	}
-	.closebtn{
-		color: white;
-		position: absolute;
-		top: 0;
-		right: 10px;font-size: 18px;
-		padding: 10px;
-		background-color: grey;
-	}
-	.closebtn:hover{
-		cursor: pointer;
-	}
-	.subcontainer{
-		width: 100% !important;
-		padding-right: 20px;
-		margin-left: 0;
-	}
-	.query-menu{
-		position: absolute;
-		display: block;
-		top:10px;
-		left: 20px;
-		border: 1px;
-		padding:5px;
-		border-radius: 3px;
-		background-color: grey;
-	}
-	.query-menu:hover{
-		background-color: white;
-		cursor: pointer;
-	}
+@media screen and (max-width: 768px) {
+    .addsidebar {
+        /*display: block;*/
+    }
+    .tablemain {
+        width: auto !important;
+    }
+}
+@media screen and (max-width: 900px) {
+    .tablemain >.smile-style-data tr {
+        /*display: block;*/
+    }
+    .addsidebar {
+        display: none;
+    }
+    .closebtn {
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-size: 18px;
+        padding: 10px;
+        background-color: grey;
+    }
+    .closebtn:hover {
+        cursor: pointer;
+    }
+    .subcontainer {
+        width: 100% !important;
+        padding-right: 20px;
+        margin-left: 0;
+    }
+    .query-menu {
+        position: absolute;
+        display: block;
+        top: 10px;
+        left: 20px;
+        border: 1px;
+        padding: 5px;
+        border-radius: 3px;
+        background-color: grey;
+    }
+    .query-menu:hover {
+        background-color: white;
+        cursor: pointer;
+    }
 }

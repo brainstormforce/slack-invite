@@ -9,51 +9,43 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Login For Admin</title>
-	  <meta charset="UTF-8">
-	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../assets/css/style.css" >
-	<link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css" />
-</head>
-<body class="login-index">
-	<div class="full-width">
-		<div class=".col-md-3 .col-md-offset-3 container index">
-			<div class="overlay"></div>
-				<div class="login-heading"><h1>Login</h1></div>
-					
-					<form class="form-horizontal" action="adminfunctions/profile.php" method="post">
-						<hr />
-						<div class="form-group">
-							<label class="control-label">UserName </label>
-							<div class="full-contain">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-									<input class="form-control" name="username" placeholder="username" type="text">
-							</div>
-						</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label">Password </label>
-							<div class="full-contain">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input class="form-control" name="password" placeholder="**********" type="password">
-								</div>
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<div class="submitbutton">
-								<input class="btn btn-default custom-submitbtn" name="submit" type="submit" value=" Login ">
-							</div>
-						</div>
-						
-					</form>
-			
-		</div>
-	</div>
-</body>
+   <head>
+      <title>Login For Admin</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../assets/css/style.css" >
+      <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css" />
+   </head>
+   <body class="login-index">
+      <div class="full-width">
+         <div class="bg-primary">
+            <ul class="block-options">Forgot Password?</ul>
+            <h3 class="block-title">Login</h3>
+         </div>
+         <div class="block-content block-content-full block-content-narrow">
+            <h1 class="form-heading">OneUI</h1>
+            <p>Welcome, please login.</p>
+            <div class="form-material form-material-primary floating">
+               <form class="form-horizontal" action="adminfunctions/profile.php" method="post">
+                  <div class="form-group">
+                     <input class="form-control" name="username" type="text">  
+                     <label class="control-label">UserName </label> 
+                  </div>
+                  <div class="form-group">
+                     <input class="form-control" name="password" type="password">
+                     <label class="control-label">Password</label>
+                  </div>
+                  <div class="form-group">
+                     <div class="loginbutton">
+                        <input class="login-button" name="submit" type="submit" value=" Login ">
+                        <i class="fa fa-sign-in"></i>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
 <?php }else{
 	header('Location:../admin/createDb.php');
 } ?>

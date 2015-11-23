@@ -52,7 +52,6 @@ if ($host == "localhost") {
 }?>
 ');
 fclose($fp);
-
 if(isset($_POST['save'])){
 	$username = $_POST['username'];
 	$pass = $_POST['password'];

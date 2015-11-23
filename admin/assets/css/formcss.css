@@ -3,14 +3,6 @@
 *:after {
    box-sizing: border-box;
 }
-h3{
-  text-align: center;
-}
-table{
-    position: relative;
-    right: 40%;
-    left: 40%;
-}
 form {
   border: 1px solid #c6c7cc;
   border-radius: 5px;
@@ -29,6 +21,11 @@ input {
 }
 .form-group{
 	margin-bottom: 15px;
+}
+
+.form-control{
+	width: 30%;
+
 }
 .control-label {
     padding-left: 15px;
