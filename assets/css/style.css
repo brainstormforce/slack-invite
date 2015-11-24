@@ -167,6 +167,7 @@ input.form-control:focus {
     transform: translateY(-24px);
 }
 .form-group input[type="text"] {
+    position: absolute;
     border-right-color: #fff;
     border-top-color: #fff;
     border-left-color: #fff;
@@ -188,6 +189,7 @@ input.form-control:focus {
     margin-bottom: 27px;
 }
 .form-group input[type="password"] {
+    position: absolute;
     border-right-color: #fff;
     border-top-color: #fff;
     border-left-color: #fff;
