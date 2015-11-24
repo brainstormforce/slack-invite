@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Create Database</title>
+    <title>Add Database</title>
     <link rel="stylesheet" type="text/css" href="assets/css/formcss.css">
 </head>
 <body>
@@ -85,7 +85,8 @@ try {
                  $sqladmin="CREATE TABLE user_admin(
                     user_id int(3) AUTO_INCREMENT PRIMARY KEY,
                     user_name VARCHAR(30) NOT NULL,
-                    passwd VARCHAR(10) NOT NULL
+                    passwd VARCHAR(10) NOT NULL,
+                    email varchar(30) NOT NULL
                     )";
             
                  if ($conn->query($sqladmin) ) {
@@ -111,7 +112,7 @@ catch(PDOException $e)
 $conn = null;
 }
 ?>
-    <h3>Please Create Database</h3>
+    <h3>Please Add Database Details</h3>
     <table widh="200">
         
         <form action='' method="post" class="form-control   ">

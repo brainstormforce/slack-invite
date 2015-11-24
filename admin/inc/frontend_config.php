@@ -3,7 +3,7 @@
  * frontend_config.php
  *
  * Author: 
-BrainstormForce
+ *BrainstormForce
  *
  * Frontend configuration file (overwrites some options from global configuration file - config.php)
  *

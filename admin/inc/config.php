@@ -3,7 +3,7 @@
  * config.php
  *
  * Author: 
-BrainstormForce
+ *BrainstormForce
  *
  * Global configuration file
  *
