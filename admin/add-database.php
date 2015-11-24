@@ -33,7 +33,7 @@ try {
             
             // use exec() because no results are returned
             if($conn->exec($sql)){
-                echo "Database created successfully<br>";
+                echo "Database created/available<br>";
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 
                 //creating members Table
