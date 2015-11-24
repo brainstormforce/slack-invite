@@ -13,10 +13,14 @@
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		echo"hello";
 		try{
+				
 			$stmt = "SELECT `user_id`, `user_name`, `passwd` FROM `user_admin` WHERE user_name = '".$username."'"; //query
+
 			$rs= $conn->query($stmt);
-				if($rs){
-				 foreach ($rs as $key) {
+			
+			if($rs){
+				echo $username;
+				 foreach ($rs as $key) {				
 						$username=$key['user_name'];
 						$passwd= $key['passwd'];
 						if( $passwd==$password){
@@ -30,7 +34,8 @@
 							echo $error;
 							header('location:../index.php');
 						}
-				  }
+
+				  } 
 			}
 			else{
 				echo"  username is Invalid";

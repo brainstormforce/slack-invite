@@ -9,10 +9,6 @@
 	<script src="assets/js/jquery-1.11.3.min.js"></script><script src="assets/js/indexjs.js"></script>
 
 </head>
-<?php 
-	$filepath = "functions/connections.php";
-	if(file_exists($filepath)){
- ?>
 <body>
 	<div class="container " style="">
 		<div class="row">
@@ -60,7 +56,4 @@
 		</div>	
 	
 	</body>
-	<?php }else{
-		header('Location:admin/createDb.php');
-	} ?>
 	</html>

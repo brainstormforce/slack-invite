@@ -1,12 +1,11 @@
 <?php
-session_start();
-	$filepath = "../functions/connections.php";
-	if(file_exists($filepath)){
-		if(isset($_SESSION['login_user']) ) {
-		echo $_SESSION['login_user'];
-		header("location:base_tables_datatables.php");
-}
-?>
+   session_start();
+   //include 'header.php';
+   if(isset($_SESSION['login_user'])){
+   echo $_SESSION['login_user'];
+   header("location:base_tables_datatables.php");
+   }
+   ?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -46,7 +45,4 @@ session_start();
          </div>
       </div>
    </body>
-<?php }else{
-	header('Location:../admin/createDb.php');
-} ?>
 </html>

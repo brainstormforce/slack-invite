@@ -1,130 +1,302 @@
-
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
 @.aready_invited,
 .already_in_team,
-.invited{display: none;}
+.invited {
+    display: none;
+}
 .alert-info,
-.alert-danger{display: none;}
-.wrapper{width: 100%;display: block;height: 100vh;}
+.alert-danger {
+    display: none;
+}
+.wrapper {
+    width: 100%;
+    display: block;
+    height: 100vh;
+}
 /*##### Home page css ###*/
-.logo{width:150px;}
-.subcontainer{width:500px;}
-h2{font-family: arial;}
-.headings{
-	padding: 10px 0;
+
+.logo {
+    width: 150px;
 }
-h4{
-	padding: 10px 0;
+.subcontainer {
+    width: 500px;
 }
- /*### Login page css ####*/
-.container.index{
-	width:30%;border-radius: 5px;margin-top: 50px;
-	background-color: #7998B7;
+h2 {
+    font-family: arial;
 }
-.login-heading h1{
-	text-align: center;
-	font-weight: 700;
+.headings {
+    padding: 10px 0;
 }
-.login-index{
-		/*background-image: url('../../admin/slack-large.png');*/
-		background: linear-gradient(to left, #9C7F7F, #96886F, #7D7D61, #5D735D, #9595C5, #5D5860, #A495A4);
+h4 {
+    padding: 10px 0;
 }
-.submitbutton{
-	padding: 10px 15px;
+/*### Login page css ####*/
+
+.container.index {
+    width: 30%;
+    border-radius: 5px;
+    margin-top: 50px;
+    background-color: #7998B7;
 }
-.custom-submitbtn{
-	width: 100%;
-	background-color: #337ab7;
+.login-heading h1 {
+    text-align: center;
+    font-weight: 700;
+}
+.login-heading li.section1 {
+    float: left;
+    list-style: none;
+}
+.login-heading li.section2 {
+    float: right;
+    list-style: none;
+}
+.login-index {
+    /*background-image: url('../../admin/slack-large.png');*/
+    
+    background: #f5f5f5;
+}
+.submitbutton {
+    padding: 10px 15px;
+}
+.custom-submitbtn {
+    width: 100%;
+    background-color: #337ab7;
     border-color: #2e6da4;
     color: #ffffff;
 }
-.custom-submitbtn:hover{
-	background-color: #2e6da4;
-	border-color: #337ab7;
-	color: #fff;
+.custom-submitbtn:hover {
+    background-color: #2e6da4;
+    border-color: #337ab7;
+    color: #fff;
 }
-.full-contain{
-	padding:0 16px;
+.full-contain {
+    padding: 0 16px;
 }
-.control-label{
-	padding-left: 15px;
-	padding-bottom: 10px;
+.control-label {
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+/*Login Page by anil*/
 
+.login-index .full-width {
+    width: 31%;
+    margin: auto;
+    padding-top: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
 }
-
+.bg-primary {
+    background-color: #5c90d2;
+    width: 100%;
+    height: 47px;
+}
+.block-options {
+    float: right;
+    margin: -3px 0 -3px 15px;
+    padding: 0;
+    height: 24px;
+    list-style: none;
+    padding: 15px 20px;
+    color: #CCCCCC;
+}
+.block-title {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.2;
+    padding: 15px 20px;
+}
+.block-content.block-content-narrow {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.block-content.block-content-full {
+    padding: 27px 20px;
+    background: #fff;
+}
+.form-heading {
+    color: #646464;
+    font-weight: 600;
+    font-size: 30px;
+    padding: 0 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+p {
+    color: #646464;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0 20px;
+    margin-bottom: 35px;
+}
+.form-group {
+    padding: 0 20px;
+}
+.form-material {
+    position: relative;
+    margin: 10px 0 10px;
+}
+.form-group:first-child label {
+    padding-top: 3px;
+    position: absolute;
+    color: #646464;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: text;
+    z-index: 10;
+    top: 0;
+    transform: translateY(0px);
+    transition: all .15s ease-out;
+}
+label.control-label {
+    position: absolute;
+    top: 73px;
+    color: #646464;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: text;
+    transform: translateY(0px);
+    transition: all .15s ease-out;
+    z-index: 10;
+}
+input.form-control:focus {
+    box-shadow: 0 2px 0 #5c90d2;
+}
+.form-control:focus+label {
+    transform: translateY(-24px);
+}
+.form-group input[type="text"] {
+    border-right-color: #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    box-shadow: none !important;
+    margin-bottom: 27px;
+}
+.form-group input[type="password"] {
+    border-right-color: #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    box-shadow: none !important;
+    margin-bottom: 27px;
+}
+input.login-button {
+    outline: 0;
+    border: 1px solid;
+    color: #fff;
+    background-color: #5c90d2;
+    border-color: #3675c5;
+    width: 91px;
+    height: 35px;
+    border-radius: 2px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all .15s ease-out;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-align: left;
+}
+input.login-button:hover {
+    background: #3675c5;
+    border-color: #204d74;
+}
+.si-login:before {
+    content: "\f090";
+}
+i.fa.fa-sign-in {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    top: 2px;
+    -moz-osx-font-smoothing: grayscale;
+    left: -32px;
+    font-size: 18px;
+    color: #fff;
+}
+@media (max-width: 768px) {
+    .login-index .full-width {
+        width: 99%;
+        margin: auto;
+        padding-top: 10px;
+    }
+}
+/*End*/
 /* ##### Home page css Ends here ###### */
-  .send_invitation + .tooltip > .tooltip-inner {
-      background-color: #8AC007; 
-      color: #FFFFFF; 
-      border: 1px solid green; 
-      padding: 15px;
-      font-size: 20px;
-  }
+
+.send_invitation + .tooltip > .tooltip-inner {
+    background-color: #8AC007;
+    color: #FFFFFF;
+    border: 1px solid green;
+    padding: 15px;
+    font-size: 20px;
+}
 .send_invitation + .tooltip.top > .tooltip-arrow {
-      border-top: 5px solid green;
-  }
+    border-top: 5px solid green;
+}
 .menu ul li {
-	margin-left: 20px;
-	margin-right: 20px;
-	display: inline;
-	float:right;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: inline;
+    float: right;
 }
-.query-menu{
-	display: none;
+.query-menu {
+    display: none;
 }
-.query-menu.show{
-	display: block;
+.query-menu.show {
+    display: block;
 }
-.menu{
-	min-height:70px;
-	float: right;
+.menu {
+    min-height: 70px;
+    float: right;
 }
-li,a{text-decoration: none;}
-.adminnotification{
-	width:40%;
-	float:right;
-	font-family: open sans;
-	font-size: 16px;
+li,
+a {
+    text-decoration: none;
 }
-.btnon{
- border-radius: 9px 0px 0px 9px;
-  padding: 0px 10px 0px 10px;
-  font-size: 16px;
+.adminnotification {
+    width: 40%;
+    float: right;
+    font-family: open sans;
+    font-size: 16px;
+}
+.btnon {
+    border-radius: 9px 0px 0px 9px;
+    padding: 0px 10px 0px 10px;
+    font-size: 16px;
 }
 button.btnoff {
-  border-radius: 0px 9px 9px 0px;
-   padding: 0px 10px 0px 10px;
-     font-size: 16px;
+    border-radius: 0px 9px 9px 0px;
+    padding: 0px 10px 0px 10px;
+    font-size: 16px;
 }
-.settings_headings{
-	margin-top: -25px;
-	margin-bottom:20px;
+.settings_headings {
+    margin-top: -25px;
+    margin-bottom: 20px;
 }
-.header{
-	border-bottom: 2px double black;
-  margin: 25px 0px 25px 0px;
-
+.header {
+    border-bottom: 2px double black;
+    margin: 25px 0px 25px 0px;
 }
-.header h4{
-	font-family: vardana;
-  font-size: 20px;
-  font-style: oblique;
-  font-weight: bolder;
-
+.header h4 {
+    font-family: vardana;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bolder;
 }
-.maincontainer{
+.maincontainer {
     background-color: #F1F1F1;
     display: table;
 }
-
-.available_Notification_emails{
-	/*float: left;*/
+.available_Notification_emails {
+    /*float: left;*/
 }
-.subcontainerindex{
-	margin:auto;
-	width:500px;
+.subcontainerindex {
+    margin: auto;
+    width: 500px;
 }
-.fa.fa-trash-o.delete_email:hover{
-	font-size: 25px;
+.fa.fa-trash-o.delete_email:hover {
+    font-size: 25px;
 }
 i.fa.fa-trash-o {
     font-size: 20px;
