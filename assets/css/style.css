@@ -24,6 +24,9 @@
 h2 {
     font-family: arial;
 }
+.row>h2{
+    text-align: center;
+}
 .headings {
     padding: 10px 0;
 }
@@ -136,7 +139,7 @@ p {
 }
 .form-group:first-child label {
     padding-top: 3px;
-    position: absolute;
+    
     color: #646464;
     font-size: 16px;
     font-weight: 500;
@@ -147,7 +150,7 @@ p {
     transition: all .15s ease-out;
 }
 label.control-label {
-    position: absolute;
+    
     top: 73px;
     color: #646464;
     font-size: 16px;
@@ -164,6 +167,20 @@ input.form-control:focus {
     transform: translateY(-24px);
 }
 .form-group input[type="text"] {
+    border-right-color: #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    box-shadow: none !important;
+    margin-bottom: 27px;
+}
+.form-group input[type="email"] {
+    border-right-color: #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    box-shadow: none !important;
+    margin-bottom: 27px;
+}
+.form-group input[type="number"] {
     border-right-color: #fff;
     border-top-color: #fff;
     border-left-color: #fff;

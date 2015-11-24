@@ -25,22 +25,18 @@
 				<form  role="form" class="registerform" method="post">
 			
 					<div class="form-group">
-						<label for="name" class="control-label ">Name:</label>
 						<input type="text" class="form-control member_name" name="fname" id="name" placeholder="Name" required>	
 					</div>
 					
 					<div class="form-group">
-						<label for="inputEmail3"  class="control-label">Email:</label>
 						<input type="email" class="form-control email" name="email" id="email" placeholder="Email" required>
 					</div>	
 					
 					<div class="form-group">
-						<label for="name" class="control-label">About yourself:</label>
 						<textarea  class="form-control about_yourself"  name="about_yourself" id="about_yourself" rows="3" placeholder="Tell Us More About yourself" ></textarea>
 					</div>
 
 					<div class="form-group">
-						<label for="name" class="control-label">Contact No:</label>
 						<input type="number" class="form-control contact" name="contact" id="contact_no" placeholder="Your contact" required>
 					</div>
 
