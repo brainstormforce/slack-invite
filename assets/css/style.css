@@ -166,8 +166,15 @@ input.form-control:focus {
 .form-control:focus+label {
     transform: translateY(-24px);
 }
-.form-group input[type="text"] {
+.form-horizontal .form-group input[type="text"] {
     position: absolute;
+    border-right-color: #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    box-shadow: none !important;
+    margin-bottom: 27px;
+}
+.form-group input[type="text"] {
     border-right-color: #fff;
     border-top-color: #fff;
     border-left-color: #fff;

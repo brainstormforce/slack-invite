@@ -1,5 +1,6 @@
 <html>
 <head>
+	<script src="assets/js/jquery-1.11.3.min.js" ></script>
 	<title>
 	</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/formcss.css">
@@ -68,9 +69,16 @@ if(isset($_POST['save'])){
 		$sql = $conn->prepare('INSERT INTO `user_admin`(`user_name`, `passwd`, `email`) VALUES ( :username, :passwd, :email)');
 		if($username !=''||$pass != ''|| $email !=''){
 		if($sql->execute( array(':username'=> $username, ':passwd'=> $pass, ':email'=>$useremail) )){
-			echo "User admin added successfully";?>
+			echo "User admin added successfully";
+			?>
 			<script>
-			window.location.href = "index.php";
+			
+				var username ='<?php echo $username;?>';
+				var pass = '<?php echo $pass; ?>';
+				var email = '<?php echo $useremail; ?>';
+				jQuery('.save').load('../functions/MailToadmin.php', {user:username,pass:pass,email:email});
+				window.location.href = "index.php";
+			
 			</script>
 			<?php }
 			else{
