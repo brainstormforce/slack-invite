@@ -21,7 +21,7 @@
    <body class="login-index">
       <div class="full-width">
          <div class="bg-primary">
-            <ul class="block-options">Forgot Password?</ul>
+            <ul class="block-options">Forgot Password?<a href="#"><i class="fa fa-user-plus"></i></a></ul>
             <h3 class="block-title">Login</h3>
          </div>
          <div class="block-content block-content-full block-content-narrow">

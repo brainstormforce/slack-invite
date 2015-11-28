@@ -79,6 +79,11 @@ h4 {
     padding-left: 15px;
     padding-bottom: 10px;
 }
+.fa-user-plus:before {
+    content: "\f234";
+    color: #fff;
+    margin-left: 10px;
+}
 /* ============================================================
   TOGGLE COMMON BUTTON
 ============================================================ */
@@ -188,7 +193,8 @@ input.cmn-toggle-round:checked + label:after {
     height: 24px;
     list-style: none;
     padding: 15px 20px;
-    color: #CCCCCC;
+    color: #fff;
+    font-size: 15px;
 }
 .block-title {
     font-size: 15px;
@@ -232,6 +238,7 @@ p {
     color: #646464;
     font-size: 16px;
     font-weight: 500;
+    pointer-events: none !important;
     cursor: text;
     z-index: 10;
     top: 0;
@@ -296,6 +303,10 @@ input.form-control:focus {
     box-shadow: none !important;
     margin-bottom: 27px;
     margin-left: 15px;
+}
+label.control-label {
+    padding-top: 4px !important;
+    pointer-events: none !important;
 }
 input.login-button {
     outline: 0;
