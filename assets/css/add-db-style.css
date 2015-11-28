@@ -1,0 +1,19 @@
+/**Add database form css**/
+.login-index-add-db-data {
+ background: #F5F5F5;
+}
+.add-data-basefull-width {
+    width: 34%;
+    margin: 10px auto;
+    background: #fff;
+}
+.add-data-basefull-width .form-control {
+    width: 100% !important;
+}
+.add-data-basefull-width form {
+    border:none !important;
+}
+.add-data-basefull-width  input.form-control:focus {
+    box-shadow: none !important;
+}
+/**end**/

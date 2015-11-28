@@ -4,41 +4,34 @@
 	<title>
 	</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/formcss.css">
+	    <link rel="stylesheet" href="../assets/css/style.css" >
+     <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css" />
 </head>
-<body>
+<body class="login-index">
+	<div class="add-data-basefull-width">
 	<div class="container">
-		<div class="heading">
-			<h3>Please enter the user name and password to create admin login</h3>
+		<div class="bg-primary1">
+			<i class="fa fa-user-plus"></i><h3 class="block-title-user" >Create User</h3>
 		</div>
-		<table widh="200">
+		<p><b>Note :</b> Please enter the user name and password to create admin login</p>
 			<div class="form">
-				<tbody>
-				<tr>
-					 <form action='' method="post" class="form-control   ">
-				    
+					 <form action='' method="post" class="form-control ">			   
 				       	<div class="form-group">
-				        <td><label class="control-label">User Name :</label></td>
-				        <td><input class="form-control" type="text" name="username"></td>
+				        	<input class="form-control" type="text" name="username" placeholder="Enter User Name ">
 				        </div>
-				</tr>
-				<tr>
-					    <td><label class="control-label">Enter Password :</label></td>
-					    <td><input class="form-control" type="text" name="password"></td>
-				</tr>
-				<tr>
-						<td><label class="control-label">Enter Email :</label></td>
-						<td><input class="form-control" type="text" name="email"></td>
-				</tr>
-				<tr style="text-align:center;">
-					    <div>
-						       <td colspan="2" style="padding-top:15px;"><input class="form-control" type="submit" name="save"></td>
+				        <div class="form-group">
+					  	   <input class="form-control" type="text" name="password" placeholder="Enter Password ">
+					  	</div>
+					  	<div class="form-group">
+							<input class="form-control" type="text" name="email" placeholder="Enter Email">
+					    <div><br>
+					      <input id="login-button" class="form-control" type="submit" name="save">
 					    </div>
 					</form>
-				</tr>
-				</tbody>
 			</div>
 	</table>
 	</div>
+	<div>
 </body>
 </html>
 <?php 

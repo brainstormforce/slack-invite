@@ -18,7 +18,7 @@
       <link rel="stylesheet" href="../assets/css/style.css" >
       <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css" />
    </head>
-   <body class="login-index">
+   <body class="login-index-add-db-data">
       <div class="full-width">
          <div class="bg-primary">
             <ul class="block-options">Forgot Password?<a href="#"><i class="fa fa-user-plus"></i></a></ul>
@@ -52,7 +52,14 @@
             </div>
          </div>
       </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script>
+   jQuery('.form-horizontal .form-control').on('input', function() {
+      jQuery('.form-horizontal').toggleClass('open');    
+   });
+   </script>
    </body>
+
    <?php }else{
    header('Location:add-database.php');
 } ?>

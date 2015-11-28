@@ -1,9 +1,11 @@
 <html>
 <head>
     <title>Add Database</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/formcss.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/formcss.css">
+      <link rel="stylesheet" href="../assets/css/style.css" >
+     <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css" />
 </head>
-<body>
+<body class="login-index">
 <?php
 if(isset($_POST['save'])){    
 $servername = $_POST['servername'];
@@ -112,37 +114,28 @@ catch(PDOException $e)
 $conn = null;
 }
 ?>
-    <h3>Please Add Database Details</h3>
-    <table widh="200">
-        
-        <form action='' method="post" class="form-control   ">
-         <tr>   <div class="form-group">
-        
-            <td>    <label class="control-label">Host</label></td>
-             <td>       <input class="form-control" placeholder="Host name" type="text" name="servername"></td>
+ <div class="add-data-basefull-width">
+  <div class="bg-primary1">
+   <i class="fa fa-database"></i><h3 class="block-title-db">Please Add Database Details</h3> 
+      </div>
+        <br>
+        <form action='' method="post" class="form-control ">
+          <div class="form-group">
+              <input class="form-control" placeholder="Host name" type="text" name="servername" required>
             </div>
-        </tr>
-        <tr>
-            <td><div class="form-group">
-                <label class="control-label">Enter User Name</label></td>
-                <td>   <input class="form-control" placeholder="User Name" type="text" name="username"></td>
-            </div>
-        </tr>
-        <tr> 
-            <td><label class="control-label">enter Password</label></td>
-            <td>    <input class="form-control" placeholder="password" type="text" name="password"></td>
-        </tr>
-        <tr>    
-            <td><label class="control-label">Enter database Name</label></td>
-            <td>    <input class="form-control" type="text" placeholder="Database Name" name="dbname"></td>
-        </tr>
-        <tr style="text-align:center;">
             <div class="form-group">
-               <td colspan="2" style="padding-top:15px;"><input class="form-control" type="submit" name="save"></td>
+               <input class="form-control" placeholder="User Name" type="text" name="username" required>
             </div>
-        </tr>
-            
+            <div class="form-group">
+              <input class="form-control" placeholder="password" type="text" name="password">
+            </div>
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Database Name" name="dbname" required>
+              </div>
+            <div class="form-group">
+             <input id="login-button" class="form-control" type="submit" name="save">
+            </div>
         </form>
-    </table>
+</div>
 </body>
 </html>
