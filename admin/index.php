@@ -33,6 +33,11 @@
                      <input class="form-control" name="username" type="text">  
                      <label class="control-label">UserName </label> 
                   </div>
+                  <div class="switch">
+                     <span>Remember Me?</span>
+                     <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                     <label for="cmn-toggle-1"></label>
+                  </div>
                   <div class="form-group">
                      <input class="form-control" name="password" type="password">
                      <label class="control-label">Password</label>
