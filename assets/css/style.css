@@ -116,7 +116,7 @@ h4 {
 }
 .full-width {
     width: 33%;
-    margin: 10px auto;
+    margin: 30px auto;
 }
 
 /* ============================================================
@@ -297,6 +297,7 @@ input.form-control:focus {
     box-shadow: none !important;
     margin-bottom: 27px;
     margin-left: 15px;
+    padding-left: 0;
 }
 .form-group input[type="text"] {
     border-right-color: #fff;
@@ -327,6 +328,7 @@ input.form-control:focus {
     box-shadow: none !important;
     margin-bottom: 27px;
     margin-left: 15px;
+    padding-left: 0;
 }
 label.control-label {
     padding-top: 4px !important;
@@ -613,7 +615,7 @@ i.fa.fa-trash-o {
 @media (max-width: 768px) {
     .add-data-basefull-width {
         width: 100% !important;
-        margin: 10px auto;
+        margin: 30px auto;
     }
 }
 /**Add database form css**/
