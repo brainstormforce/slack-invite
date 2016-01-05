@@ -49,13 +49,13 @@ try {
                 )";
             
                 if ($conn->query($sqlmember) ) {
-                    echo "Table  created for members successfully<br>";
+                    //echo "Table  created for members successfully<br>";
                 } else {
-                    echo "Error creating table members<br>" ;
+                    //echo "Error creating table members<br>" ;
                 }
 
                 //creating table for Notification emails
-                $sqlnotification="CREATE TABLE notification_emails(
+                $sqlnotification="CREATE TABLE IF NOT EXISTS notification_emails(
                     e_id int(3) AUTO_INCREMENT PRIMARY KEY,
                     name VARCHAR(30) NOT NULL,
                     email VARCHAR(50) NOT NULL,
@@ -63,13 +63,13 @@ try {
                     )";
             
                  if ($conn->query($sqlnotification)) {
-                    echo "Table created for notification emails created successfully<br>";
+                   // echo "Table created for notification emails created successfully<br>";
                 } else {
-                    echo "Error creating table notifications<br>" ;
+                   // echo "Error creating table notifications<br>" ;
                 }
             
                 //creating table for Slack setting
-                    $sqlsettings="CREATE TABLE slack_settings(
+                    $sqlsettings="CREATE TABLE IF NOT EXISTS slack_settings(
                     id int(3) AUTO_INCREMENT PRIMARY KEY,
                     name VARCHAR(30) NOT NULL,
                     url VARCHAR(150) NOT NULL,
@@ -78,13 +78,13 @@ try {
                     )";
             
                  if ($conn->query($sqlsettings) ) {
-                    echo "Table created for settings successfully<br>";
+                    //echo "Table created for settings successfully<br>";
                 } else {
-                    echo "Error creating table for Settings<br> " ;
+                   // echo "Error creating table for Settings<br> " ;
                 }
             
                 //creating table for user admin
-                 $sqladmin="CREATE TABLE user_admin(
+                 $sqladmin="CREATE TABLE IF NOT EXISTS user_admin(
                     user_id int(3) AUTO_INCREMENT PRIMARY KEY,
                     user_name VARCHAR(30) NOT NULL,
                     passwd VARCHAR(10) NOT NULL,
@@ -92,13 +92,16 @@ try {
                     )";
             
                  if ($conn->query($sqladmin) ) {
-                    echo "Table created for Admin successfully<br>";?>
+                   // echo "Table created for Admin successfully<br>";?>
+                    <form action="create_connection.php" method="POST" style="display:none;" id="post_admin_details">
+                        <input type="hidden" name="dbname" id="dbname" value="<?php echo $dbname; ?>"/>
+                        <input type="hidden" name="pass" id="pass" value="<?php echo $password; ?>"/>
+                        <input type="hidden" name="user" id="user" value="<?php echo $username; ?>"/>
+                        <input type="hidden" name="servername" id="servername" value="<?php echo $servername; ?>"/>
+                    </form>
                     <script>
-                    var servername = "<?php echo $servername; ?>"
-                    var dbname = "<?php echo $dbname; ?>";
-                    var pass = "<?php echo $password; ?>";
-                    var usr = "<?php echo $username; ?>";
-                        window.location.href = "setadmin.php?dbname="+dbname+"&pass="+pass+"&user="+usr+"&servername="+servername;
+                        document.getElementById("post_admin_details").submit();
+                        //window.location.href = "setadmin.php?dbname="+dbname+"&pass="+pass+"&user="+usr+"&servername="+servername;
                     </script>
                <?php } else {
                     echo "Error creating table for admin <br>" ;
@@ -136,6 +139,7 @@ $conn = null;
              <input id="login-button" class="form-control" type="submit" name="save">
             </div>
         </form>
+       
 </div>
 </body>
 </html>

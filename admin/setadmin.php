@@ -36,29 +36,15 @@
 </html>
 <?php 
 
-$db_server = $_GET['servername'];
-$db_nm = $_GET['dbname'];
-$db_pass = $_GET['pass'];
-$db_user=$_GET['user'];
 
-$fp=fopen('../functions/connections.php','w');
-fwrite($fp, '<?php
-$conn = new PDO("mysql:host=localhost;dbname='.$db_nm.'", "'.$db_user.'", "'.$db_pass.'");
-$host = $_SERVER["HTTP_HOST"];
-if ($host == "localhost") {
-	$URL = $_SERVER["HTTP_HOST"];
-}?>
-');
-fclose($fp);
 
 if(isset($_POST['save'])){
+	require("../functions/connections.php");
 	$username = $_POST['username'];
 	$pass = $_POST['password'];
 	$useremail = $_POST['email'];
 	$sql='';
 	try{
-		$conn = new PDO("mysql:host=$db_server;dbname=$db_nm", "$db_user", "$db_pass");
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = $conn->prepare('INSERT INTO `user_admin`(`user_name`, `passwd`, `email`) VALUES ( :username, :passwd, :email)');
 		if($username !=''||$pass != ''|| $email !=''){
 		if($sql->execute( array(':username'=> $username, ':passwd'=> $pass, ':email'=>$useremail) )){
