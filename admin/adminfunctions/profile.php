@@ -9,9 +9,8 @@
 	{
 		// gets $username and $password from user
 		$username= $_POST['username'];
-		$password=$_POST['password'];
+		$password= SHA1($_POST['password']);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		echo"hello";
 		try{
 				
 			$stmt = "SELECT `user_id`, `user_name`, `passwd` FROM `user_admin` WHERE user_name = '".$username."'"; //query
@@ -19,14 +18,11 @@
 			$rs= $conn->query($stmt);
 			
 			if($rs){
-				echo $username;
 				 foreach ($rs as $key) {				
 						$username=$key['user_name'];
 						$passwd= $key['passwd'];
 						if( $passwd==$password){
 							$_SESSION['login_user']=$username;
-							echo"  login Successfull";
-							echo $_SESSION['login_user'];
 							header('location:../base_tables_datatables.php');
 						}
 						else {

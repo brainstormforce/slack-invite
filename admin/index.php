@@ -1,15 +1,24 @@
 <?php
-   session_start();
-   //include 'header.php';
+session_start();
+//include 'header.php';
 
-   $filepath = "../functions/connections.php";
-   if(file_exists($filepath)){
-      include '../functions/connections.php';
-      if(isset($_SESSION['login_user'])){
-         echo $_SESSION['login_user'];
-         header("location:base_tables_datatables.php");
-      }
-   ?>
+$filepath = "../functions/connections.php";
+if(file_exists($filepath)){
+	require("../functions/main_functions.php");
+	$si_db_obj = new dbfunctions();
+	$tbl_count = $si_db_obj->chk_tables();
+	if($tbl_count == false){
+		header("location: add-database.php");
+	}else if($tbl_count == "nou"){
+		header("location: setadmin.php");
+	}else{
+		
+	}
+	if(isset($_SESSION['login_user'])){
+		echo $_SESSION['login_user'];
+		header("location:base_tables_datatables.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -31,17 +40,17 @@
             <div class="form-material form-material-primary floating">
                <form class="form-horizontal" action="adminfunctions/profile.php" method="post">
                   <div class="form-group">
-                     <input class="form-control" name="username" type="text">  
-                     <label class="control-label">UserName </label> 
+                     <input class="form-control" name="username" type="text" placeholder="User Name" required/>
+                     <!--<label class="control-label">UserName </label>-->
                   </div>
                   <div class="switch">
                      <span>Remember Me?</span>
-                     <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                     <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" />
                      <label for="cmn-toggle-1"></label>
                   </div>
                   <div class="form-group">
-                     <input class="form-control" name="password" type="password">
-                     <label class="control-label">Password</label>
+                     <input class="form-control" name="password" type="password" placeholder="Password" required/>
+                     <!--<label class="control-label">Password</label>-->
                   </div>
                   <div class="form-group">
                      <div class="loginbutton">
