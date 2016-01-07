@@ -15,7 +15,7 @@ if ($host == "localhost") {
 }?>
 ');
 fclose($fp);	
-header("Location: setadmin.php");
+header("Location: add_user");
 }
 
 ?>

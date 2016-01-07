@@ -5,11 +5,11 @@ if(file_exists($filepath)){
 	$si_db_obj = new dbfunctions();
 	$tbl_count = $si_db_obj->chk_tables();
 	if($tbl_count == false){
-		header("location: add-database.php");
+		header("location: install");
 	}else if($tbl_count == "nou"){
 		
 	}else{
-		header("location: index.php");
+		header("location: login");
 	}
 }
 ?>
@@ -67,7 +67,7 @@ if(isset($_POST['save']) && isset($_POST['username']) && !empty($_POST['username
 			var pass = '<?php echo $pass; ?>';
 			var email = '<?php echo $useremail; ?>';
 			jQuery('.save').load('../functions/MailToadmin.php', {user:username,pass:pass,email:email});
-			window.location.href = "index.php";
+			window.location.href = "login";
 		
 		</script>
 		<?php

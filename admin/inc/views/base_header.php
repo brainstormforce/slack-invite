@@ -22,14 +22,14 @@ BrainstormForce
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                        <a tabindex="-1" href="notificationemails.php">
+                        <a tabindex="-1" href="invitees">
                             <i class="si si-settings pull-right"></i>Settings
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <?php if(isset($_SESSION['login_user'])){  ?>
-                        <a tabindex="-1" href="../admin/adminfunctions/logout.php">
+                        <a tabindex="-1" href="logout">
                             <i class="si si-logout pull-right"></i>Log out
                         </a><?php }else{?>
                             <a tabindex="-1" href="../admin/index.php">

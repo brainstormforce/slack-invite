@@ -53,7 +53,7 @@ session_start();
 				<div class="top-menu">
 					<div class="query-menu"><i class="fa fa-bars"></i></div>
 					<div>
-						<button class="btn btn-dafault"><a href='/admin/adminfunctions/logout.php'>Logout</a></button>
+						<button class="btn btn-dafault"><a href='logout'>Logout</a></button>
 					</div>
 				</div>
 

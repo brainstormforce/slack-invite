@@ -55,22 +55,22 @@ $one->main_nav                     = array(
     array(
         'name'  => '<span class="sidebar-mini-hide">Dashboard</span>',
         'icon'  => 'si si-speedometer',
-        'url'   => 'base_tables_datatables.php'
+        'url'   => 'invitees'
         ),
             array(
                 'name'  => '<span class="sidebar-mini-hide">Slack Settings</span>',
-                'url'   => 'slacktokens.php',
+                'url'   => 'tokens',
                 'icon'  => 'si si-settings',
                 'class' => 'display_slack_settings',
             ),
             array(
                 'name'  => '<span class="sidebar-mini-hide">Email Settings</span>',
                 'icon'  => 'si si-envelope-open',
-                'url'   => 'notificationemails.php',
+                'url'   => 'notifications',
             ) ,
      array('name' => '<span class="sidebar-mini-hide">Invitees</span>' ,
         'icon'  => 'si si-grid',
-        'url'   => 'base_tables_datatables.php',
+        'url'   => 'invitees',
          )
     
 );

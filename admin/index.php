@@ -8,15 +8,15 @@ if(file_exists($filepath)){
 	$si_db_obj = new dbfunctions();
 	$tbl_count = $si_db_obj->chk_tables();
 	if($tbl_count == false){
-		header("location: add-database.php");
+		header("location: install");
 	}else if($tbl_count == "nou"){
-		header("location: setadmin.php");
+		header("location: add_user");
 	}else{
 		
 	}
 	if(isset($_SESSION['login_user'])){
 		echo $_SESSION['login_user'];
-		header("location:base_tables_datatables.php");
+		header("location:invitees");
 	}
 ?>
 <!DOCTYPE html>
@@ -35,10 +35,17 @@ if(file_exists($filepath)){
             <h3 class="block-title">Login</h3>
          </div>
          <div class="block-content block-content-full block-content-narrow">
+			<?php
+				if(isset($_GET['err']) && !empty($_GET['err']) && $_GET['err'] =="err"){
+				?>
+				<p style="color:red;">Credentials are wrong.</p>
+				<?php
+				}
+			?>
             <h1 class="form-heading">OneUI</h1>
             <p>Welcome, please login.</p>
             <div class="form-material form-material-primary floating">
-               <form class="form-horizontal" action="adminfunctions/profile.php" method="post">
+               <form class="form-horizontal" action="chk_credentials" method="post">
                   <div class="form-group">
                      <input class="form-control" name="username" type="text" placeholder="User Name" required/>
                      <!--<label class="control-label">UserName </label>-->
@@ -71,6 +78,6 @@ if(file_exists($filepath)){
    </body>
 
    <?php }else{
-   header('Location:add-database.php');
+   header('Location:install');
 } ?>
 </html>

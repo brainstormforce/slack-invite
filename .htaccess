@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /slack-invite-integration/
+RewriteRule admin/login  admin/index.php [L]
+RewriteRule admin/invitees  admin/base_tables_datatables.php [L]
+RewriteRule admin/tokens  admin/slacktokens.php [L]
+RewriteRule admin/notifications  admin/notificationemails.php [L]
+RewriteRule admin/logout  admin/logout.php [L]
+RewriteRule admin/chk_credentials  admin/chklogin.php [L]
+RewriteRule admin/install  admin/add-database.php [L]
+RewriteRule admin/add_user  admin/setadmin.php [L]

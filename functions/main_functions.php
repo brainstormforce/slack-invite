@@ -10,6 +10,10 @@ class dbfunctions{
 	}
 	function create_basic_set_up(){
 		global $conn;
+		if($conn == Null){
+			unlink("../functions/connections.php");
+			header("Location: install?conerr=yes");
+		}
 		$result ="";
 		//creating members Table
 		$sqlmember = "CREATE TABLE IF NOT EXISTS members (
@@ -78,6 +82,10 @@ class dbfunctions{
 	}
 	function chk_tables(){
 		global $conn;
+		if($conn == Null){
+			unlink("../functions/connections.php");
+			header("Location: install?conerr=yes");
+		}
 		$result = $conn->query("SHOW TABLES");
 		if ($result->rowCount() > 0) {
 			$r = $result->fetchAll(PDO::FETCH_ASSOC);
