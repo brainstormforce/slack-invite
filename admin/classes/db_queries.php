@@ -42,5 +42,57 @@ class data_queries{
 		}
 		return($result);
 	}
+	function add_new_notfication_email($name,$email){
+		global $conn;
+		$result = "";
+		$sql="INSERT INTO `notification_emails` ( `name`, `email`) VALUES (:name,:email)";
+		$stmt = $conn->prepare($sql);
+		$var = $stmt->execute( array( ":name" => $name,":email" => $email ));
+		if($var){
+			$result = "successful";
+		}else{
+			$result = "failed";
+		}
+		return($result);
+	}
+	function remove_notfication_email($e_id){
+		global $conn;
+		$result = "";
+		$sql = "DELETE FROM `notification_emails` WHERE `e_id`=:ID";
+		$stmt = $conn->prepare($sql);
+		$var = $stmt->execute( array( ":ID" => $e_id ));
+		if($var){
+			$result = "Deleted";
+		}else{
+			$result = "failed";
+		}
+		return($result);
+	}
+	function edit_tokens($url,$token){
+		global $conn;
+		$result = "";
+		$sql = "UPDATE `slack_settings` SET `url`=:geturl, `token`=:gettoken WHERE `name`='Raju'";
+		$stmt = $conn->prepare($sql);
+		$var = $stmt->execute( array( ':geturl'=>$url, ':gettoken'=>$token  ) );
+		if($var){
+			$result = "successful";
+		}else{
+			$result = "failed";
+		}
+		return($result);
+	}
+	function update_notfication_email($url,$token){
+		global $conn;
+		$result = "";
+		$sql = "UPDATE `notification_emails` SET `status`=:getstatus WHERE `email`=:getemail";
+		$stmt = $conn->prepare($sql);
+		$var = $stmt->execute( array( ':geturl'=>$url, ':gettoken'=>$token  ) );
+		if($var){
+			$result = "successful";
+		}else{
+			$result = "failed";
+		}
+		return($result);
+	}
 }
 ?>

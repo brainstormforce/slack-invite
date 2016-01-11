@@ -1,9 +1,9 @@
 <?php require('header.php'); ?>
-<link rel="stylesheet" href="../assets/css/tablestyle.css" />
-<link rel="stylesheet" type="text/css" href="../assets/css/buttonstyle.css" />
-<script src="../assets/js/jquery-1.11.3.min.js" ></script>
-<script type="text/javascript" src="../assets/js/settings.js" ></script>
-<link rel="stylesheet" href="../assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/tablestyle.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/buttonstyle.css" />
+<script src="assets/js/jquery-1.11.3.min.js" ></script>
+<script type="text/javascript" src="assets/js/settings.js" ></script>
+<link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css" />
 <link rel="stylesheet" href="<?php echo $one->assets_folder; ?>/js/plugins/datatables/jquery.dataTables.min.css">
 
@@ -95,7 +95,7 @@
 									?>
 									</td>
 									<td>
-										<i class='fa fa-trash-o delete_email' data-file="<?php echo $email;?>"></i>
+										<i class='fa fa-trash-o delete_email' data-file="<?php echo $result['e_id'];?>"></i>
 										&nbsp;&nbsp;&nbsp;Delete
 									</td>
 								</tr>
