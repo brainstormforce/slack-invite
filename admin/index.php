@@ -14,8 +14,7 @@ if(file_exists($filepath)){
 	}else{
 		
 	}
-	if(isset($_SESSION['login_user'])){
-		echo $_SESSION['login_user'];
+	if(isset($_SESSION['login_user']) && !empty($_SESSION['login_user'])){
 		header("location:invitees");
 	}
 ?>
