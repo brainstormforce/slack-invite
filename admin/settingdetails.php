@@ -16,13 +16,7 @@ else if($_POST['ajaxfunction']=='edit_token'){
 
 // Set notification email status on/off
 else if($_POST['ajaxfunction']=='update_email_status'){
-	$email=$_POST['email'];
-	echo 'Email: '.$email;
-	 $status=$_POST['status'];
-	$sql="UPDATE `notification_emails` SET `status`=:getstatus WHERE `email`=:getemail";
-	$q=$conn->prepare( $sql );
-	 print_r( $q->execute( array( ':getstatus'=>$status, ':getemail'=>$email  ) ) );
-	 die();
+	$update_status = $slack_obj ->update_notfication_email_status($_POST['email'],$_POST['status']);
 }
 
 //deletes notification emails

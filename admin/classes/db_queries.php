@@ -81,12 +81,12 @@ class data_queries{
 		}
 		return($result);
 	}
-	function update_notfication_email($url,$token){
+	function update_notfication_email_status($id,$status){
 		global $conn;
 		$result = "";
-		$sql = "UPDATE `notification_emails` SET `status`=:getstatus WHERE `email`=:getemail";
+		$sql = "UPDATE `notification_emails` SET `status`=:getstatus WHERE `email`=:email";
 		$stmt = $conn->prepare($sql);
-		$var = $stmt->execute( array( ':geturl'=>$url, ':gettoken'=>$token  ) );
+		$var = $stmt->execute( array( ':getstatus'=>$status, ':email'=>$id  ) );
 		if($var){
 			$result = "successful";
 		}else{
