@@ -5,7 +5,7 @@ if(file_exists($filepath)){
 	$si_db_obj = new dbfunctions();
 	$tbl_count = $si_db_obj->chk_tables();
 	if($tbl_count == false){
-		header("location: install");
+		header("location: add-database.php");
 	}else if($tbl_count == "nou"){
 		
 	}else{

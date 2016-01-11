@@ -8,7 +8,7 @@ if(file_exists($filepath)){
 	$si_db_obj = new dbfunctions();
 	$tbl_count = $si_db_obj->chk_tables();
 	if($tbl_count == false){
-		header("location: install");
+		header("location: add-database.php");
 	}else if($tbl_count == "nou"){
 		header("location: add_user");
 	}else{
@@ -78,6 +78,6 @@ if(file_exists($filepath)){
    </body>
 
    <?php }else{
-   header('Location:install');
+   header('Location:add-database.php');
 } ?>
 </html>

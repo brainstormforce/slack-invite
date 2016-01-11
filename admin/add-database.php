@@ -47,7 +47,7 @@ if(isset($_POST['save']) && isset($_POST['servername']) && !empty($_POST['server
 
 	$set_up = $si_db_obj->create_basic_set_up();
 	if($set_up == "success"){
-		header("Location: install");
+		header("Location: add-database.php");
 	}else{
 		echo "Wrong Details provided";
 	}

@@ -12,7 +12,7 @@ class dbfunctions{
 		global $conn;
 		if($conn == Null){
 			unlink("../functions/connections.php");
-			header("Location: install?conerr=yes");
+			header("Location: add-database.php?conerr=yes");
 		}
 		$result ="";
 		//creating members Table
@@ -69,6 +69,24 @@ class dbfunctions{
 		}else{
 			$result = "fail";
 		}
+		$data = file("../.htaccess");
+		$out = array();
+		foreach($data as $line) {
+			$out[] = $line;
+		}
+		$res_url ="";
+		$get_url = explode("/",$_SERVER['REQUEST_URI']);
+		for($k=1;$k<count($get_url) - 2 ;$k++){
+			$res_url = $res_url . "/".$get_url[$k];
+		}
+		$out[1] = "RewriteBase ". $res_url ."/\n";
+		$fp = fopen("../.htaccess", "w+");
+		flock($fp, LOCK_EX);
+		foreach($out as $line) {
+			fwrite($fp, $line);
+		}
+		flock($fp, LOCK_UN);
+		fclose($fp);
 		return($result);
 	}
 	function create_new_administrator($username,$pass,$useremail){
@@ -84,7 +102,7 @@ class dbfunctions{
 		global $conn;
 		if($conn == Null){
 			unlink("../functions/connections.php");
-			header("Location: install?conerr=yes");
+			header("Location: add-database.php?conerr=yes");
 		}
 		$result = $conn->query("SHOW TABLES");
 		if ($result->rowCount() > 0) {
