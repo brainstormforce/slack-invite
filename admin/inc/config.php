@@ -48,7 +48,8 @@ $one->l_side_overlay_visible       = false;    // True: Visible Side Overlay, Fa
 $one->l_side_scroll                = true;     // True: Enable custom scrolling (> 991px), False: Disable it (native scrolling)
 
 // Global Active Page (it will get compared with the url of each menu link to make the link active and set up main menu accordingly)
-$one->main_nav_active              = basename($_SERVER['PHP_SELF']);
+//$one->main_nav_active              = basename($_SERVER['PHP_SELF']); -- This is Previous Line Changed to show rewrite url active
+$one->main_nav_active              = basename($_SERVER['REQUEST_URI']);
 
 // Global Main Menu
 $one->main_nav                     = array(

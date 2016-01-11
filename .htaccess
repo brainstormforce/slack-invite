@@ -8,3 +8,5 @@ RewriteRule admin/logout  admin/logout.php [L]
 RewriteRule admin/chk_credentials  admin/chklogin.php [L]
 RewriteRule admin/install  admin/add-database.php [L]
 RewriteRule admin/add_user  admin/setadmin.php [L]
+RewriteRule admin/save_data  admin/settingdetails.php [L]
+
