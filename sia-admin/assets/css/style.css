@@ -695,6 +695,20 @@ margin-top: 17px;
     width: 33%;
     margin: 10px auto;
 }
+.add-data-basefull-width-error {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #eee;
+    margin: 5% auto;
+    padding: 10px;
+    width: 60%;
+}
+.button.button-large {
+    border: 1px solid #eee;
+    border-radius: 3px;
+    color: #000;
+    padding: 10px;
+    text-decoration: none;
+}
 .add-data-basefull-width p {
     margin-top: 35px;
     margin-bottom: 15px;
@@ -716,5 +730,17 @@ margin-top: 17px;
     position: relative;
     top: 15px;
     left: 15px;
+}
+.dashboard-block{
+	background: #fff none repeat scroll 0 0;
+    width: 20%;
+}
+.dashboard-block-title{ background: #eee none repeat scroll 0 0;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;}
+.dashboard-block-content{ font-size: 60px;
+    padding: 25px;
+    text-align: center;
 }
 /***end***/

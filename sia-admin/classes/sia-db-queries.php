@@ -3,16 +3,11 @@ class db_queries
 {
 	function cretae_database($dbname){
 		$sql = "CREATE DATABASE IF NOT EXISTS  $dbname";
-		if($conn->exec($sql)){
+		if(run_query($sql)){
 			
 		}
 	}
 	function create_basic_set_up(){
-		global $conn;
-		if($conn == Null){
-			unlink("../functions/connections.php");
-			header("Location: add-database.php?conerr=yes");
-		}
 		$result ="";
 		//creating members Table
 		$sqlmember = "CREATE TABLE IF NOT EXISTS members (
@@ -23,7 +18,7 @@ class db_queries
 			contact VARCHAR(12),
 			status  CHAR(25)
 		)";
-		if($conn->query($sqlmember)){
+		if(run_query($sqlmember)){
 			$result = "success";
 		}else{
 			$result = "fail";
@@ -36,7 +31,7 @@ class db_queries
 			email VARCHAR(50) NOT NULL,
 			status  CHAR(5)
 			)";
-		if($conn->query($sqlnotification)){
+		if(run_query($sqlnotification)){
 			$result = "success";
 		}else{
 			$result = "fail";
@@ -50,7 +45,7 @@ class db_queries
 		token  CHAR(100),
 		status CHAR(10)
 		)";
-		if($conn->query($sqlsettings)){
+		if(run_query($sqlsettings)){
 			$result = "success";
 		}else{
 			$result = "fail";
@@ -63,12 +58,12 @@ class db_queries
 			passwd VARCHAR(255) NOT NULL,
 			email varchar(30) NOT NULL
 		)";		
-		if($conn->query($sqladmin)){
+		if(run_query($sqladmin)){
 			$result = "success";
 		}else{
 			$result = "fail";
 		}
-		$data = file("../.htaccess");
+		/*$data = file("../.htaccess");
 		$out = array();
 		foreach($data as $line) {
 			$out[] = $line;
@@ -85,17 +80,13 @@ class db_queries
 			fwrite($fp, $line);
 		}
 		flock($fp, LOCK_UN);
-		fclose($fp);
+		fclose($fp);*/
 		return($result);
 	}
-	function create_new_administrator($username,$pass,$useremail){
-		global $conn;
+	function create_new_administrator($userpname,$username,$pass,$useremail){
 		$result ="";
-		$sql = $conn->prepare('INSERT INTO `user_admin`(`user_name`, `passwd`, `email`) VALUES ( :username, :passwd, :email)');
-		if($sql->execute( array(':username'=> $username, ':passwd'=> SHA1($pass), ':email'=>$useremail) )){
-			$result ="success";
-		}
-		return($result);
+		$sql = run_query("INSERT INTO `user_admin`(`user_name`, `passwd`, `email`) VALUES ( '".validate_input($username)."','".validate_input($pass)."','".validate_input($useremail)."')");
+		$sql = run_query("INSERT INTO `notification_emails`(`name`, `email`) VALUES ( '".validate_input($userpname)."','".validate_input($useremail)."')");
 	}
 	function chk_tables(){
 		global $conn;
@@ -117,6 +108,45 @@ class db_queries
 		}
 		
 		return $r;
+	}
+
+	function database_connection_setup($dbname,$dbuser,$dbpwd,$dbhost){
+		$fp=fopen('../sia-config.php','w');
+		fwrite($fp, "<?php \n
+			define('DB_NAME', '".$dbname."');
+			define('DB_USER', '".$dbuser."');
+			define('DB_PASSWORD', '".$dbpwd."');
+			define('DB_HOST', '".$dbhost."'); \n?>");
+		fclose($fp);
+	}
+	function chk_login($username,$pwd){
+		$result = "";
+		$stmt = "SELECT `user_id`, `user_name`, `passwd`, `email` FROM `user_admin` WHERE user_name = '".validate_input($username)."' AND passwd ='".validate_input($pwd)."'";
+		$rs = run_query($stmt);
+		if($rs){
+			foreach ($rs as $key) {
+				$_SESSION['login_user'] = $key['user_name'];
+				$_SESSION['uid'] = $key['user_id'];
+				$_SESSION['email'] = $key['email'];
+				$result = "done";
+			}
+		}else{
+			$result = "err";
+		}
+		return($result);
+	}
+	function get_slack_token_url(){
+		$sql = run_query('SELECT * FROM slack_settings');
+		$slc = fetch_data($sql);
+		return($slc);
+	}
+	function get_invities(){
+		$sql = run_query('SELECT * FROM members');
+		return($sql);
+	}
+	function get_email_notifications(){
+		$sql = run_query('select * from notification_emails');
+		return($sql);
 	}
 }
 ?> 

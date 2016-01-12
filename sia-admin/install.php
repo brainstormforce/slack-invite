@@ -1,3 +1,12 @@
+<?php
+require("constants.php");
+if(isset($_POST['servername']) && !empty($_POST['servername']) && isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['dbname']) && !empty($_POST['dbname'])){
+	$set_up = $sia_obj->database_connection_setup($_POST['dbname'],$_POST['username'],$_POST['password'],$_POST['servername']);
+	header("Location: chk_install.php");
+}else{
+	//header("Location: install.php?conerr=yes");
+}
+?>
 <html>
 <head>
     <title>Add Database</title>
@@ -5,51 +14,8 @@
       <link rel="stylesheet" href="assets/css/style.css" >
      <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css" />
 </head>
-<body class="login-index">
-	<?php
-	$filepath = "../sia-config.php";
-	if(file_exists($filepath)){
-	require("../functions/main_functions.php");
-	$si_db_obj = new dbfunctions();	
-		$tbl_count = $si_db_obj->chk_tables();
-		if($tbl_count == false){
-		}else if($tbl_count == "nou"){
-			//header("location: add_user");
-		}
-		else{
-			//header("location: login");
-		}
-	}
-	if(isset($_POST['save']) && isset($_POST['servername']) && !empty($_POST['servername']) && isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['dbname']) && !empty($_POST['dbname'])){
-		$fp=fopen('../functions/connections.php','w');
-		fwrite($fp, '<?php
-		try {
-			$conn = new PDO("mysql:host='.$_POST['servername'].';dbname='.$_POST['dbname'].'", "'.$_POST['username'].'", "'.$_POST['password'].'");
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$host = $_SERVER["HTTP_HOST"];
-			if ($host == "localhost") {
-				$URL = $_SERVER["HTTP_HOST"];
-			}
-		}
-		catch(PDOException $e) {
-			echo $e->getMessage();
-		}
-		?>
-		');
-		fclose($fp);
-		if(!isset($si_db_obj)){
-			require("../functions/main_functions.php");
-			$si_db_obj = new dbfunctions();
-		}
 
-		$set_up = $si_db_obj->create_basic_set_up();
-		if($set_up == "success"){
-			header("Location: add-database.php");
-		}else{
-			echo "Wrong Details provided";
-		}
-	}
-?>
+<body class="login-index">
 	<div class="add-data-basefull-width">
 		<div class="bg-primary1">
 			<i class="fa fa-database"></i><h3 class="block-title-db">Please Add Database Details</h3> 

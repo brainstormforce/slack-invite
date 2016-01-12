@@ -56,7 +56,7 @@ $one->main_nav                     = array(
     array(
         'name'  => '<span class="sidebar-mini-hide">Dashboard</span>',
         'icon'  => 'si si-speedometer',
-        'url'   => 'invitees'
+        'url'   => 'dashboard.php'
         ),
             array(
                 'name'  => '<span class="sidebar-mini-hide">Slack Settings</span>',
@@ -67,11 +67,11 @@ $one->main_nav                     = array(
             array(
                 'name'  => '<span class="sidebar-mini-hide">Email Settings</span>',
                 'icon'  => 'si si-envelope-open',
-                'url'   => 'notifications',
+                'url'   => 'set_new_emails.php',
             ) ,
      array('name' => '<span class="sidebar-mini-hide">Invitees</span>' ,
         'icon'  => 'si si-grid',
-        'url'   => 'invitees',
+        'url'   => 'invitees.php',
          )
     
 );

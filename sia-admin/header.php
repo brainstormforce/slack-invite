@@ -1,16 +1,9 @@
 <?php
-session_start();
-/*if(!isset($_SESSION['login_user'])){
-	header("Location: login");
-}*/
+require 'constants.php'; 
 require 'inc/config.php';
 require 'inc/views/template_head_start.php';
 require 'inc/views/template_head_end.php'; 
 require 'inc/views/base_head.php'; 
-require 'constants.php'; 
-//require 'classes/db_queries.php'; 
-//$slack_obj = new data_queries();
-//echo $_SERVER['HTTP_HOST'];
 ?>
 <head>
     <title>Add Database</title>
