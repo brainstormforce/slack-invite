@@ -85,14 +85,13 @@ class db_queries
 	}
 	function create_new_administrator($userpname,$username,$pass,$useremail){
 		$result ="";
-		$sql = run_query("INSERT INTO `user_admin`(`user_name`, `passwd`, `email`) VALUES ( '".validate_input($username)."','".validate_input($pass)."','".validate_input($useremail)."')");
+		$sql = run_query("INSERT INTO `user_admin`(`user_name`, `passwd`, `email`) VALUES ( '".validate_input($username)."','".SHA1(validate_input($pass))."','".validate_input($useremail)."')");
 		$sql = run_query("INSERT INTO `notification_emails`(`name`, `email`) VALUES ( '".validate_input($userpname)."','".validate_input($useremail)."')");
 	}
 	function chk_tables(){
-		global $conn;
 		if($conn == Null){
-			unlink("../functions/connections.php");
-			header("Location: add-database.php?conerr=yes");
+			unlink("../sia-config.php");
+			header("Location: install.php?conerr=yes");
 		}
 		$result = $conn->query("SHOW TABLES");
 		if ($result->rowCount() > 0) {
@@ -121,7 +120,7 @@ class db_queries
 	}
 	function chk_login($username,$pwd){
 		$result = "";
-		$stmt = "SELECT `user_id`, `user_name`, `passwd`, `email` FROM `user_admin` WHERE user_name = '".validate_input($username)."' AND passwd ='".validate_input($pwd)."'";
+		$stmt = "SELECT `user_id`, `user_name`, `passwd`, `email` FROM `user_admin` WHERE user_name = '".validate_input($username)."' AND passwd ='".SHA1(validate_input($pwd))."'";
 		$rs = run_query($stmt);
 		if($rs){
 			foreach ($rs as $key) {
@@ -176,6 +175,9 @@ class db_queries
 	}
 	function deactivate_token($id){
 		$sql = run_query("update slack_settings set status = 'deactivated' where id ='".validate_input($id)."'");
+	}
+	function add_new_request($name,$email,$about,$contact){
+		$sql = run_query("insert into members (name,email,about,contact)values('".validate_input($name)."','".validate_input($email)."','".validate_input($about)."','".validate_input($contact)."')");
 	}
 }
 ?> 

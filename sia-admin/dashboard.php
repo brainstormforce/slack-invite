@@ -13,7 +13,7 @@ require("header.php");
 <div class="content">
 	<?php
 	$invitees = $sia_obj->get_invities();
-	if(chk_result_if_empty($invitees) > 0){
+	//if(chk_result_if_empty($invitees) > 0){
 	?>
 	<a href="invitees.php">
 		<div class="dashboard-block">
@@ -26,7 +26,7 @@ require("header.php");
 		</div>
 	</a>
 	<?php
-	}
+	//}
 	?>
 </div>
 <?php

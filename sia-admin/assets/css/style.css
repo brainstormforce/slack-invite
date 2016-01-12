@@ -287,7 +287,7 @@ input.form-control:focus {
 }
 
 .form-control {
-    width:90% !important; 
+    width:100% !important; 
 }
 .form-horizontal .form-group input[type="text"] {
     position: absolute;
@@ -744,4 +744,7 @@ margin-top: 17px;
     text-align: center;
 }
 .message {margin: 35px 10px 10px 0;}
+.col-sm-6 .dataTables_filter label { text-align: left; }
+.col-sm-6 .dataTables_filter { text-align: right; }
+.col-sm-6 .dataTables_paginate.paging_simple_numbers{ text-align: right; }
 /***end***/

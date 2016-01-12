@@ -38,8 +38,8 @@ if(isset($_GET['decline']) && !empty($_GET['decline']) ){
 							<th class="text-center"></th>
 							<th>Name</th>
 							<th class="hidden-xs">Email</th>
-							<th class="hidden-xs" style="width: 15%;">Contact</th>
-							<th class="text-center" style="width: 10%;">Status</th>
+							<th class="hidden-xs">Contact</th>
+							<th class="text-center">Status</th>
 						</tr>
 					</thead>
 					<tbody>

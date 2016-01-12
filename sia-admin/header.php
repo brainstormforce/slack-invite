@@ -1,5 +1,6 @@
 <?php
 require 'constants.php'; 
+if(!isset($_SESSION['login_user'])){ header("Location: index.php"); }
 require 'inc/config.php';
 require 'inc/views/template_head_start.php';
 require 'inc/views/template_head_end.php'; 
