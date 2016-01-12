@@ -119,3 +119,5 @@ if(isset($_GET['decline']) && !empty($_GET['decline']) ){
 <!-- END Page Content -->
 
 <?php require("footer.php"); ?>
+<script src="<?php echo BASE_PATH; ?>assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo BASE_PATH; ?>assets/js/pages/base_tables_datatables.js"></script>
