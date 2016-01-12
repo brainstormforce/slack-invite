@@ -59,9 +59,9 @@ $(function(){
 
 
 	jQuery(".delete_email").on('click', function(event) {
-		if(confirm("Are you sure you want to delete this? "+$(this).val())){
+		if(confirm("Are you sure you want to delete this user? ")){
 			$.ajax({
-				url: 'save_data',
+				url: 'handle_jquery_calls.php',
 				type: 'POST',
 				dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
 				data: {
@@ -93,9 +93,6 @@ $(function(){
 		var input = obj.children('input'); //cache the element where we must set the value
 		var input_val = obj.children('input').val(); //cache the element where we must set the value
 		var uemail= obj.children('.email_val').val().replace('/','');
-		//var str = $(uemail).val().replace('/','');
-		//console.log(uemail);
-		/* Check selected */
 		if( 0 == input_val ){
 			dsb.addClass('selected');
 		}
@@ -105,7 +102,7 @@ $(function(){
 		//Action on user's click(ON)
 		enb.on('click', function(){
 			$.ajax({ // this code will update notification email status
-				url: 'save_data',
+				url: 'handle_jquery_calls.php',
 				type: 'POST',
 				data: {
 					ajaxfunction: 'update_email_status',
@@ -130,7 +127,7 @@ $(function(){
 		//Action on user's click(OFF)
 		dsb.on('click', function(){
 			$.ajax({  //  update notification email status as off
-				url: 'save_data',
+				url: 'handle_jquery_calls.php',
 				type: 'POST',
 		 		data: {
 					ajaxfunction: 'update_email_status',

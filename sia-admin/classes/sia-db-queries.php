@@ -140,6 +140,10 @@ class db_queries
 		$slc = fetch_data($sql);
 		return($slc);
 	}
+	function get_all_slack_token_url(){
+		$sql = run_query('SELECT * FROM slack_settings');
+		return($sql);
+	}
 	function get_invities(){
 		$sql = run_query('SELECT * FROM members');
 		return($sql);
@@ -147,6 +151,31 @@ class db_queries
 	function get_email_notifications(){
 		$sql = run_query('select * from notification_emails');
 		return($sql);
+	}
+	function add_new_slack_token($name,$url,$token){
+		$sql = run_query("insert into slack_settings(name,url,token)values('".validate_input($name)."','".validate_input($url)."','".validate_input($token)."')");
+	}
+	function accept_invitation($id){
+		$sql = run_query("update members set status = 'invited' where member_id ='".validate_input($id)."'");
+	}
+	function decline_invitation($id){
+		$sql = run_query("update members set status = 'declined' where member_id ='".validate_input($id)."'");
+	}
+	function update_notfication_email_status($id,$status){
+		$sql = run_query("UPDATE `notification_emails` SET `status`='".validate_input($status)."' WHERE `e_id`='".validate_input($id)."'");
+	}
+	function remove_notfication_email($e_id){
+		$sql = run_query("DELETE FROM `notification_emails` WHERE `e_id`='".validate_input($e_id)."'");
+		return("Deleted");
+	}
+	function add_new_notfication_email($name,$email){
+		$sql=run_query("INSERT INTO `notification_emails` ( `name`, `email`) VALUES ('".validate_input($name)."','".validate_input($email)."')");
+	}
+	function activate_token($id){
+		$sql = run_query("update slack_settings set status = 'activated' where id ='".validate_input($id)."'");
+	}
+	function deactivate_token($id){
+		$sql = run_query("update slack_settings set status = 'deactivated' where id ='".validate_input($id)."'");
 	}
 }
 ?> 

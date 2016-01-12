@@ -1,5 +1,13 @@
-<?php require('header.php');?>
-
+<?php require('header.php');
+if(isset($_GET['invite']) && !empty($_GET['invite']) ){
+	$accept = $sia_obj ->accept_invitation($_GET['invite']);
+	header("Location: invitees.php");
+}
+if(isset($_GET['decline']) && !empty($_GET['decline']) ){
+	$decline = $sia_obj ->decline_invitation($_GET['decline']);
+	header("Location: invitees.php");
+}
+?>
 <!-- Page Header -->
 <div class="content bg-gray-lighter">
     <div class="row items-push">
@@ -79,10 +87,22 @@
 									<?php
 									}
 									else{
+										// echo "<div class='".$member_id." status '>
+                                    //<button type='submit' class='btn btn-default send_invitation' data-toggle='tooltip' title='Send Invitation' name='invitebtn' value=".$email."> <i class='fa fa-check-circle'></i></button>";
+                                    //echo "<button type='button' class='btn btn-default decline' data-toggle='tooltip' title='Decline Member' name='declinebtn' value=".$email." > <i class='fa fa-ban'></i></button></div>";
 									?>
 										<div class="<?php echo $member_id;?> status ">
-										<button type='submit' class='btn btn-default send_invitation' data-toggle='tooltip' title='Send Invitation' name='invitebtn' value="<?php echo $email; ?>"> <i class='fa fa-check-circle'></i></button>
-										<button type='button' class='btn btn-default decline' data-toggle='tooltip' title='Decline Member' name='declinebtn' value="<?php echo $email; ?>" > <i class='fa fa-ban'></i></button></div>
+											<a href="invitees.php?invite=<?php echo $r['member_id']?>">
+											<button type='button' class='btn btn-default send_invitation' data-toggle='tooltip' title='Send Invitation' name='invitebtn'> 
+												<i class='fa fa-check-circle'></i>
+											</button>
+											</a>
+											<a href="invitees.php?decline=<?php echo $r['member_id']?>">
+											<button type='button' class='btn btn-default decline' data-toggle='tooltip' title='Decline Member' name='declinebtn' value="<?php echo $email; ?>" > 
+												<i class='fa fa-ban'></i>
+											</button>
+											</a>
+										</div>
 									<?php
 									}
 									?>

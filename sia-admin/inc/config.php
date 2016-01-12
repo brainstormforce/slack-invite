@@ -60,7 +60,7 @@ $one->main_nav                     = array(
         ),
             array(
                 'name'  => '<span class="sidebar-mini-hide">Slack Settings</span>',
-                'url'   => 'tokens',
+                'url'   => 'slack_token.php',
                 'icon'  => 'si si-settings',
                 'class' => 'display_slack_settings',
             ),
