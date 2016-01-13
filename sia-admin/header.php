@@ -1,10 +1,18 @@
 <?php
 require 'constants.php'; 
+if(check_install_complete() == false){
+	header("Location: chk_install.php");
+}
+if($sia_obj->chk_tables() == false){
+	header("Location: chk_install.php");
+}
+if($sia_obj->chk_tables() == "nou"){ header("Location: create_admin.php"); }
 if(!isset($_SESSION['login_user'])){ header("Location: index.php"); }
 require 'inc/config.php';
 require 'inc/views/template_head_start.php';
 require 'inc/views/template_head_end.php'; 
 require 'inc/views/base_head.php'; 
+
 ?>
 <head>
     <title>Add Database</title>

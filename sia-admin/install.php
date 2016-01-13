@@ -16,34 +16,49 @@ if(isset($_POST['servername']) && !empty($_POST['servername']) && isset($_POST['
 </head>
 
 <body class="login-index">
-	<div class="add-data-basefull-width">
-		<div class="bg-primary1">
-			<i class="fa fa-database"></i><h3 class="block-title-db">Please Add Database Details</h3> 
-		</div>
-		<br>
-		<form action='' method="post" class="form-control ">
-			<?php if(isset($_GET['conerr']) && !empty($_GET['conerr']) && $_GET['conerr'] == "yes"){
+	<?php
+	if(check_install_complete() == false){
+	?>
+		<div class="add-data-basefull-width">
+			<div class="bg-primary1">
+				<i class="fa fa-database"></i><h3 class="block-title-db">Please Add Database Details</h3> 
+			</div>
+			<br>
+			<form action='' method="post" class="form-control ">
+				<?php if(isset($_GET['conerr']) && !empty($_GET['conerr']) && $_GET['conerr'] == "yes"){
+					?>
+					<p style="color:red">Unable to install, Please provide correct credentials.</p>
+					<?php
+				}
 				?>
-				<p style="color:red">Unable to install, Please provide correct credentials.</p>
-				<?php
-			}
-			?>
-			<div class="form-group">
-				<input class="form-control" placeholder="Host name" type="text" name="servername" required>
-			</div>
-			<div class="form-group">
-				<input class="form-control" placeholder="User Name" type="text" name="username" required>
-			</div>
-			<div class="form-group">
-				<input class="form-control" placeholder="password" type="text" name="password">
-			</div>
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="Database Name" name="dbname" required>
-			</div>
-			<div class="form-group">
-				<input id="login-button" class="form-control" type="submit" name="save">
-			</div>
-		</form>
-	</div>
+				<div class="form-group">
+					<input class="form-control" placeholder="Host name" type="text" name="servername" required>
+				</div>
+				<div class="form-group">
+					<input class="form-control" placeholder="User Name" type="text" name="username" required>
+				</div>
+				<div class="form-group">
+					<input class="form-control" placeholder="password" type="text" name="password">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" placeholder="Database Name" name="dbname" required>
+				</div>
+				<div class="form-group">
+					<input id="login-button" class="form-control" type="submit" name="save">
+				</div>
+			</form>
+		</div>
+	<?php
+	}else{
+	?>
+		<div class="add-data-basefull-width-error">
+			<h1>Already Installed</h1>
+			<hr></hr>
+			<p>You appear to have already installed Stackinvite Application. To reinstall please clear your old database tables first.</p>
+			<p class="step"><a href="index.php" class="button button-large">Log in</a></p>
+		</div>
+	<?php
+	}
+	?>
 </body>
 </html>

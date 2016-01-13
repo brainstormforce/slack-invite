@@ -8,6 +8,10 @@ if(isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pass
 		header("Location: index.php?err=err");
 	}
 }
+if(mysqli_connect_errno() >0 || check_install_complete() == false){
+	header("Location: chk_install.php");
+}
+if($sia_obj->chk_tables() == "nou"){ header("Location: create_admin.php"); }
 ?>
 <!DOCTYPE html>
 <html>

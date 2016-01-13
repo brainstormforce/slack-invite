@@ -17,8 +17,16 @@ if(file_exists($filepath)){
 	require("classes/db.php");
 	
 }else{
-	//header("Location: install.php");
+	function check_install_complete(){
+		if(strpos($_SERVER['REQUEST_URI'],"sia-admin")){
+			if(file_exists("../sia-config.php")){ return true; }else{ return false; }
+		}else{
+			if(file_exists("sia-config.php")){ return true; }else{ return false; }
+		}
+	}
 }
 require("classes/sia-db-queries.php");
 $sia_obj = new db_queries();
+
+
 ?>

@@ -89,16 +89,12 @@ class db_queries
 		$sql = run_query("INSERT INTO `notification_emails`(`name`, `email`) VALUES ( '".validate_input($userpname)."','".validate_input($useremail)."')");
 	}
 	function chk_tables(){
-		if($conn == Null){
-			unlink("../sia-config.php");
-			header("Location: install.php?conerr=yes");
-		}
-		$result = $conn->query("SHOW TABLES");
-		if ($result->rowCount() > 0) {
-			$r = $result->fetchAll(PDO::FETCH_ASSOC);
-			$result_u = $conn->query("select count(*) from user_admin");
-			$r_u = $result_u->fetchAll(PDO::FETCH_ASSOC);
-			if ($r_u[0]['count(*)'] > 0) {
+		$result = run_query("SHOW TABLES");
+		if (chk_result_if_empty($result) > 0) {
+			$r = fetch_data($result);
+			$result_u = run_query("select count(*) from user_admin");
+			$r_u = fetch_data($result_u);
+			if ($r_u['count(*)'] > 0) {
 			}else{
 				$r = "nou";
 			}
