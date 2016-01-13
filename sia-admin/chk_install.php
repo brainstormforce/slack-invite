@@ -9,7 +9,7 @@
 <?php
 require("constants.php");
 if(mysqli_connect_errno() >0 || check_install_complete() == false){
-	if(check_install_complete()){ unlink("../sia-config.php"); }
+	//if(check_install_complete()){ //unlink("../sia-config.php"); }
 	
 ?>
 <div class="add-data-basefull-width-error">
@@ -23,7 +23,7 @@ if(mysqli_connect_errno() >0 || check_install_complete() == false){
 	</ul>
 	<p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="https://www.brainstormforce.com/">Brainstorm Force Support</a>.</p>
 	<p></p>
-		<p class="step"><a href="install.php" class="button button-large">Try again</a></p>
+		<!--<p class="step"><a href="install.php" class="button button-large">Try again</a></p>-->
 	
 </div>
 <?php
@@ -42,7 +42,12 @@ if(mysqli_connect_errno() >0 || check_install_complete() == false){
 	</div>
 <?php
 }*/else{
-	$run = $sia_obj->create_basic_set_up();
+	if($sia_obj->chk_tables() == "send_to_login"){
+		header("Location: index.php");
+	}else{
+		$run = $sia_obj->create_basic_set_up();
+	}
+	
 ?>
 <div class="add-data-basefull-width-error">
 	<h1 class="screen-reader-text">Successful database connection</h1>

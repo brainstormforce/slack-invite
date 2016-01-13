@@ -2,7 +2,7 @@
 require("constants.php");
 if(isset($_POST['servername']) && !empty($_POST['servername']) && isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['dbname']) && !empty($_POST['dbname'])){
 	$set_up = $sia_obj->database_connection_setup($_POST['dbname'],$_POST['username'],$_POST['password'],$_POST['servername']);
-	header("Location: chk_install.php");
+	//header("Location: chk_install.php");
 }else{
 	//header("Location: install.php?conerr=yes");
 }
@@ -17,7 +17,7 @@ if(isset($_POST['servername']) && !empty($_POST['servername']) && isset($_POST['
 
 <body class="login-index">
 	<?php
-	if(check_install_complete() == false){
+	if(check_install_complete() == false && !isset($_GET['conerr'])){
 	?>
 		<div class="add-data-basefull-width">
 			<div class="bg-primary1">
@@ -48,6 +48,23 @@ if(isset($_POST['servername']) && !empty($_POST['servername']) && isset($_POST['
 				</div>
 			</form>
 		</div>
+	<?php
+	}else if(isset($_GET['conerr']) && !empty($_GET['conerr'])){
+	?>
+	<div class="add-data-basefull-width-error">
+		<h1>Error establishing a database connection</h1>
+		<hr></hr>
+		<p>This either means that the username and password information in your <code>sia-config.php</code> file is incorrect or we can't contact the database server at <code>localhost</code>. This could mean your host's database server is down.</p>
+		<ul>
+			<li>Are you sure you have the correct username and password?</li>
+			<li>Are you sure that you have typed the correct hostname?</li>
+			<li>Are you sure that the database server is running?</li>
+		</ul>
+		<p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="https://www.brainstormforce.com/">Brainstorm Force Support</a>.</p>
+		<p></p>
+		<p class="step"><a href="install.php" class="button button-large">Try again</a></p>
+		
+	</div>
 	<?php
 	}else{
 	?>

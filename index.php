@@ -1,5 +1,6 @@
 <?php
 if(file_exists("sia-config.php")){//about_yourself
+	error_reporting(0);
 	require("sia-config.php");
 	require("sia-admin/classes/db.php");
 	require("sia-admin/classes/sia-db-queries.php");
@@ -8,6 +9,11 @@ if(file_exists("sia-config.php")){//about_yourself
 		$sia_obj ->add_new_request($_POST['fname'],$_POST['email'],$_POST['about_yourself'],$_POST['contact']);
 		header("Location: index.php?done=yes");
 	}
+	if(mysqli_connect_errno() >0){
+	?>
+	<h1>Error establishing a database connection</h1>
+	<?php
+	}else{
 ?>
 <html>
 	<head>
@@ -62,6 +68,7 @@ if(file_exists("sia-config.php")){//about_yourself
 </html>
 
 <?php
+	}
 }else{
 	header("Location: sia-admin/install.php");
 }

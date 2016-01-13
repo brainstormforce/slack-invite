@@ -95,6 +95,7 @@ class db_queries
 			$result_u = run_query("select count(*) from user_admin");
 			$r_u = fetch_data($result_u);
 			if ($r_u['count(*)'] > 0) {
+				$r = "send_to_login";
 			}else{
 				$r = "nou";
 			}
@@ -106,13 +107,19 @@ class db_queries
 	}
 
 	function database_connection_setup($dbname,$dbuser,$dbpwd,$dbhost){
-		$fp=fopen('../sia-config.php','w');
-		fwrite($fp, "<?php \n
-			define('DB_NAME', '".$dbname."');
-			define('DB_USER', '".$dbuser."');
-			define('DB_PASSWORD', '".$dbpwd."');
-			define('DB_HOST', '".$dbhost."'); \n?>");
-		fclose($fp);
+		$con = mysqli_connect($dbhost,$dbuser,$dbpwd,$dbname);
+		if(mysqli_connect_errno()>0){
+			header("Location: install.php?conerr=yes");
+		}else{
+			$fp=fopen('../sia-config.php','w');
+			fwrite($fp, "<?php \n
+				define('DB_NAME', '".$dbname."');
+				define('DB_USER', '".$dbuser."');
+				define('DB_PASSWORD', '".$dbpwd."');
+				define('DB_HOST', '".$dbhost."'); \n?>");
+			fclose($fp);
+			header("Location: chk_install.php");
+		}
 	}
 	function chk_login($username,$pwd){
 		$result = "";
