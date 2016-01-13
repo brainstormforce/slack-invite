@@ -23,23 +23,21 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
     <div class="block">
         <form method="post" name="invite" class="invite_form" style="width:100%;">
 			<div class="block-content">
-				<?php 
-				$get_result = $sia_obj ->get_all_slack_token_url();
-				if(chk_result_if_empty($get_result)>0)
-				{
-				?>
-					<a href="add_new_token.php" ><input class="btn btn-default" type="button" value="Add New Token" style="margin-bottom:10px;"/></a>
-					<table class="table table-bordered table-striped js-dataTable-full">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th class="hidden-xs">URL</th>
-								<th class="hidden-xs" style="width: 15%;">Token</th>
-								<th class="text-center" style="width: 10%;">Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
+				<a href="add_new_token.php" ><input class="btn btn-default" type="button" value="Add New Token" style="margin-bottom:10px;"/></a>
+				<table class="table table-bordered table-striped js-dataTable-full">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th class="hidden-xs">URL</th>
+							<th class="hidden-xs" style="width: 15%;">Token</th>
+							<th class="text-center" style="width: 10%;">Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						$get_result = $sia_obj ->get_all_slack_token_url();
+						if(chk_result_if_empty($get_result)>0)
+						{
 							while ($r = fetch_data($get_result)):
 							?>
 								<tr id="<?php echo $r['id']; ?>">
@@ -84,19 +82,19 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
 										</div>
 									</td>
 								</tr>
-							<?php endwhile;  ?>
-						</tbody>
-					</table>
-				<?php
-				}else{
-				?>
-				<a href="add_new_token.php"><input class="btn btn-default" type="button" value="Add New Token" /></a>
-				<div class="message">
-					There are no tokens available.
-				</div>
-				<?php
-				}
-				?>
+							<?php 
+							endwhile;  
+						}
+						else{
+						?>
+						<tr class="odd">
+							<td class="dataTables_empty" valign="top" colspan="5">No data available in table</td>
+						</tr>
+						<?php
+						}
+						?>
+					</tbody>
+				</table>
 			</div>
         </form>
     </div>

@@ -17,23 +17,21 @@ require("header.php");
     <div class="block">
 		<div class="block-content">
 			<form method='post' name='notificationform' style='padding-bottom:1px'>
-				<?php
-				$rs = $sia_obj ->get_email_notifications();
-				if(chk_result_if_empty($rs)>0)
-				{
-					?>
-					<a href="add_new_email.php"><input class="btn btn-default" type="button" value="Add New Email" style="margin-bottom:10px;"/></a>
-					<table class='table table-bordered table-striped js-dataTable-full'>
-						<thead>
-							<tr class='column-provider'>
-								<th>Name</th>
-								<th>Email</th>
-								<th>status</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
+				<a href="add_new_email.php"><input class="btn btn-default" type="button" value="Add New Email" style="margin-bottom:10px;"/></a>
+				<table class='table table-bordered table-striped js-dataTable-full'>
+					<thead>
+						<tr class='column-provider'>
+							<th>Name</th>
+							<th>Email</th>
+							<th>status</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						$rs = $sia_obj ->get_email_notifications();
+						if(chk_result_if_empty($rs)>0)
+						{
 							while($result = fetch_data($rs)){
 								$name=$result['name'];
 								$email=$result['email'];
@@ -74,19 +72,16 @@ require("header.php");
 								</tr>
 							<?php
 							}
+							}else{
 							?>
-						</tbody>
-					</table>
-				<?php
-				}else{
-				?>
-					<a href="add_new_email.php"><input class="btn btn-default" type="button" value="Add New Email" /></a>
-					<div class="message">
-						There are no users available.
-					</div>
-				<?php
-				}
-				?>
+								<tr class="odd">
+									<td class="dataTables_empty" valign="top" colspan="5">No data available in table</td>
+								</tr>
+							<?php
+							}
+							?>
+					</tbody>
+				</table>
 			</form> 
 		</div>
 	</div>
