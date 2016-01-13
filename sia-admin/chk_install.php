@@ -46,6 +46,7 @@ if(mysqli_connect_errno() >0 || check_install_complete() == false){
 		header("Location: index.php");
 	}else{
 		$run = $sia_obj->create_basic_set_up();
+		header("Location: create_admin.php");
 	}
 	
 ?>

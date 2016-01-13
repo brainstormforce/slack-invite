@@ -12,6 +12,7 @@ if(mysqli_connect_errno() >0 || check_install_complete() == false){
 	header("Location: chk_install.php");
 }
 if($sia_obj->chk_tables() == "nou"){ header("Location: create_admin.php"); }
+if($sia_obj->chk_tables() == false){ header("Location: chk_install.php"); }
 ?>
 <!DOCTYPE html>
 <html>
