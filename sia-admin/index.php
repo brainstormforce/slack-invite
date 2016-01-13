@@ -8,6 +8,11 @@ if(isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pass
 		header("Location: index.php?err=err");
 	}
 }
+
+if(check_install_complete() == false){
+	header("Location: install.php");
+	die;
+}
 if(mysqli_connect_errno() >0 || check_install_complete() == false){
 	header("Location: chk_install.php");
 }

@@ -1,7 +1,7 @@
 <?php
 require 'constants.php'; 
 if(check_install_complete() == false){
-	header("Location: chk_install.php");
+	header("Location: install.php");
 }
 if($sia_obj->chk_tables() == false){
 	header("Location: chk_install.php");
