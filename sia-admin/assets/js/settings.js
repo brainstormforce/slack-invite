@@ -12,52 +12,6 @@ $(function(){
 		jQuery('.addsidebar').removeClass('opensidebar');
 		jQuery('.query-menu').show();
 	});
-// this file is called from settings.php
-// all functions of settings page	
-	jQuery('.email_form').on('submit', function(event) {
-		event.preventDefault();
-		event.stopImmediatePropagation();
-		$.ajax({
-			url: 'save_data',
-			type: 'POST',
-			data: {
-				ajaxfunction: 'settings_email',
-				name: $(".name").val(),
-				notification_email: $(".email").val(),
-			},
-		})
-		.done(function(e) {
-			window.location.reload();
-		})
-		.fail(function(e) {
-			console.log("Failed");
-		});
-	});
-
-	//slack edit token and url
-	jQuery('.display_token_edit').on('submit', function(event) {
-		event.preventDefault();
-		event.stopImmediatePropagation();
-		$.ajax({
-
-			url: 'save_data',
-			type: 'POST',
-			data: {
-				ajaxfunction: 'edit_token',
-				url: $(".url").val(),
-				token: $(".token").val(),
-			},
-		})
-		.done(function(e) {
-				console.log(e.html());
-			
-		})
-		.fail(function(e) {
-			console.log("Failed");
-		});
-	});
-
-
 	jQuery(".delete_email").on('click', function(event) {
 		if(confirm("Are you sure you want to delete this user? ")){
 			$.ajax({

@@ -2,7 +2,7 @@
 require("header.php");
 ?>
 <link rel="stylesheet" type="text/css" href="assets/css/buttonstyle.css" />
-<script src="<?php echo BASE_PATH; ?>assets/js/jquery-1.11.3.min.js" ></script>
+<script src="<?php echo BASE_PATH; ?>assets/js/core/jquery.min.js" ></script>
 <script type="text/javascript" src="<?php echo BASE_PATH; ?>assets/js/settings.js"></script>
 <div class="content bg-gray-lighter">
     <div class="row items-push" style="padding-left:0;">
