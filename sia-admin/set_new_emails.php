@@ -5,7 +5,7 @@ require("header.php");
 <script src="<?php echo BASE_PATH; ?>assets/js/jquery-1.11.3.min.js" ></script>
 <script type="text/javascript" src="<?php echo BASE_PATH; ?>assets/js/settings.js"></script>
 <div class="content bg-gray-lighter">
-    <div class="row items-push">
+    <div class="row items-push" style="padding-left:0;">
         <div class="col-sm-7">
             <h1 class="page-heading">
                 Email Notifications <small>Get notifications on each new invite application.</small>
