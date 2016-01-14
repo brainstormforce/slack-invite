@@ -38,30 +38,31 @@ if($sia_obj->chk_tables() == false){ header("Location: chk_install.php"); }
 				<?php
 				if(isset($_GET['err']) && !empty($_GET['err']) && $_GET['err'] =="err"){
 				?>
-				<p style="color:red;">Credentials are wrong.</p>
+				<p style="color:red;padding:0 6px;">Credentials are wrong.</p>
 				<?php
 				}
 				?>
-				<h1 class="form-heading">OneUI</h1>
-				<p>Welcome, please login.</p>
+				<h1 class="form-heading" style="padding:0 6px;">OneUI</h1>
+				<p style="padding:0 6px;">Welcome, please login.</p>
 				<div class="form-material form-material-primary floating">
 					<form class="form-horizontal" action="" method="post">
 						<div class="form-group">
-							<input class="form-control" name="username" type="text" placeholder="User Name" required/>
+							<input class="form-control" name="username" type="text" placeholder="User Name" style="float:left;position:relative;margin:0;" required/>
 							<!--<label class="control-label">UserName </label>-->
 						</div>
-						<div class="switch">
-							<span>Remember Me?</span>
+						<div class="form-group">
+							<input class="form-control" name="password" type="password" placeholder="Password" style="float:left;position:relative;margin:0;" required/>
+							<!--<label class="control-label">Password</label>-->
+						</div>
+						<div class="switch" style="bottom:0;margin-left:7px;">
+							<span style="margin-left:70px;float:left;">Remember Me?</span>
 							<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" />
 							<label for="cmn-toggle-1"></label>
 						</div>
-						<div class="form-group">
-							<input class="form-control" name="password" type="password" placeholder="Password" required/>
-							<!--<label class="control-label">Password</label>-->
-						</div>
+						
 						<div class="form-group">
 							<div class="loginbutton">
-								<input class="login-button" name="submit" type="submit" value=" Login ">
+								<input class="login-button" name="submit" type="submit" value=" Login " style="margin:0;"/>
 								<i class="fa fa-sign-in"></i>
 							</div>
 						</div>

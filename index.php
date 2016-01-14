@@ -24,15 +24,15 @@ if(file_exists("sia-config.php")){//about_yourself
 		<link rel="stylesheet" href="sia-admin/assets/css/style.css" ></link>
 	</head>
 
-	<body>
-		<div class="container " style="">
+	<body class="indx">
+		<div class="container indx" style="">
 			<?php if(!isset($_GET['done']) && empty($_GET['done'])){ ?>
-			<div class="row">
+			<div class="row topindx">
 				<div class="col-md-12" style="text-align:center;">
 					<img class="logo" src="sia-admin/assets/img/logo.png" />
 				</div>
 			</div>
-			<div class="row subcontainerindex">
+			<div class="row subcontainerindex indx">
 				<h2>Register Here</h2>
 				<form  role="form" action="" class="registerform" method="post">
 					<div class="form-group">
@@ -47,8 +47,9 @@ if(file_exists("sia-config.php")){//about_yourself
 					<div class="form-group">
 						<input type="number" class="form-control contact" name="contact" id="contact_no" placeholder="Your contact" required>
 					</div>
-					<div class="form-group">
+					<div class="form-group" style="text-align:center;">
 						<button type="submit" class="btn btn-default">submit</button>
+						<div class="indxexcerpt"><small>Submit to request mebership for slack </small></div>
 					</div>		
 				</form>
 			</div>	

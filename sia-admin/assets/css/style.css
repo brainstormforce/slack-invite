@@ -747,4 +747,7 @@ margin-top: 17px;
 .col-sm-6 .dataTables_filter label { text-align: left; }
 .col-sm-6 .dataTables_filter { text-align: right; }
 .col-sm-6 .dataTables_paginate.paging_simple_numbers{ text-align: right; }
+.indx{background:#F5F5F5;}
+.topindx{background:#5c90d2;margin:auto;margin-top:10px;width:44%;}
+.row.subcontainerindex.indx{background:#FFF;}
 /***end***/
