@@ -19,7 +19,7 @@ if(mysqli_connect_errno() >0 || check_install_complete() == false){
 	<h1>Error establishing a database connection</h1>
 	<hr></hr>
 	<p>This either means that the username and password information in your <code>sia-config.php</code> file is incorrect or we can't contact the database server at <code>localhost</code>. This could mean your host's database server is down.</p>
-	<ul style="color:#646464;">
+	<ul style="color:#646464;list-style: outside none none;margin-bottom: 33px;">
 		<li>Are you sure you have the correct username and password?</li>
 		<li>Are you sure that you have typed the correct hostname?</li>
 		<li>Are you sure that the database server is running?</li>
