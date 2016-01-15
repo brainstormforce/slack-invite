@@ -1,11 +1,11 @@
-<?php require('header.php');
+<?php require('sia-header.php');
 if(isset($_GET['invite']) && !empty($_GET['invite']) ){
 	$accept = $sia_obj ->accept_invitation($_GET['invite']);
-	header("Location: invitees.php");
+	header("Location: sia-invitees.php");
 }
 if(isset($_GET['decline']) && !empty($_GET['decline']) ){
 	$decline = $sia_obj ->decline_invitation($_GET['decline']);
-	header("Location: invitees.php");
+	header("Location: sia-invitees.php");
 }
 ?>
 <!-- Page Header -->
@@ -65,39 +65,50 @@ if(isset($_GET['decline']) && !empty($_GET['decline']) ){
 							<td class="text-center">
 								<div class="btn-group">
 									<?php 
+									$get_tokens = $sia_obj->get_active_slack_token_url();
 									$status=htmlspecialchars($r['status']);
 									if($status=='invited'){
 									?>
-										<i class='fa fa-check-square-o'></i> Invited
+										<a href="sia-invitees.php?decline=<?php echo $r['member_id']?>">
+											<i class='fa fa-check-square-o'></i> Invited
+										</a>
 									<?php
 									}
 									else if($status == 'already_in_team' ){
 									?>
-										<i class='fa fa-check-square-o'></i> Invited
+										<a href="sia-invitees.php?decline=<?php echo $r['member_id']?>">
+											<i class='fa fa-check-square-o'></i> Invited
+										</a>
 									<?php
 									}
 									else if($status == 'already_invited' ){
 									?>
-										<i class='fa fa-check-square-o'></i> Invited
+										<a href="sia-invitees.php?decline=<?php echo $r['member_id']?>">
+											<i class='fa fa-check-square-o'></i> Invited
+										</a>
 									<?php
 									}
 									else if($status == 'declined' ){
 									?>
-										<i class='fa fa-ban'></i> Declined
+										<a href="javascript:void(0)" onclick="accept_slack_request('<?php echo $r['member_id']?>','<?php echo $get_tokens['url']?>','<?php echo $r['email']?>','<?php echo $get_tokens['token']?>')">
+											<i class='fa fa-ban'></i> Declined
+										</a>
 									<?php
 									}
 									else{
 										// echo "<div class='".$member_id." status '>
                                     //<button type='submit' class='btn btn-default send_invitation' data-toggle='tooltip' title='Send Invitation' name='invitebtn' value=".$email."> <i class='fa fa-check-circle'></i></button>";
                                     //echo "<button type='button' class='btn btn-default decline' data-toggle='tooltip' title='Decline Member' name='declinebtn' value=".$email." > <i class='fa fa-ban'></i></button></div>";
+										
+										//sia-invitees.php?invite=<?php echo $r['member_id']
 									?>
 										<div class="<?php echo $member_id;?> status ">
-											<a href="invitees.php?invite=<?php echo $r['member_id']?>">
+											<a href="javascript:void(0)" onclick="accept_slack_request('<?php echo $r['member_id']?>','<?php echo $get_tokens['url']?>','<?php echo $r['email']?>','<?php echo $get_tokens['token']?>')">
 											<button type='button' class='btn btn-default send_invitation' data-toggle='tooltip' title='Send Invitation' name='invitebtn'> 
 												<i class='fa fa-check-circle'></i>
 											</button>
 											</a>
-											<a href="invitees.php?decline=<?php echo $r['member_id']?>">
+											<a href="sia-invitees.php?decline=<?php echo $r['member_id']?>">
 											<button type='button' class='btn btn-default decline' data-toggle='tooltip' title='Decline Member' name='declinebtn' value="<?php echo $email; ?>" > 
 												<i class='fa fa-ban'></i>
 											</button>
@@ -117,7 +128,29 @@ if(isset($_GET['decline']) && !empty($_GET['decline']) ){
     </div>
 </div>
 <!-- END Page Content -->
+<script src="<?php echo BASE_PATH; ?>assets/js/core/jquery.min.js" ></script>
+<script type="text/javascript">
+function accept_slack_request(id,slc_url,email,slc_token){
+	if(slc_token == ""){
+		alert("Please add a slack token first, If you have added one check whether it is activated or not.");
+	}
+	$.ajax({ //sending invitation to slack
+		url: slc_url, //'https://slackinvite.slack.com/api/users.admin.invite',  
+		type: 'POST',
+		data: {
+			email: email,
+			token: slc_token,//'xoxp-7491394935-7491752069-7491000672-c6311f',//slc_token,
+			set_active: 'false',
+		},
+		success:function(data){
+			if(data.ok == true || data.error =="already_invited"){
+				window.location.href = "sia-invitees.php?invite="+id;
+			}
+		}
+	});
+}
+</script>
 
-<?php require("footer.php"); ?>
+<?php require("sia-footer.php"); ?>
 <script src="<?php echo BASE_PATH; ?>assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo BASE_PATH; ?>assets/js/pages/base_tables_datatables.js"></script>

@@ -10,7 +10,7 @@
  */
 
 // Include Template class
-require 'classes/Template.php';
+require 'classes/sia-template.php';
 
 // Create a new Template Object
 $one                               = new Template('Slack Invite', '1.0', 'assets'); // Name, version and assets folder's name
@@ -22,8 +22,8 @@ $one->title                        = 'SlackInvite - Admin Dashboard Template & U
 $one->description                  = 'SlackInvite - Admin Dashboard Template & UI Framework created by Brainstormforce and published openSource';
 
 // Global Included Files (eg useful for adding different sidebars or headers per page)
-$one->inc_sidebar                  = 'base_sidebar.php';
-$one->inc_header                   = 'base_header.php';
+$one->inc_sidebar                  = 'sia-base-sidebar.php';
+$one->inc_header                   = 'sia-base-header.php';
 
 // Global Color Theme
 $one->theme                        = '';       // '' for default theme or 'amethyst', 'city', 'flat', 'modern', 'smooth'
@@ -56,22 +56,22 @@ $one->main_nav                     = array(
     array(
         'name'  => '<span class="sidebar-mini-hide">Dashboard</span>',
         'icon'  => 'si si-speedometer',
-        'url'   => 'dashboard.php'
+        'url'   => 'sia-dashboard.php'
         ),
             array(
                 'name'  => '<span class="sidebar-mini-hide">Slack Settings</span>',
-                'url'   => 'slack_token.php',
+                'url'   => 'sia-token.php',
                 'icon'  => 'si si-settings',
                 'class' => 'display_slack_settings',
             ),
             array(
                 'name'  => '<span class="sidebar-mini-hide">Email Settings</span>',
                 'icon'  => 'si si-envelope-open',
-                'url'   => 'set_new_emails.php',
+                'url'   => 'sia-email-list.php',
             ) ,
      array('name' => '<span class="sidebar-mini-hide">Invitees</span>' ,
         'icon'  => 'si si-grid',
-        'url'   => 'invitees.php',
+        'url'   => 'sia-invitees.php',
          )
     
 );

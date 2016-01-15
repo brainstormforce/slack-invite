@@ -1,11 +1,11 @@
 <?php
-require("constants.php");
+require("sia-constants.php");
 if(isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['password']) && !empty($_POST['password']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['userpname']) && !empty($_POST['userpname'])){
 	$create_admin = $sia_obj->create_new_administrator($_POST['userpname'],$_POST['username'],$_POST['password'],$_POST['email']);
 	header("Location: index.php");
 }
 if(mysqli_connect_errno() >0 || check_install_complete() == false){
-	header("Location: chk_install.php");
+	header("Location: sia-install-result.php");
 }
 ?>
 <html>

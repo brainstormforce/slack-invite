@@ -1,5 +1,5 @@
 <?php
-require("header.php");
+require("sia-header.php");
 ?>
 <link rel="stylesheet" type="text/css" href="assets/css/buttonstyle.css" />
 <script src="<?php echo BASE_PATH; ?>assets/js/core/jquery.min.js" ></script>
@@ -17,7 +17,7 @@ require("header.php");
     <div class="block">
 		<div class="block-content">
 			<form method='post' name='notificationform' style='padding-bottom:1px'>
-				<a href="add_new_email.php"><input class="btn btn-default" type="button" value="Add New Email" style="margin-bottom:10px;"/></a>
+				<a href="sia-add-notification-email.php"><input class="btn btn-default" type="button" value="Add New Email" style="margin-bottom:10px;"/></a>
 				<table class='table table-bordered table-striped js-dataTable-full'>
 					<thead>
 						<tr class='column-provider'>
@@ -93,5 +93,5 @@ require("header.php");
 
 
 <?php
-require("footer.php");
+require("sia-footer.php");
 ?>

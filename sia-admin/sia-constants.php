@@ -14,7 +14,7 @@ define("BASE_PATH", $protocol . $_SERVER['HTTP_HOST'] . $res_url ."/sia-admin/")
 $filepath = "../sia-config.php";
 if(file_exists($filepath)){
 	require("../sia-config.php");
-	require("classes/db.php");
+	require("classes/sia-connection.php");
 	
 }else{
 	function check_install_complete(){
@@ -25,7 +25,7 @@ if(file_exists($filepath)){
 		}
 	}
 }
-require("classes/sia-db-queries.php");
+require("classes/sia-queries.php");
 $sia_obj = new db_queries();
 
 

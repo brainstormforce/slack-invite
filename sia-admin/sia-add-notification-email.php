@@ -1,8 +1,10 @@
-<?php require("header.php"); 
+<?php require("sia-header.php"); 
 if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['notification_email']) && !empty($_POST['notification_email']) ){
 	$sia_obj ->add_new_notfication_email($_POST['name'],$_POST['notification_email']);
-	header("Location: set_new_emails.php");
+	header("Location: sia-email-list.php");
 }
+//Client ID : 3989206462.18566968566
+//Client Secret : f08ab3897febf32b0ac752f9cb8562c4
 ?>
 
 <div class="content bg-gray-lighter">
@@ -51,4 +53,4 @@ if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['notification
 	</div>
 </div>
 
-<?php require("footer.php"); ?>
+<?php require("sia-footer.php"); ?>

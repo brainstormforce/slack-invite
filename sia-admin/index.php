@@ -1,23 +1,24 @@
 <?php
-require("constants.php");
+require("sia-constants.php");
+if(isset($_SESSION['login_user'])){ header("Location: sia-dashboard.php"); }
 if(isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['password']) && !empty($_POST['password'])){
 	$chk = $sia_obj->chk_login($_POST['username'],$_POST['password']);
 	if($chk == "done" ){
-		header("Location: dashboard.php");
+		header("Location: sia-dashboard.php");
 	}else{
 		header("Location: index.php?err=err");
 	}
 }
 
 if(check_install_complete() == false){
-	header("Location: install.php");
+	header("Location: sia-install.php");
 	die;
 }
 if(mysqli_connect_errno() >0 || check_install_complete() == false){
-	header("Location: chk_install.php");
+	header("Location: sia-install-result.php");
 }
-if($sia_obj->chk_tables() == "nou"){ header("Location: create_admin.php"); }
-if($sia_obj->chk_tables() == false){ header("Location: chk_install.php"); }
+if($sia_obj->chk_tables() == "nou"){ header("Location: sia-user.php"); }
+if($sia_obj->chk_tables() == false){ header("Location: sia-install-result.php"); }
 ?>
 <!DOCTYPE html>
 <html>

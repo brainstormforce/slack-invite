@@ -29,7 +29,7 @@ BrainstormForce
                     <li class="divider"></li>-->
                     <li>
                         <?php if(isset($_SESSION['login_user'])){  ?>
-                        <a tabindex="-1" href="logout.php">
+                        <a tabindex="-1" href="sia-logout.php">
                             <i class="si si-logout pull-right"></i>Log out
                         </a><?php }else{?>
                             <a tabindex="-1" href="../admin/index.php">

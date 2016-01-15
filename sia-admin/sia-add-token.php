@@ -1,7 +1,7 @@
-<?php require("header.php");
+<?php require("sia-header.php");
 if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['slack_url']) && !empty($_POST['slack_url']) && isset($_POST['slack_token']) && !empty($_POST['slack_token'])){
 	$save_new = $sia_obj ->add_new_slack_token($_POST['name'],$_POST['slack_url'],$_POST['slack_token']);
-	header("Location: slack_token.php");
+	header("Location: sia-token.php");
 }
 ?>
 <div class="content bg-gray-lighter">
@@ -31,7 +31,7 @@ if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['slack_url'])
 						<tr>
 							<td>
 								<div class="form-group">
-									<input type="text" class="form-control email"  name="slack_url" placeholder="Enter url" required/>
+									<input type="text" readonly class="form-control email" value="https://slackinvite.slack.com/api/users.admin.invite" name="slack_url" placeholder="Enter url" required/>
 								</div>
 							</td>
 						</tr>
@@ -56,4 +56,4 @@ if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['slack_url'])
 		</div>
 	</div>
 </div>
-<?php require("footer.php"); ?>
+<?php require("sia-footer.php"); ?>

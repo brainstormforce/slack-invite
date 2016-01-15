@@ -109,7 +109,7 @@ class db_queries
 	function database_connection_setup($dbname,$dbuser,$dbpwd,$dbhost){
 		$con = mysqli_connect($dbhost,$dbuser,$dbpwd,$dbname);
 		if(mysqli_connect_errno()>0){
-			header("Location: install.php?conerr=yes");
+			header("Location: sia-install.php?conerr=yes");
 		}else{
 			$fp=fopen('../sia-config.php','w');
 			fwrite($fp, "<?php \n
@@ -118,7 +118,7 @@ class db_queries
 				define('DB_PASSWORD', '".$dbpwd."');
 				define('DB_HOST', '".$dbhost."'); \n?>");
 			fclose($fp);
-			header("Location: chk_install.php");
+			header("Location: sia-install-result.php");
 		}
 	}
 	function chk_login($username,$pwd){
@@ -139,6 +139,11 @@ class db_queries
 	}
 	function get_slack_token_url(){
 		$sql = run_query('SELECT * FROM slack_settings');
+		$slc = fetch_data($sql);
+		return($slc);
+	}
+	function get_active_slack_token_url(){
+		$sql = run_query('SELECT * FROM slack_settings where status=activated');
 		$slc = fetch_data($sql);
 		return($slc);
 	}

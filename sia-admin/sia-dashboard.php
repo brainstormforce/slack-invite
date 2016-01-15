@@ -1,5 +1,5 @@
 <?php
-require("header.php");
+require("sia-header.php");
 ?>
 <div class="content bg-gray-lighter">
     <div class="row items-push">
@@ -15,7 +15,7 @@ require("header.php");
 	$invitees = $sia_obj->get_invities();
 	//if(chk_result_if_empty($invitees) > 0){
 	?>
-	<a href="invitees.php">
+	<a href="sia-invitees.php">
 		<div class="dashboard-block">
 			<div class="dashboard-block-title">
 				Total Invitees
@@ -30,5 +30,5 @@ require("header.php");
 	?>
 </div>
 <?php
-require("footer.php");
+require("sia-footer.php");
 ?>

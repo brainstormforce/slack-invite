@@ -2,8 +2,8 @@
 if(file_exists("sia-config.php")){//about_yourself
 	error_reporting(0);
 	require("sia-config.php");
-	require("sia-admin/classes/db.php");
-	require("sia-admin/classes/sia-db-queries.php");
+	require("sia-admin/classes/sia-connection.php");
+	require("sia-admin/classes/sia-queries.php");
 	$sia_obj = new db_queries();
 	if(isset($_POST['fname']) && !empty($_POST['fname']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['contact']) && !empty($_POST['contact'])){
 		$sia_obj ->add_new_request($_POST['fname'],$_POST['email'],$_POST['about_yourself'],$_POST['contact']);
@@ -71,6 +71,6 @@ if(file_exists("sia-config.php")){//about_yourself
 <?php
 	}
 }else{
-	header("Location: sia-admin/install.php");
+	header("Location: sia-admin/sia-install.php");
 }
 ?>

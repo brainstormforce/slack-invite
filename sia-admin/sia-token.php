@@ -1,11 +1,11 @@
-<?php require ("header.php"); 
+<?php require ("sia-header.php"); 
 if(isset($_GET['activate']) && !empty($_GET['activate'])){
 	$sia_obj ->activate_token($_GET['activate']);
-	header("Location: slack_token.php");
+	header("Location: sia-token.php");
 }
 if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
 	$sia_obj ->deactivate_token($_GET['deactivate']);
-	header("Location: slack_token.php");
+	header("Location: sia-token.php");
 }
 ?>
 <div class="content bg-gray-lighter">
@@ -23,7 +23,7 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
     <div class="block">
         <form method="post" name="invite" class="invite_form" style="width:100%;">
 			<div class="block-content">
-				<a href="add_new_token.php" ><input class="btn btn-default" type="button" value="Add New Token" style="margin-bottom:10px;"/></a>
+				<a href="sia-add-token.php" ><input class="btn btn-default" type="button" value="Add New Token" style="margin-bottom:10px;"/></a>
 				<table class="table table-bordered table-striped js-dataTable-full">
 					<thead>
 						<tr>
@@ -50,14 +50,14 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
 											$status=htmlspecialchars($r['status']);
 											if($status=='activated'){
 											?>
-												<a href="slack_token.php?deactivate=<?php echo $r['id'];?>">
+												<a href="sia-token.php?deactivate=<?php echo $r['id'];?>">
 													<i class='fa fa-check-square-o'></i> Activated
 												</a>
 											<?php
 											}
 											else if($status == 'deactivated' ){
 											?>
-												<a href="slack_token.php?activate=<?php echo $r['id'];?>">
+												<a href="sia-token.php?activate=<?php echo $r['id'];?>">
 													<i class='fa fa-ban'></i> Deactivated
 												</a>
 											<?php
@@ -65,12 +65,12 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
 											else{
 											?>
 												<div class="<?php echo $r['id'];?> status ">
-													<a href="slack_token.php?activate=<?php echo $r['id'];?>">
+													<a href="sia-token.php?activate=<?php echo $r['id'];?>">
 														<button type='button' class='btn btn-default send_invitation' data-toggle='tooltip' title='Activate Token'> 
 															<i class='fa fa-check-circle'></i>
 														</button>
 													</a>
-													<a href="slack_token.php?deactivate=<?php echo $r['id'];?>">
+													<a href="sia-token.php?deactivate=<?php echo $r['id'];?>">
 														<button type='button' class='btn btn-default decline' data-toggle='tooltip' title='Deactivate Token'>
 															<i class='fa fa-ban'></i>
 														</button>
@@ -101,4 +101,4 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
 </div>
 <!-- END Page Content -->
 
-<?php require ("footer.php"); ?>
+<?php require ("sia-footer.php"); ?>

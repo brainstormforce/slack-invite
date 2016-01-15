@@ -1,12 +1,12 @@
 <?php
-require 'constants.php'; 
+require 'sia-constants.php'; 
 if(check_install_complete() == false){
-	header("Location: install.php");
+	header("Location: sia-install.php");
 }
 if($sia_obj->chk_tables() == false){
-	header("Location: chk_install.php");
+	header("Location: sia-install-result.php");
 }
-if($sia_obj->chk_tables() == "nou"){ header("Location: create_admin.php"); }
+if($sia_obj->chk_tables() == "nou"){ header("Location: sia-user.php"); }
 if(!isset($_SESSION['login_user'])){ header("Location: index.php"); }
 
 /*if(mysqli_connect_errno() >0){
@@ -27,9 +27,9 @@ if(!isset($_SESSION['login_user'])){ header("Location: index.php"); }
 die;
 }*/
 require 'inc/config.php';
-require 'inc/views/template_head_start.php';
-require 'inc/views/template_head_end.php'; 
-require 'inc/views/base_head.php'; 
+require 'inc/views/sia-template-head-start.php';
+require 'inc/views/sia-template-head-end.php'; 
+require 'inc/views/sia-base-head.php'; 
 
 ?>
 <head>

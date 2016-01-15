@@ -1,10 +1,10 @@
 <?php
-require("constants.php");
+require("sia-constants.php");
 if(isset($_POST['servername']) && !empty($_POST['servername']) && isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['dbname']) && !empty($_POST['dbname'])){
 	$set_up = $sia_obj->database_connection_setup($_POST['dbname'],$_POST['username'],$_POST['password'],$_POST['servername']);
-	//header("Location: chk_install.php");
+	//header("Location: sia-install-result.php");
 }else{
-	//header("Location: install.php?conerr=yes");
+	//header("Location: sia-install.php?conerr=yes");
 }
 ?>
 <html>
@@ -62,7 +62,7 @@ if(isset($_POST['servername']) && !empty($_POST['servername']) && isset($_POST['
 		</ul>
 		<p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="https://www.brainstormforce.com/">Brainstorm Force Support</a>.</p>
 		<p></p>
-		<p class="step"><a href="install.php" class="button button-large">Try again</a></p>
+		<p class="step"><a href="sia-install.php" class="button button-large">Try again</a></p>
 		
 	</div>
 	<?php

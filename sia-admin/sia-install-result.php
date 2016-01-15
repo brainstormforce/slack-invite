@@ -7,7 +7,7 @@
 </head>
 <body class="login-index">
 <?php
-require("constants.php");
+require("sia-constants.php");
 if(mysqli_connect_errno() >0 || check_install_complete() == false){
 	//if(check_install_complete()){ //unlink("../sia-config.php"); }
 	
@@ -23,7 +23,7 @@ if(mysqli_connect_errno() >0 || check_install_complete() == false){
 	</ul>
 	<p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="https://www.brainstormforce.com/">Brainstorm Force Support</a>.</p>
 	<p></p>
-		<!--<p class="step"><a href="install.php" class="button button-large">Try again</a></p>-->
+		<!--<p class="step"><a href="sia-install.php" class="button button-large">Try again</a></p>-->
 	
 </div>
 <?php
@@ -46,7 +46,7 @@ if(mysqli_connect_errno() >0 || check_install_complete() == false){
 		header("Location: index.php");
 	}else{
 		$run = $sia_obj->create_basic_set_up();
-		header("Location: create_admin.php");
+		header("Location: sia-user.php");
 	}
 	
 ?>
@@ -54,7 +54,7 @@ if(mysqli_connect_errno() >0 || check_install_complete() == false){
 	<h1 class="screen-reader-text">Successful database connection</h1>
 	<hr></hr>
 	<p>All right, sparky! You've made it through this part of the installation. Slack Invite can now communicate with your database. If you are ready, time now to...</p>
-	<p class="step"><a href="create_admin.php" class="button button-large">Run the install</a></p>
+	<p class="step"><a href="sia-user.php" class="button button-large">Run the install</a></p>
 </div>
 <?php
 }

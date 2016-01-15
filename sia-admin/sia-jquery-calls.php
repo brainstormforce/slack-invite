@@ -1,5 +1,5 @@
 <?php
-require 'constants.php';
+require 'sia-constants.php';
 if(isset($_POST['ajaxfunction']) && !empty($_POST['ajaxfunction']) && $_POST['ajaxfunction'] == "update_email_status"){
 	$sia_obj->update_notfication_email_status($_POST['email'],$_POST['status']);
 }
