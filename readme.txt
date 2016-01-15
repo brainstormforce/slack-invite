@@ -3,6 +3,10 @@ Brainstorm Force
 
 Welcome. SlackInvitationApp is a very special project to me. It allows you to add users into your slack account without going to slack you just have to configure you account with this App. Thank you for making it part of your world.
 
+System Requirements:
+PHP 5.0.0 Or higher
+Mysql 5.0.0 Or higher
+
 Installation:
 Step 1: Unzip the package in an empty directory.
 Step 2: Create one database to install the SlackInvitationApp.
