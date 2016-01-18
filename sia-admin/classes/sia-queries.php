@@ -1,4 +1,10 @@
 <?php
+
+if(strpos($_SERVER['REQUEST_URI'],"sia-admin")){
+	require 'PHPMailer/PHPMailerAutoload.php';
+}else{
+	require 'sia-admin/PHPMailer/PHPMailerAutoload.php';
+}
 class db_queries
 {
 	function cretae_database($dbname){
@@ -186,6 +192,7 @@ class db_queries
 	}
 	function add_new_request($name,$email,$about,$contact){
 		$sql = run_query("insert into members (name,email,about,contact)values('".validate_input($name)."','".validate_input($email)."','".validate_input($about)."','".validate_input($contact)."')");
+		$this -> send_email();
 	}
 	function get_slack_token_url_by_id($id){
 		$sql = run_query("SELECT * FROM slack_settings where id='".validate_input($id)."'");
@@ -194,6 +201,41 @@ class db_queries
 	}
 	function edit_new_slack_token($id,$name,$url,$token){
 		$sql = run_query("update slack_settings set name ='".validate_input($name)."',url = '".validate_input($url)."',token = '".validate_input($token)."' ,status = 'activated' where id='".validate_input($id)."'");
+	}
+	function send_email(){
+		$mail = new PHPMailer;
+		$body = "Congratulation! <br> You have a new request to add him in your slack team. Please login to Slack Invitation App to respond on new request.";
+
+		$mail->isSMTP();
+		$mail->Host = 'email-smtp.us-east-1.amazonaws.com';
+		$mail->SMTPAuth = true;
+		$mail->SMTPKeepAlive = true; // SMTP connection will not close after each email sent, reduces SMTP overhead
+		$mail->Port = 587;
+		$mail->Username = 'AKIAJSGXEMDO7XF263NA';
+		$mail->Password = 'ApRz3QVxkWwaEAKvBZnhEkBS6S9HGZXEylwp5SyHizW4';
+		$mail->setFrom('do-not-reply@bsf.io', 'Brainstorm Force');
+
+		$mail->Subject = "Slack Invitation Request";
+		$mail->msgHTML($body);
+		$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
+		$count=0;
+		$sql=run_query("select * from notification_emails where status='on'");
+		
+		while($result = fetch_data($sql)) {
+
+			$mail->addAddress($result['email'], $result['name']);
+	 		if (!$mail->send()) {
+	        	echo "Mailer Error " . $mail->ErrorInfo . '<br />';
+	        	break; //Abandon sending
+	   		 } else {	
+	        $count++;
+    //Mark it as sent in the DB
+			}
+		    // Clear all addresses and attachments for next loop
+		    $mail->clearAddresses();
+		    $mail->clearAttachments();
+		}
+		echo "Message sent to ".$count." member(s)";
 	}
 }
 ?> 

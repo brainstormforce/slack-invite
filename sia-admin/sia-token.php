@@ -40,10 +40,9 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
 				<table class="table table-bordered table-striped js-dataTable-full">
 					<thead>
 						<tr>
-							<th>Name</th>
 							<th class="hidden-xs">URL</th>
-							<th class="hidden-xs" style="width: 15%;">Token</th>
-							<th class="text-center" style="width: 10%;">Status</th>
+							<th class="hidden-xs">Token</th>
+							<th class="text-center">Status</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -52,8 +51,7 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
 								$token_id = $r['id'];
 							?>
 								<tr id="<?php echo $r['id']; ?>">
-									<td class="font-w600 manage-column convert-plug"><?php echo htmlspecialchars($r['name']);?></td>
-									<td class="hidden-xs"><?php echo htmlspecialchars($r['url']); ?></td>
+									<td class="hidden-xs"><?php echo htmlspecialchars($r['url']) . ".slack.com"; ?></td>
 									<td class="hidden-xs"><?php echo htmlspecialchars($r['token']); ?></td>
 									<td class="text-center">
 										<div class="btn-group">

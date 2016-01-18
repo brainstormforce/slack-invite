@@ -13,7 +13,8 @@ require("sia-header.php");
 <div class="content">
 	<?php
 	$invitees = $sia_obj->get_invities();
-	//if(chk_result_if_empty($invitees) > 0){
+	//if(chk_result_if_empty($invitees) > 0){//slacknew_sharkz_in//$conn = new PDO("mysql:host=localhost;dbname=slack_sharkz_in", "slack_sharkz_in", "2ZZNdWKUMEn9NJus");
+
 	?>
 	<a href="sia-invitees.php">
 		<div class="dashboard-block">

@@ -129,12 +129,13 @@ function accept_slack_request(id,slc_url,email,slc_token){
 	if(slc_token == ""){
 		alert("Please add a slack token first, If you have added one check whether it is activated or not.");
 	}
+	slc_url = "https://" + slc_url + ".slack.com/api/users.admin.invite";
 	$.ajax({ //sending invitation to slack
 		url: slc_url, //'https://slackinvite.slack.com/api/users.admin.invite',  
 		type: 'POST',
 		data: {
 			email: email,
-			token: slc_url,//'xoxp-7491394935-7491752069-7491000672-c6311f,
+			token: slc_token,//'xoxp-7491394935-7491752069-7491000672-c6311f,
 			set_active: 'false',
 		},
 		success:function(data){
