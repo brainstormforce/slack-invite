@@ -65,8 +65,7 @@ if(isset($_POST['servername']) && !empty($_POST['servername']) && isset($_POST['
 		</ul>
 		<p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="https://www.brainstormforce.com/">Brainstorm Force Support</a>.</p>
 		<p></p>
-			<!--<p class="step"><a href="sia-install.php" class="button button-large">Try again</a></p>-->
-		
+		<p class="step"><a href="sia-install.php" class="button button-large">Try again</a></p>
 	</div>
 	<?php
 	}else{
