@@ -92,7 +92,7 @@ class db_queries
 	function create_new_administrator($userpname,$username,$pass,$useremail){
 		$result ="";
 		$sql = run_query("INSERT INTO `user_admin`(`user_name`, `passwd`, `email`) VALUES ( '".validate_input($username)."','".SHA1(validate_input($pass))."','".validate_input($useremail)."')");
-		$sql = run_query("INSERT INTO `notification_emails`(`name`, `email`) VALUES ( '".validate_input($userpname)."','".validate_input($useremail)."')");
+		$sql = run_query("INSERT INTO `notification_emails`(`name`, `email`, `status`) VALUES ( '".validate_input($userpname)."','".validate_input($useremail)."','on')");
 	}
 	function chk_tables(){
 		$result = run_query("SHOW TABLES");

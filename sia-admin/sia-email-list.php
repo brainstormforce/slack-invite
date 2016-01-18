@@ -4,6 +4,7 @@ require("sia-header.php");
 <link rel="stylesheet" type="text/css" href="assets/css/buttonstyle.css" />
 <script src="<?php echo BASE_PATH; ?>assets/js/core/jquery.min.js" ></script>
 <script type="text/javascript" src="<?php echo BASE_PATH; ?>assets/js/settings.js"></script>
+
 <div class="content bg-gray-lighter">
     <div class="row items-push" style="padding-left:0;">
         <div class="col-sm-7">
@@ -17,7 +18,11 @@ require("sia-header.php");
     <div class="block">
 		<div class="block-content">
 			<form method='post' name='notificationform' style='padding-bottom:1px'>
-				<a href="sia-add-notification-email.php"><input class="btn btn-default" type="button" value="Add New Email" style="margin-bottom:10px;"/></a>
+				<p>
+					<h3>What Is Email Notification</h3>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>
+				</p>
+				
 				<table class='table table-bordered table-striped js-dataTable-full'>
 					<thead>
 						<tr class='column-provider'>
@@ -66,8 +71,9 @@ require("sia-header.php");
 									?>
 									</td>
 									<td>
-										<i class='fa fa-trash-o delete_email' data-file="<?php echo $result['e_id'];?>"></i>
-										&nbsp;&nbsp;&nbsp;Delete
+										<a href="javascript:void(0)" class="delete_email">
+											<i class='fa fa-trash-o ' data-file="<?php echo $result['e_id'];?>"></i>&nbsp;Delete
+										</a>
 									</td>
 								</tr>
 							<?php
@@ -82,16 +88,11 @@ require("sia-header.php");
 							?>
 					</tbody>
 				</table>
+				<a href="sia-add-notification-email.php"><input class="btn btn-default" type="button" value="Add New Email" style="margin-bottom:10px;"/></a>
 			</form> 
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
 <?php
 require("sia-footer.php");
 ?>
