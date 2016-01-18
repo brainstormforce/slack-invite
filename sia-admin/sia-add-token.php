@@ -77,8 +77,8 @@ function check_token_validity(){
 		},
 		success:function(data){
 			console.log(data);
-			if(data.error =="no_perms"){
-				alert("This Token is not valid. Please login to slack as administrator and than pick up the token");
+			if(data.error =="no_perms" || data.error =="invalid_auth"){
+				alert("This is not a valid Slack Token. Please login to slack as administrator and than pick up the token");
 				return false;
 			}else{
 				$("#save_token_form").submit();
