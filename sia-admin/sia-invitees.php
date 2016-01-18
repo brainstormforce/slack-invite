@@ -139,7 +139,7 @@ function accept_slack_request(id,slc_url,email,slc_token){
 		type: 'POST',
 		data: {
 			email: email,
-			token: slc_token,//'xoxp-7491394935-7491752069-7491000672-c6311f',//slc_token,
+			token: slc_url,//'xoxp-7491394935-7491752069-7491000672-c6311f,
 			set_active: 'false',
 		},
 		success:function(data){

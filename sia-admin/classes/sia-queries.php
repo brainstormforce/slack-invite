@@ -143,7 +143,7 @@ class db_queries
 		return($slc);
 	}
 	function get_active_slack_token_url(){
-		$sql = run_query('SELECT * FROM slack_settings where status=activated');
+		$sql = run_query('SELECT * FROM slack_settings ');
 		$slc = fetch_data($sql);
 		return($slc);
 	}
@@ -160,7 +160,7 @@ class db_queries
 		return($sql);
 	}
 	function add_new_slack_token($name,$url,$token){
-		$sql = run_query("insert into slack_settings(name,url,token)values('".validate_input($name)."','".validate_input($url)."','".validate_input($token)."')");
+		$sql = run_query("insert into slack_settings(name,url,token,status)values('".validate_input($name)."','".validate_input($url)."','".validate_input($token)."','activated')");
 	}
 	function accept_invitation($id){
 		$sql = run_query("update members set status = 'invited' where member_id ='".validate_input($id)."'");
@@ -186,6 +186,14 @@ class db_queries
 	}
 	function add_new_request($name,$email,$about,$contact){
 		$sql = run_query("insert into members (name,email,about,contact)values('".validate_input($name)."','".validate_input($email)."','".validate_input($about)."','".validate_input($contact)."')");
+	}
+	function get_slack_token_url_by_id($id){
+		$sql = run_query("SELECT * FROM slack_settings where id='".validate_input($id)."'");
+		$slc = fetch_data($sql);
+		return($slc);
+	}
+	function edit_new_slack_token($id,$name,$url,$token){
+		$sql = run_query("update slack_settings set name ='".validate_input($name)."',url = '".validate_input($url)."',token = '".validate_input($token)."' ,status = 'activated' where id='".validate_input($id)."'");
 	}
 }
 ?> 
