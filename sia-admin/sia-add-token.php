@@ -26,7 +26,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     <div class="block">
 		<div class="row">
 			<div class="col-sm-7" style="margin-bottom:0">
-				<form class="email_form form-inline" role="form" action="" method="post">
+				<form class="email_form form-inline" id="save_token_form" role="form" action="" method="post" >
 					<table >
 						<tr>
 							<td>
@@ -39,21 +39,21 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 						<tr>
 							<td>
 								<div class="form-group">
-									<input type="text" readonly class="form-control email" value="https://slackinvite.slack.com/api/users.admin.invite" name="slack_url" placeholder="Enter url" required/>
+									<input type="text" readonly class="form-control email" value="https://slackinvite.slack.com/api/users.admin.invite" id="slack_url" name="slack_url" placeholder="Enter url" required/>
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<div class="form-group">
-									<input type="text" class="form-control email"  name="slack_token" placeholder="Add Token" required value="<?php if(isset($get_token['token']) && !empty($get_token['token'])){ echo $get_token['token']; } ?>"/>
+									<input type="text" class="form-control email" id="slack_token" name="slack_token" placeholder="Add Token" required value="<?php if(isset($get_token['token']) && !empty($get_token['token'])){ echo $get_token['token']; } ?>"/>
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<div class="form-group">
-									<input type="submit" class="btn btn-default " name="add_token" value="Add Token"/>
+									<input type="submit" class="btn btn-default " name="add_token" value="Add Token" onclick="return check_token_validity()"/>
 								</div>
 							</td>	
 						</tr>
@@ -64,4 +64,29 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 		</div>
 	</div>
 </div>
+<script src="<?php echo BASE_PATH; ?>assets/js/core/jquery.min.js" ></script>
+<script type="text/javascript">
+function check_token_validity(){
+	
+	$.ajax({ //sending invitation to slack
+		url: $("#slack_url").val(), //'https://slackinvite.slack.com/api/users.admin.invite',  
+		type: 'POST',
+		data: {
+			token: $("#slack_token").val(),//'xoxp-7491394935-7491752069-7491000672-c6311f,
+			set_active: 'false',
+		},
+		success:function(data){
+			console.log(data);
+			if(data.error =="no_perms"){
+				alert("This Token is not valid. Please login to slack as administrator and than pick up the token");
+				return false;
+			}else{
+				$("#save_token_form").submit();
+			}
+		}
+	});
+	return false;
+}
+</script>
+
 <?php require("sia-footer.php"); ?>

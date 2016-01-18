@@ -69,16 +69,16 @@ if(isset($_GET['decline']) && !empty($_GET['decline']) ){
 									$status=htmlspecialchars($r['status']);
 									if($status=='invited'){
 									?>
-										<a href="sia-invitees.php?decline=<?php echo $r['member_id']?>">
+										<!--<a href="sia-invitees.php?decline=<?php// echo $r['member_id']?>">-->
 											<i class='fa fa-check-square-o'></i> Invited
-										</a>
+										<!--</a>-->
 									<?php
 									}
 									else if($status == 'already_in_team' ){
 									?>
-										<a href="sia-invitees.php?decline=<?php echo $r['member_id']?>">
+										<!--<a href="sia-invitees.php?decline=<?php// echo $r['member_id']?>">-->
 											<i class='fa fa-check-square-o'></i> Invited
-										</a>
+										<!--</a>-->
 									<?php
 									}
 									else if($status == 'already_invited' ){
@@ -96,11 +96,6 @@ if(isset($_GET['decline']) && !empty($_GET['decline']) ){
 									<?php
 									}
 									else{
-										// echo "<div class='".$member_id." status '>
-                                    //<button type='submit' class='btn btn-default send_invitation' data-toggle='tooltip' title='Send Invitation' name='invitebtn' value=".$email."> <i class='fa fa-check-circle'></i></button>";
-                                    //echo "<button type='button' class='btn btn-default decline' data-toggle='tooltip' title='Decline Member' name='declinebtn' value=".$email." > <i class='fa fa-ban'></i></button></div>";
-										
-										//sia-invitees.php?invite=<?php echo $r['member_id']
 									?>
 										<div class="<?php echo $member_id;?> status ">
 											<a href="javascript:void(0)" onclick="accept_slack_request('<?php echo $r['member_id']?>','<?php echo $get_tokens['url']?>','<?php echo $r['email']?>','<?php echo $get_tokens['token']?>')">

@@ -61,16 +61,16 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
 											$status=htmlspecialchars($r['status']);
 											if($status=='activated'){
 											?>
-												<a href="sia-token.php?deactivate=<?php echo $r['id'];?>">
+												<!--<a href="sia-token.php?deactivate=<?php //echo $r['id'];?>">-->
 													<i class='fa fa-check-square-o'></i> Activated
-												</a>
+												<!--</a>-->
 											<?php
 											}
 											else if($status == 'deactivated' ){
 											?>
-												<a href="sia-token.php?activate=<?php echo $r['id'];?>">
+												<!--<a href="sia-token.php?activate=<?php //echo $r['id'];?>">-->
 													<i class='fa fa-ban'></i> Deactivated
-												</a>
+												<!--</a>-->
 											<?php
 											}
 											else{

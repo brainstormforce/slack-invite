@@ -30,18 +30,22 @@ Step 5: Now, you have created a database connection to communicate with slack.
 Step 6: Login with details you added while creating a user.
 
 What App Consist Of:
-Step 1: Dashboard.
-		a. Here you will get all the basic notifications about the App.
-		b. Like how many invitees do you have etc.
+1. Dashboard
+	a. Here you will get all the basic notifications about the App.
+	b. Like how many invitees do you have etc.
 
-Step 2: Slack Settings:
-		a. This App need slack tokens to communicate with your slack account.
-		b. Here you just need to take the token from your slack account and add it in this App.
-		c. How to get slack token? Follow below steps.
+2. Slack Settings
+	a. This App need slack tokens to communicate with your slack account.
+	b. Here you just need to take the token from your slack account and add it in this App.
+	c. How to get slack token? Follow below steps.
+		1. Login to your slack account in browser as administrator.
+		2. Open the following URL in your browser https://api.slack.com/web
+		3. Scroll down in bottom of the page there is a authentication section there you can find your token.
+		Note: You must be login as administrator only than that token will work properly.
 
-Step 3: Email Settings:
-		a. Here you can add more users to whom you can send emails when user request for invitation
+3. Email Settings
+	a. Here you can add more users to whom you can send emails when user request for invitation
 
-Step 4: Inviteess
-		a. Here you will get all list of all user who has requested to join your team.
-		b. From Status column you can take an action over there request.
+4. Inviteess
+	a. Here you will get all list of all user who has requested to join your team.
+	b. From Status column you can take an action over there request.
