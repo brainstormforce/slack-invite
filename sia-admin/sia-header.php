@@ -20,7 +20,7 @@ if(!isset($_SESSION['login_user'])){ header("Location: index.php"); }
 		<li>Are you sure that you have typed the correct hostname?</li>
 		<li>Are you sure that the database server is running?</li>
 	</ul>
-	<p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="https://www.brainstormforce.com/">Brainstorm Force Support</a>.</p>
+	<p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="https://www.brainstormforce.com/contacts/" target="_blank">Brainstorm Force Support</a>.</p>
 	<p></p>
 </div>
 <?php

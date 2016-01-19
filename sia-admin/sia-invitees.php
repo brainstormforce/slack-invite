@@ -25,9 +25,15 @@ if(isset($_GET['decline']) && !empty($_GET['decline']) ){
     <!-- Dynamic Table Full -->
     <div class="block">
         <form method="post" name="invite" class="invite_form" style="width:100%;">
-			<?php $get_result = $sia_obj ->get_slack_token_url(); ?>
-            <input type="hidden" name="url" class="slc_url" value="<?php if(isset($get_result['url']) && !empty($get_result['url'])){ echo $get_result['url']; } ?>">
-            <input type="hidden" name="token" class="slc_token" value="<?php if(isset($get_result['token']) && !empty($get_result['token'])){ echo $get_result['token']; } ?>">
+			<?php 
+			$get_result = $sia_obj ->get_slack_token(); 
+			if (!empty($get_result)) {
+				$get_result = unserialize($get_result['option_value']);
+			}
+
+			?>
+            <input type="hidden" name="url" class="slc_url" value="<?php if(isset($get_result[1]) && !empty($get_result[1])){ echo $get_result[1]; } ?>">
+            <input type="hidden" name="token" class="slc_token" value="<?php if(isset($get_result[2]) && !empty($get_result[2])){ echo $get_result[2]; } ?>">
 			
 			
 			<div class="block-content">
@@ -65,20 +71,19 @@ if(isset($_GET['decline']) && !empty($_GET['decline']) ){
 							<td class="text-center">
 								<div class="btn-group">
 									<?php 
-									$get_tokens = $sia_obj->get_active_slack_token_url();
+									$get_result = $sia_obj ->get_slack_token(); 
+									if (!empty($get_result)) {
+										$get_tokens = unserialize($get_result['option_value']);
+									}
 									$status=htmlspecialchars($r['status']);
 									if($status=='invited'){
 									?>
-										<!--<a href="sia-invitees.php?decline=<?php// echo $r['member_id']?>">-->
-											<i class='fa fa-check-square-o'></i> Invited
-										<!--</a>-->
+										<i class='fa fa-check-square-o'></i> Invited
 									<?php
 									}
 									else if($status == 'already_in_team' ){
 									?>
-										<!--<a href="sia-invitees.php?decline=<?php// echo $r['member_id']?>">-->
-											<i class='fa fa-check-square-o'></i> Invited
-										<!--</a>-->
+										<i class='fa fa-check-square-o'></i> Invited
 									<?php
 									}
 									else if($status == 'already_invited' ){
@@ -90,7 +95,7 @@ if(isset($_GET['decline']) && !empty($_GET['decline']) ){
 									}
 									else if($status == 'declined' ){
 									?>
-										<a href="javascript:void(0)" onclick="accept_slack_request('<?php echo $r['member_id']?>','<?php echo $get_tokens['url']?>','<?php echo $r['email']?>','<?php echo $get_tokens['token']?>')">
+										<a href="javascript:void(0)" onclick="accept_slack_request('<?php echo $r['member_id']?>','<?php if(isset($get_tokens[1])){ echo $get_tokens[1]; }?>','<?php echo $r['email']?>','<?php if(isset($get_tokens[2])){ echo $get_tokens[2]; }?>')">
 											<i class='fa fa-ban'></i> Declined
 										</a>
 									<?php
@@ -98,7 +103,7 @@ if(isset($_GET['decline']) && !empty($_GET['decline']) ){
 									else{
 									?>
 										<div class="<?php echo $member_id;?> status ">
-											<a href="javascript:void(0)" onclick="accept_slack_request('<?php echo $r['member_id']?>','<?php echo $get_tokens['url']?>','<?php echo $r['email']?>','<?php echo $get_tokens['token']?>')">
+											<a href="javascript:void(0)" onclick="accept_slack_request('<?php echo $r['member_id']?>','<?php if(isset($get_tokens[1])){ echo $get_tokens[1]; }?>','<?php echo $r['email']?>','<?php if(isset($get_tokens[2])){ echo $get_tokens[2]; }?>')">
 											<button type='button' class='btn btn-default send_invitation' data-toggle='tooltip' title='Send Invitation' name='invitebtn'> 
 												<i class='fa fa-check-circle'></i>
 											</button>

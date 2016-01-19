@@ -38,9 +38,11 @@ require("sia-header.php");
 						if(chk_result_if_empty($rs)>0)
 						{
 							while($result = fetch_data($rs)){
-								$name=$result['name'];
-								$email=$result['email'];
-								$status=$result['status'];
+								$notification_id = $result['id'];
+								$notification_details = unserialize($result['option_value']);
+								if(isset($notification_details[0])){ $name = $notification_details[0]; }else{ $name = "";}
+								if(isset($notification_details[1])){ $email = $notification_details[1]; }else{ $email = "";}
+								if(isset($notification_details[2])){ $status = $notification_details[2]; }else{ $status = "";}
 							?>
 								<tr>	
 									<td><?php echo $name;?></td>
@@ -53,7 +55,7 @@ require("sia-header.php");
 											<span class='switch_enable'> ON </span>
 											<span class='switch_disable'> OFF </span>
 											<input type='hidden' class='switch_val' value='1'/>
-											<input type='hidden' class='email_val' value="<?php echo $result['e_id']; ?>"/>
+											<input type='hidden' class='email_val' value="<?php echo $notification_id; ?>"/>
 										</div>
 									<?php
 									}
@@ -64,15 +66,15 @@ require("sia-header.php");
 											<span class='switch_enable'> ON </span>
 											<span class='switch_disable'> OFF </span>
 											<input type='hidden' class='switch_val' value='0'/>
-											<input type='hidden' class='email_val' value="<?php echo $result['e_id']; ?>"/>
+											<input type='hidden' class='email_val' value="<?php echo $notification_id; ?>"/>
 										</div>
 									<?php
 									}
 									?>
 									</td>
 									<td>
-										<a href="javascript:void(0)" class="delete_email">
-											<i class='fa fa-trash-o ' data-file="<?php echo $result['e_id'];?>"></i>&nbsp;Delete
+										<a href="javascript:void(0)" class="delete_email" data-file="<?php echo $notification_id;?>">
+											<i class='fa fa-trash-o '></i>&nbsp;Delete
 										</a>
 									</td>
 								</tr>

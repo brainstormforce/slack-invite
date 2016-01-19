@@ -29,16 +29,16 @@ if(mysqli_connect_errno() >0 || check_install_complete() == false){
 				<div class="form">
 					<form action='' method="post" class="form-control ">			   
 						<div class="form-group">
-							<input class="form-control" type="text" name="userpname" placeholder="Enter User Name " required/>
+							<input class="form-control" type="text" name="userpname" placeholder="Name" required/>
 						</div>
 						<div class="form-group">
-							<input class="form-control" type="email" name="email" placeholder="Enter Email" required/>
+							<input class="form-control" type="email" name="email" placeholder="Email" required/>
 						</div>
 						<div class="form-group">
-							<input class="form-control" type="text" name="username" placeholder="Enter Login Name " required/>
+							<input class="form-control" type="text" name="username" placeholder="Username" required/>
 						</div>
 						<div class="form-group">
-							<input class="form-control" type="text" name="password" placeholder="Enter Password " required/>
+							<input class="form-control" type="text" name="password" placeholder="Password" required/>
 						</div>
 						
 						<div>

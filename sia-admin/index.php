@@ -3,7 +3,7 @@ require("sia-constants.php");
 if(isset($_SESSION['login_user'])){ header("Location: sia-dashboard.php"); }
 if(isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['password']) && !empty($_POST['password'])){
 	$chk = $sia_obj->chk_login($_POST['username'],$_POST['password']);
-	if($chk == "done" ){
+	if($chk == "done"){
 		header("Location: sia-dashboard.php");
 	}else{
 		header("Location: index.php?err=err");
@@ -39,7 +39,7 @@ if($sia_obj->chk_tables() == false){ header("Location: sia-install-result.php");
 				<?php
 				if(isset($_GET['err']) && !empty($_GET['err']) && $_GET['err'] =="err"){
 				?>
-				<p style="color:red;padding:0 6px;">Credentials are wrong.</p>
+				<p style="color:red;padding:0 6px;">Username or password were incorrect.</p>
 				<?php
 				}
 				?>
@@ -48,18 +48,18 @@ if($sia_obj->chk_tables() == false){ header("Location: sia-install-result.php");
 				<div class="form-material form-material-primary floating">
 					<form class="form-horizontal" action="" method="post">
 						<div class="form-group">
-							<input class="form-control" name="username" type="text" placeholder="User Name" style="float:left;position:relative;margin:0;" required/>
+							<input class="form-control" name="username" type="text" placeholder="Username" style="float:left;position:relative;margin:0;" required/>
 							<!--<label class="control-label">UserName </label>-->
 						</div>
 						<div class="form-group">
 							<input class="form-control" name="password" type="password" placeholder="Password" style="float:left;position:relative;margin:0;" required/>
 							<!--<label class="control-label">Password</label>-->
 						</div>
-						<div class="switch" style="bottom:0;margin-left:7px;">
+						<!--<div class="switch" style="bottom:0;margin-left:7px;">
 							<span style="margin-left:70px;float:left;">Remember Me?</span>
 							<input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" />
 							<label for="cmn-toggle-1"></label>
-						</div>
+						</div>-->
 						
 						<div class="form-group">
 							<div class="loginbutton">

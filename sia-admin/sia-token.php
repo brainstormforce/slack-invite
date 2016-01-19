@@ -1,13 +1,4 @@
-<?php require ("sia-header.php"); 
-if(isset($_GET['activate']) && !empty($_GET['activate'])){
-	$sia_obj ->activate_token($_GET['activate']);
-	header("Location: sia-token.php");
-}
-if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
-	$sia_obj ->deactivate_token($_GET['deactivate']);
-	header("Location: sia-token.php");
-}
-?>
+<?php require ("sia-header.php"); ?>
 <div class="content bg-gray-lighter">
     <div class="row items-push">
         <div class="col-sm-7">
@@ -33,8 +24,8 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
 				
 
 				<?php
-				$get_result = $sia_obj ->get_all_slack_token_url();
-				if(chk_result_if_empty($get_result)>0)
+				$get_result = $sia_obj ->get_slack_token();
+				if(!empty($get_result)>0)
 				{
 				?>
 				<table class="table table-bordered table-striped js-dataTable-full">
@@ -47,53 +38,46 @@ if(isset($_GET['deactivate']) && !empty($_GET['deactivate'])){
 					</thead>
 					<tbody>
 						<?php
-							while ($r = fetch_data($get_result)):
-								$token_id = $r['id'];
-							?>
-								<tr id="<?php echo $r['id']; ?>">
-									<td class="hidden-xs"><?php echo htmlspecialchars($r['url']) . ".slack.com"; ?></td>
-									<td class="hidden-xs"><?php echo htmlspecialchars($r['token']); ?></td>
-									<td class="text-center">
-										<div class="btn-group">
-											<?php 
-											$status=htmlspecialchars($r['status']);
-											if($status=='activated'){
-											?>
-												<!--<a href="sia-token.php?deactivate=<?php //echo $r['id'];?>">-->
-													<i class='fa fa-check-square-o'></i> Activated
-												<!--</a>-->
-											<?php
-											}
-											else if($status == 'deactivated' ){
-											?>
-												<!--<a href="sia-token.php?activate=<?php //echo $r['id'];?>">-->
-													<i class='fa fa-ban'></i> Deactivated
-												<!--</a>-->
-											<?php
-											}
-											else{
-											?>
-												<div class="<?php echo $r['id'];?> status ">
-													<a href="sia-token.php?activate=<?php echo $r['id'];?>">
-														<button type='button' class='btn btn-default send_invitation' data-toggle='tooltip' title='Activate Token'> 
-															<i class='fa fa-check-circle'></i>
-														</button>
-													</a>
-													<a href="sia-token.php?deactivate=<?php echo $r['id'];?>">
-														<button type='button' class='btn btn-default decline' data-toggle='tooltip' title='Deactivate Token'>
-															<i class='fa fa-ban'></i>
-														</button>
-													</a>
-												</div>
-											<?php
-											}
-											?>
-										</div>
-									</td>
-								</tr>
-							<?php 
-							endwhile;  
+							$token_id = $get_result['id'];
+							$token_result = unserialize($get_result['option_value']);
 						?>
+							<tr id="<?php echo $token_id; ?>">
+								<td class="hidden-xs"><?php echo htmlspecialchars($token_result[1]) . ".slack.com"; ?></td>
+								<td class="hidden-xs"><?php echo htmlspecialchars($token_result[2]); ?></td>
+								<td class="text-center">
+									<div class="btn-group">
+										<?php 
+										$status=htmlspecialchars($token_result[3]);
+										if($status=='activated'){
+										?>
+											<i class='fa fa-check-square-o'></i> Activated
+										<?php
+										}
+										else if($status == 'deactivated' ){
+										?>
+											<i class='fa fa-ban'></i> Deactivated
+										<?php
+										}
+										else{
+										?>
+											<div class="<?php echo $token_id;?> status ">
+												<a href="sia-token.php?activate=<?php echo $token_id;?>">
+													<button type='button' class='btn btn-default send_invitation' data-toggle='tooltip' title='Activate Token'> 
+														<i class='fa fa-check-circle'></i>
+													</button>
+												</a>
+												<a href="sia-token.php?deactivate=<?php echo $token_id;?>">
+													<button type='button' class='btn btn-default decline' data-toggle='tooltip' title='Deactivate Token'>
+														<i class='fa fa-ban'></i>
+													</button>
+												</a>
+											</div>
+										<?php
+										}
+										?>
+									</div>
+								</td>
+							</tr>
 					</tbody>
 				</table>
 				<a href="sia-add-token.php?id=<?php echo $token_id;?>" ><input class="btn btn-default" type="button" value="Edit Token" style="margin-bottom:10px;"/></a>

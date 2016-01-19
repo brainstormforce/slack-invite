@@ -1,5 +1,5 @@
 <?php 
-error_reporting(E_ALL);
+error_reporting(0);
 session_start();
 ob_start();
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";

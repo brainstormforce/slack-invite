@@ -8,7 +8,12 @@ if(isset($_POST['slack_url']) && !empty($_POST['slack_url']) && isset($_POST['sl
 	header("Location: sia-token.php");
 }
 if(isset($_GET['id']) && !empty($_GET['id'])){
-	$get_token = $sia_obj ->get_slack_token_url_by_id($_GET['id']);
+	$get_token = $sia_obj ->get_slack_token();
+	if(!empty($get_token)>0)
+	{
+		$token_id = $get_token['id'];
+		$get_token = unserialize($get_token['option_value']);
+	}
 }
 ?>
 <div class="content bg-gray-lighter">
@@ -31,22 +36,22 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 						<tr>
 							<td>
 								<div class="form-group">
-									<input type="hidden" class="form-control name"  name="name" placeholder="Enter name of person" required value="<?php if(isset($get_token['name']) && !empty($get_token['name'])){ echo $get_token['name']; } ?>"/>
-									<input type="hidden" class="form-control name"  name="token_id" value="<?php if(isset($get_token['id']) && !empty($get_token['id'])){ echo $get_token['id']; } ?>"/>
+									<input type="hidden" class="form-control name"  name="name" placeholder="Enter name of person" value=""/>
+									<input type="hidden" class="form-control name"  name="token_id" value="<?php if(isset($token_id) && !empty($token_id)){ echo $token_id; } ?>"/>
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<div class="form-group">
-									<input type="text" class="form-control email" value="<?php if(isset($get_token['url']) && !empty($get_token['url'])){ echo $get_token['url']; } ?>" id="slack_url" name="slack_url" placeholder="teamdomain" required/>.slack.com
+									<input type="text" class="form-control email" value="<?php if(isset($get_token[1]) && !empty($get_token[1])){ echo $get_token[1]; } ?>" id="slack_url" name="slack_url" placeholder="teamdomain" required/>.slack.com
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<div class="form-group">
-									<input type="text" class="form-control email" id="slack_token" name="slack_token" placeholder="Add Token" required value="<?php if(isset($get_token['token']) && !empty($get_token['token'])){ echo $get_token['token']; } ?>"/>
+									<input type="text" class="form-control email" id="slack_token" name="slack_token" placeholder="Add Token" required value="<?php if(isset($get_token[2]) && !empty($get_token[2])){ echo $get_token[2]; } ?>"/>
 								</div>
 							</td>
 						</tr>
