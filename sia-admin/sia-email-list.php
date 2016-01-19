@@ -20,7 +20,7 @@ require("sia-header.php");
 			<form method='post' name='notificationform' style='padding-bottom:1px'>
 				<p>
 					<h3>What Is Email Notification</h3>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>
+					Whenever there is a new request arrives in the App all the users in below list who has status "ON" will receive email notification.
 				</p>
 				
 				<table class='table table-bordered table-striped js-dataTable-full'>
@@ -37,48 +37,51 @@ require("sia-header.php");
 						$rs = $sia_obj ->get_email_notifications();
 						if(chk_result_if_empty($rs)>0)
 						{
-							while($result = fetch_data($rs)){
-								$notification_id = $result['id'];
-								$notification_details = unserialize($result['option_value']);
-								if(isset($notification_details[0])){ $name = $notification_details[0]; }else{ $name = "";}
-								if(isset($notification_details[1])){ $email = $notification_details[1]; }else{ $email = "";}
-								if(isset($notification_details[2])){ $status = $notification_details[2]; }else{ $status = "";}
-							?>
-								<tr>	
-									<td><?php echo $name;?></td>
-									<td><?php echo $email; ?></td>
-									<td>
-									<?php
-									if($status=='on'){
-									?>
-										<div class='switch_options'>
-											<span class='switch_enable'> ON </span>
-											<span class='switch_disable'> OFF </span>
-											<input type='hidden' class='switch_val' value='1'/>
-											<input type='hidden' class='email_val' value="<?php echo $notification_id; ?>"/>
-										</div>
-									<?php
-									}
-									// Display emails with off status 
-									else{
-									?>
-										<div class='switch_options'>
-											<span class='switch_enable'> ON </span>
-											<span class='switch_disable'> OFF </span>
-											<input type='hidden' class='switch_val' value='0'/>
-											<input type='hidden' class='email_val' value="<?php echo $notification_id; ?>"/>
-										</div>
-									<?php
-									}
-									?>
-									</td>
-									<td>
-										<a href="javascript:void(0)" class="delete_email" data-file="<?php echo $notification_id;?>">
-											<i class='fa fa-trash-o '></i>&nbsp;Delete
-										</a>
-									</td>
-								</tr>
-							<?php
+							$result = fetch_data($rs);
+							$notification_details = unserialize($result['option_value']);
+							for($j=0;$j<count($notification_details);$j++){
+								if(!empty($notification_details['user'.$j])){
+									$notification_id = $result['id'];
+									if(isset($notification_details['user'.$j][0])){ $name = $notification_details['user'.$j][0]; }else{ $name = "";}
+									if(isset($notification_details['user'.$j][1])){ $email = $notification_details['user'.$j][1]; }else{ $email = "";}
+									if(isset($notification_details['user'.$j][2])){ $status = $notification_details['user'.$j][2]; }else{ $status = "";}
+								?>
+									<tr>	
+										<td><?php echo $name;?></td>
+										<td><?php echo $email; ?></td>
+										<td>
+										<?php
+										if($status=='on'){
+										?>
+											<div class='switch_options'>
+												<span class='switch_enable'> ON </span>
+												<span class='switch_disable'> OFF </span>
+												<input type='hidden' class='switch_val' value='1'/>
+												<input type='hidden' class='email_val' value="<?php echo $j; ?>"/>
+											</div>
+										<?php
+										}
+										// Display emails with off status 
+										else{
+										?>
+											<div class='switch_options'>
+												<span class='switch_enable'> ON </span>
+												<span class='switch_disable'> OFF </span>
+												<input type='hidden' class='switch_val' value='0'/>
+												<input type='hidden' class='email_val' value="<?php echo $j; ?>"/>
+											</div>
+										<?php
+										}
+										?>
+										</td>
+										<td>
+											<a href="javascript:void(0)" class="delete_email" data-file="<?php echo $j;?>">
+												<i class='fa fa-trash-o '></i>&nbsp;Delete
+											</a>
+										</td>
+									</tr>
+								<?php
+								}
 							}
 							}else{
 							?>

@@ -32,16 +32,17 @@ if(isset($_POST['servername']) && !empty($_POST['servername']) && isset($_POST['
 				}
 				?>
 				<div class="form-group">
-					<input class="form-control" placeholder="Host name" type="text" name="servername" required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" placeholder="User Name" type="text" name="username" required>
-				</div>
-				<div class="form-group">
-					<input class="form-control" placeholder="password" type="text" name="password">
-				</div>
-				<div class="form-group">
 					<input class="form-control" type="text" placeholder="Database Name" name="dbname" required>
+				</div>
+				
+				<div class="form-group">
+					<input class="form-control" placeholder="Database Username" type="text" name="username" required>
+				</div>
+				<div class="form-group">
+					<input class="form-control" placeholder="Database Password" type="text" name="password">
+				</div>
+				<div class="form-group">
+					<input class="form-control" placeholder="Database Hostname" type="text" name="servername" required>
 				</div>
 				<div class="form-group">
 					<input id="login-button" class="form-control" type="submit" name="save">

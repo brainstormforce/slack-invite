@@ -50,12 +50,20 @@ class db_queries
 		$result ="";
 		
 		$admin_details = array(validate_input($username),validate_input(SHA1($pass)),validate_input($useremail));
-		$notification_email_details = array(validate_input($userpname),validate_input($useremail),"on");
+		$notification_email_details['user0'] = array(validate_input($userpname),validate_input($useremail),"on");
 
 		$sql = run_query("INSERT INTO `sia-options`(`option_name`, `option_value`) VALUES ( 'admin-user','". serialize($admin_details)."')");
 
+		$get_noti = $this->get_email_notifications();
+		if(chk_result_if_empty($get_noti)>0){
 
-		$sql = run_query("INSERT INTO `sia-options`(`option_name`, `option_value`) VALUES ( 'notification-emails','".serialize($notification_email_details)."')");
+			$res_noti = fetch_data($get_noti);
+			$notification_email_details = $res_noti['option_value'] . serialize($notification_email_details);
+			$sql=run_query("update `sia-options` set `option_value` = '".$notification_email_details."' where id='".$res_noti['id']."'");
+		}else{
+			$notification_email_details = serialize($notification_email_details);
+			$sql=run_query("INSERT INTO `sia-options` ( `option_name`, `option_value`) VALUES ('notification-emails','".$notification_email_details."')");
+		}
 	}
 
 	/*** Check tables were created or not ***/
@@ -140,18 +148,37 @@ class db_queries
 		return($sql);
 	}
 	function update_notfication_email_status($id,$status){
-		$get_sql = run_query("select * from `sia-options` where `option_name` = 'notification-emails' AND id='".validate_input($id)."'");
+		$get_sql = run_query("select * from `sia-options` where `option_name` = 'notification-emails'");
 		$res_sql = fetch_data($get_sql);
 		$res_sql = unserialize($res_sql['option_value']);
-		$res_sql[2] = validate_input($status);
-		$sql = run_query("UPDATE `sia-options` SET `option_value`='".serialize($res_sql)."' WHERE `id`='".validate_input($id)."'");
+		$res_sql['user'.$id][2] = validate_input($status);
+		$sql = run_query("UPDATE `sia-options` SET `option_value`='".serialize($res_sql)."' WHERE `option_name`='notification-emails'");
 	}
 	function add_new_notfication_email($name,$email){
 		$notification_data = array(validate_input($name),validate_input($email));
-		$sql=run_query("INSERT INTO `sia-options` ( `option_name`, `option_value`) VALUES ('notification-emails','".serialize($notification_data)."')");
+		$get_noti = $this->get_email_notifications();
+		if(chk_result_if_empty($get_noti)>0){
+			$res_noti = fetch_data($get_noti);
+			$old_data = unserialize($res_noti['option_value']);
+			$old_data['user' . count($old_data)] = $notification_data;
+
+			$notification_data = serialize($old_data);
+			$sql=run_query("update `sia-options` set `option_value` = '".$notification_data."' where id='".$res_noti['id']."'");
+		}else{
+			$notification_data1['user0'] = $notification_data;
+			$notification_data = serialize($notification_data1);
+			$sql=run_query("INSERT INTO `sia-options` ( `option_name`, `option_value`) VALUES ('notification-emails','".$notification_data."')");
+		}
+		
 	}
 	function remove_notfication_email($e_id){
-		$sql = run_query("DELETE FROM `sia-options` WHERE `id`='".validate_input($e_id)."'");
+		$get_noti = $this->get_email_notifications();
+		if(chk_result_if_empty($get_noti)>0){
+			$res_noti = fetch_data($get_noti);
+			$old_data = unserialize($res_noti['option_value']);
+			$old_data['user'.$e_id] = "";
+			$sql=run_query("update `sia-options` set `option_value` = '".serialize($old_data)."' where id='".$res_noti['id']."'");
+		}
 		return("Deleted");
 	}
 
@@ -192,22 +219,25 @@ class db_queries
 		$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
 		$count=0;
 		$sql=run_query("select * from `sia-options` where `option_name` = 'notification-emails'");
-		
-		while($result = fetch_data($sql)) {
-			$result = unserialize($result['option_value']);
-			if ($result[2] == 'on') {
-				$mail->addAddress($result[1], $result[0]);
-				if (!$mail->send()) {
-		        	echo "Mailer Error " . $mail->ErrorInfo . '<br />';
-		        	break; //Abandon sending
-		   		 } else {
-		        	$count++;
+		$result = fetch_data($sql);
+		$result = unserialize($result['option_value']);
+		for ($i=0; $i < count($result); $i++)
+		{
+			if (!empty($result['user'. $i])) {
+				if ($result['user'. $i][2] == 'on') {
+					$mail->addAddress($result['user'. $i][1], $result['user'. $i][0]);
+					if (!$mail->send()) {
+			        	echo "Mailer Error " . $mail->ErrorInfo . '<br />';
+			        	break; //Abandon sending
+			   		 } else {
+			        	$count++;
+					}
 				}
+	 		
+			    // Clear all addresses and attachments for next loop
+			    $mail->clearAddresses();
+			    $mail->clearAttachments();
 			}
- 		
-		    // Clear all addresses and attachments for next loop
-		    $mail->clearAddresses();
-		    $mail->clearAttachments();
 		}
 		echo "Message sent to ".$count." member(s)";
 	}
