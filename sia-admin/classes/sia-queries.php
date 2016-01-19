@@ -160,6 +160,13 @@ class db_queries
 		if(chk_result_if_empty($get_noti)>0){
 			$res_noti = fetch_data($get_noti);
 			$old_data = unserialize($res_noti['option_value']);
+			foreach($old_data as $value)
+			{
+			    if(in_array($email, $value))
+			    {
+			        return ("exist");
+			    }
+			}
 			$old_data['user' . count($old_data)] = $notification_data;
 
 			$notification_data = serialize($old_data);

@@ -1,7 +1,12 @@
 <?php require("sia-header.php"); 
 if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['notification_email']) && !empty($_POST['notification_email']) ){
-	$sia_obj ->add_new_notfication_email($_POST['name'],$_POST['notification_email']);
-	header("Location: sia-email-list.php");
+	$res = $sia_obj ->add_new_notfication_email($_POST['name'],$_POST['notification_email']);
+	if($res == "exist"){
+		header("Location: sia-add-notification-email.php?exs=yes");	
+	}else{
+		header("Location: sia-email-list.php");	
+	}
+	
 }
 //Client ID : 3989206462.18566968566
 //Client Secret : f08ab3897febf32b0ac752f9cb8562c4
@@ -23,6 +28,14 @@ if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['notification
 		<div class="row">
 			<div class="col-sm-7" style="margin-bottom:0">
 				<form class="email_form form-inline" role="form"  method="post">
+					<?php
+					if (isset($_GET['exs']) && !empty($_GET['exs'])) {
+					?>
+					<p style="color:red;">Provided email is already in use. Please choose another.</p> 
+					<?php	
+					}
+					?>
+					
 					<table>
 						<tr>
 							<td>
